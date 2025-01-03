@@ -1,22 +1,36 @@
-import os
+import sounddevice as sd
 from TTS.api import TTS
+import numpy as np
 
-# Deshabilita la GPU para evitar problemas
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+# Inicializa Coqui TTS
+#tts = TTS(model_name="tts_models/es/css10/vits")
+tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2")
+emotion = "happy"
+speaker_idx = "Camilla Holmström"
 
-try:
-    # Inicializa Coqui TTS
-    tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
-    print("Modelo cargado con éxito.")
+def text_to_speech_realtime():
+    print("TTS en tiempo real. Escribe 'salir' para terminar.")
 
-    # Generar un archivo de audio de prueba
-    tts.tts_to_file(
-        text="Hola, esta es una prueba de síntesis de voz.",
-        language="es",
-        speaker=tts.speakers[0],
-        file_path="output.wav"
-    )
-    print("¡Audio generado con éxito!")
+    while True:
+        text = input("Escribe el texto que quieres convertir en voz: ")
+        if text.lower() == "salir":
+            print("Saliendo del programa.")
+            break
 
-except Exception as e:
-    print(f"Error: {e}")
+        try:
+            # Generar audio como numpy array
+            audio_data = tts.tts(text, 
+                                 emotion=emotion, 
+                                 language="es",
+                                 speaker=speaker_idx)
+            
+            # Reproducir el audio con sounddevice
+#            sd.default.device = 1  # Configura el índice de tu dispositivo de salida
+            sd.play(audio_data, samplerate=22050)
+            sd.wait()
+
+        except Exception as e:
+            print(f"Error: {e}")
+
+if __name__ == "__main__":
+    text_to_speech_realtime()
