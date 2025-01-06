@@ -4,7 +4,6 @@
 #!pip install torch
 #!pip install webrtcvad
 #!pip install numpy
-#pip install -U openai-whisper
 
 import sounddevice as sd
 import numpy as np
@@ -27,7 +26,7 @@ class StT:
     active = True
     
     def __init__(self):      
-        print("StT::ctor");  
+        print("ctor");  
         # Inicializar PyAudio
         self.audio = pyaudio.PyAudio()
         # Inicializar cola para audio
