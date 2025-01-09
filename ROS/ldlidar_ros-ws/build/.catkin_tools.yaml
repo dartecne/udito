@@ -1,0 +1,6 @@
+devel_space: /home/udito/OneDrive/UDITO/udito/ROS/ldlidar_ros-ws/devel
+install: false
+install_space: /home/udito/OneDrive/UDITO/udito/ROS/ldlidar_ros-ws/install
+profile: default
+source_space: /home/udito/OneDrive/UDITO/udito/ROS/ldlidar_ros-ws/src
+workspace: /home/udito/OneDrive/UDITO/udito/ROS/ldlidar_ros-ws

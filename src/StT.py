@@ -4,7 +4,6 @@
 #!pip install torch
 #!pip install webrtcvad
 #!pip install numpy
-#pip install -U openai-whisper
 
 import sounddevice as sd
 import numpy as np

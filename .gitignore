@@ -1,3 +1,15 @@
 src/__pycache__/DMS.cpython-39.pyc
 src/__pycache__/StT.cpython-39.pyc
 src/__pycache__/TtS.cpython-39.pyc
+Arduino/testEasingOneServo/PinDefinitionsAndMore-udito-safeBackup-0001.h
+Arduino/testEasingOneServo/testEasingOneServo-udito-safeBackup-0001.ino
+Arduino/testEasingServos/PinDefinitionsAndMore-udito-safeBackup-0001.h
+Arduino/testEasingServos/testEasingServos-udito-safeBackup-0001.ino
+Arduino/testServos/readme-udito-safeBackup-0001.md
+Arduino/testServos/testServos-udito-safeBackup-0001.ino
+openAI/testOpenAI-udito-safeBackup-0001.py
+openAI/testTtS-udito-safeBackup-0001.py
+python-3.9.21
+python-3.10.12
+*-safeBackup-*
+*.pyc
