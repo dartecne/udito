@@ -26,7 +26,11 @@ class StT:
     active = True
     
     def __init__(self):      
+<<<<<<< HEAD
+        print("StT::ctor");  
+=======
         print("ctor");  
+>>>>>>> origin/main
         # Inicializar PyAudio
         self.audio = pyaudio.PyAudio()
         # Inicializar cola para audio
