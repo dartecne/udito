@@ -5,6 +5,8 @@
 #!pip install webrtcvad
 #!pip install numpy
 
+# Reconocedor de voz local utilizando dos modelos locales uno para VAD y whisper para StT
+
 import sounddevice as sd
 import numpy as np
 import whisper

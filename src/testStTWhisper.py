@@ -1,5 +1,5 @@
-import StT
+import StTwhisper
 
-myStT = StT.StT()
+myStT = StTwhisper.StT()
 myStT.print_audio_devices()
 myStT.loop()
