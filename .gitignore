@@ -6,3 +6,4 @@ Arduino/testEasingOneServo/PinDefinitionsAndMore-udito-safeBackup-0001.h
 python-3.10.12
 python-3.9.21
 *.pyc
+ROS/*

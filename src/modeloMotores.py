@@ -1,3 +1,5 @@
+# script para encontrar la funcion que relaciona el valor de PWM con las RPM del motor de cada rueda
+
 import numpy as np
 
 def calcular_modelo_cuadratico(x, y):

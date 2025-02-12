@@ -7,7 +7,6 @@ import numpy as np
 
 class TtS:
     def __init__(self):
-<<<<<<< HEAD
         print("TtS::ctor")
         self.model = "tts_models/es/css10/vits" # 500ms de latencia
 #        self.model = "tts_models/multilingual/multi-dataset/xtts_v2" # 8 segundos de latencia

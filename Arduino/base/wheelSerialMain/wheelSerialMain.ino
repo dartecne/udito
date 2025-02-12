@@ -27,9 +27,9 @@ const double WHEEL_CIRCUMFERENCE_CM = 56.5;      // Motor wheel circumference (c
 
 // Pin Declarations
 const int PIN_DIR = 2;      // Motor direction signal
-const int PIN_BRAKE = 3;    // Motor brake signal (active low)
-const int PIN_PWM = 9;      // PWM motor speed control
-const int PIN_SPEED = 12;   // SC Speed Pulse Output from RioRand board
+const int PIN_BRAKE = 5;    // Motor brake signal (active low)
+const int PIN_PWM = 3;      // PWM motor speed control
+const int PIN_SPEED = 4;   // SC Speed Pulse Output from RioRand board
 
 // Variables used in ReadFromSerial function
 String _command = "";       // Command received in Serial read command

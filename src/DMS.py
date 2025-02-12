@@ -4,7 +4,7 @@ import sys
 sys.path.insert(0, '..')
 
 from TtS import TtS
-from StT import StT 
+from StTwhisper import StT 
 
 class DMS:
     def __init__(self):

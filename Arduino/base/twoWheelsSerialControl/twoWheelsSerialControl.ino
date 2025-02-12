@@ -1,68 +1,72 @@
-/*   Hoverboard_Serial_Test
- *   Controls the speed, brake, and direction of a single hoverboard motor
- *   via commands sent through the serial port.
- *   Measures the speed of a hoverboard motor asynchronously
- *   using a custom ReadSpeed function.  Uses the SC speed pulse output of the
- *   RioRand 400W 6-60V PWM DC Brushless Electric Motor Speed Controller with Hall.
- *   Outputs the speed data to the serial port.
- *     
- *   created 2021
- *   Mad-EE  (Mad Electrical Engineer)
- *   www.mad-ee.com
- *   
- *   This example code is in the public domain.
- *   
- *   Platform:  Arduino UNO
- */
+/*   
+ Main program for controlling Base Wheels
+ TODO: tune PID controller
+*/
 
 // Constants
-const unsigned long SPEED_TIMEOUT = 40000;       // Time used to determine wheel is not spinning
-const unsigned int UPDATE_TIME = 500;             // Time used to output serial data
-const unsigned int BUFFER_SIZE = 16;              // Serial receive buffer size
-const double BAUD_RATE = 115200;                  // Serial port baud rate
+#define SPEED_TIMEOUT 80000       // Time used to determine wheel is not spinning
+#define UPDATE_TIME 500            // Time used to output serial data
+#define BUFFER_SIZE 16              // Serial receive buffer size
+#define BAUD_RATE 115200                  // Serial port baud rate
 
 // Pin Declarations
 
-const int R_PIN_DIR = 2;      // Motor direction signal
-const int R_PIN_PWM = 3;      // PWM motor speed control
-const int R_PIN_SPEED = 4;   // SC Speed Pulse Output from RioRand board
-const int R_PIN_BRAKE = 5;    // Motor brake signal (active low)
+#define R_PIN_DIR 2      // Motor direction signal
+#define R_PIN_PWM 3      // PWM motor speed control
+#define R_PIN_SPEED 4   // SC Speed Pulse Output from RioRand board
+#define R_PIN_BRAKE 5    // Motor brake signal (active low)
 
-const int L_PIN_DIR = 8;      // Motor direction signal
-const int L_PIN_PWM = 9;      // PWM motor speed control
-const int L_PIN_SPEED = 10;   // SC Speed Pulse Output from RioRand board
-const int L_PIN_BRAKE = 11;    // Motor brake signal (active low)
+#define L_PIN_DIR 8      // Motor direction signal
+#define L_PIN_PWM 9      // PWM motor speed control
+#define L_PIN_SPEED 10   // SC Speed Pulse Output from RioRand board
+#define L_PIN_BRAKE 11    // Motor brake signal (active low)
 
 // Variables used in ReadFromSerial function
 String _command = "";       // Command received in Serial read command
 int _data = 0;              // Data received in Serial read command
 
+bool l_status = 0; // break ON
+bool r_status = 0; // break ON
+
+#define l_min_period 8000 // max velocity
+#define l_max_period 70000 // min velocity PWM = 10
+#define r_min_period 8000 // max velocity
+#define r_max_period 70000 // min velocity PWM = 10
+
 // Variables used in ReadSpeed function
 double l_period_uS;               // Frequency of the signal on the speed pin
-double l_sp_period = SPEED_TIMEOUT; // set point
+double l_sp_period = l_max_period; // set point
 double l_p_err; // error periodo
 double l_p_err_old = 0; // error periodo antiguo
 double l_p_err_sum = 0; // suma del error
-int l_pwm = 0; // final PWM controlled
+double l_pwm = 0; // final PWM controlled
 
 double r_period_uS;               // Frequency of the signal on the speed pin
-double r_sp_period = SPEED_TIMEOUT; // set point
+double r_sp_period = r_max_period; // set point
 double r_p_err; // error periodo
 double r_p_err_old = 0; // error periodo antiguo
 double r_p_err_sum = 0; // suma del error
-int r_pwm = 0; // final PWM controlled
+double r_pwm = 0; // final PWM controlled
 
 double l_period_uS_mean;
-const int l_numReadings = 64;
+const int l_numReadings = 120;
+
 double l_p[l_numReadings];
 double l_total_p = 0.0;
 int l_readIndex = 0;
 
 double r_period_uS_mean;
-const int r_numReadings = 64;
+
+const int r_numReadings = 120;
 double r_p[r_numReadings];
 double r_total_p = 0.0;
 int r_readIndex = 0;
+bool noLoop = false;
+
+double Kp = 0.1;//0.02;
+double Kd = 0;//0.7;//0.05;//0.1;//0.01;//30;//0.5;//2;
+double Ki = 0;//1E-7;
+ 
 
 // This is ran only once at startup
 void setup()  {
@@ -78,18 +82,18 @@ void setup()  {
     pinMode(R_PIN_DIR, OUTPUT);
     
     // Set initial pin states
-    digitalWrite(L_PIN_BRAKE, false);
-    digitalWrite(L_PIN_DIR, false);
+    digitalWrite(L_PIN_BRAKE, true);
+    digitalWrite(L_PIN_DIR, true);
     analogWrite(L_PIN_PWM, 0);
 
-    digitalWrite(R_PIN_BRAKE, false);
-    digitalWrite(R_PIN_DIR, true);
+    digitalWrite(R_PIN_BRAKE, true);
+    digitalWrite(R_PIN_DIR, false);
     analogWrite(R_PIN_PWM, 0);
+    delay(2000);
 
     // Initialize serial port
     Serial.begin(BAUD_RATE);
-    Serial.println("---- Program Started ----");
-    delay(2000);
+    Serial.println("ACK");
 }
 
 // This is the main program loop that runs repeatedly
@@ -105,64 +109,50 @@ void loop() {
     ReadSpeed();
 
     // Control loop
-    leftControlLoop();
-    rightControlLoop();
-    smoothValue( l_pwm, r_pwm );
+    if(l_status) leftControlLoop();
+    else l_pwm = 0;
+    if(r_status) rightControlLoop();
+    else r_pwm = 0;
+    if( noLoop == false ) {
+      analogWrite( L_PIN_PWM, constrain(round(l_pwm), 0, 255)); 
+      analogWrite( R_PIN_PWM, constrain(round(r_pwm), 0, 255));
+    }
 
     // Outputs the speed data to the serial port 
-    WriteToSerial(); 
+//    WriteToSerial(); 
 }
 
-int rightControlLoop() {
-  double Kp = 0.9;//.03;
-  double Kd = 1.1E-6;//.03;
-  double Ki = 0.09;//0001;
-  double a = 7.92E-7;
-  double b = -1.96E-2;
-  double c = 150;
-  
-  int pwm0 = a * r_sp_period * r_sp_period + b * r_sp_period + c;
-  pwm0 = constrain(pwm0, 0, 255);
-  r_p_err = (r_period_uS_mean - r_sp_period) / r_sp_period;
-  r_pwm = pwm0 + Kp * r_p_err + Ki * (r_p_err_sum) + Kd*(r_p_err_old - r_p_err);
+void rightControlLoop() {
+
+  if( r_sp_period >= r_max_period ) {
+    r_pwm = 0;
+    r_status = 0;
+    r_p_err_sum = 0;
+    return;
+  } else r_status = 1;
+
+  r_p_err = (r_period_uS_mean - r_sp_period) / (r_sp_period);
+  r_pwm = r_pwm + (Kp * r_p_err) + Ki * (r_p_err_sum) + Kd*(r_p_err_old - r_p_err);
   r_p_err_sum += r_p_err;
   r_p_err_old = r_p_err;
-  r_pwm = constrain(r_pwm, 0, 255);
-//  analogWrite( R_PIN_PWM, r_pwm );
-  return r_pwm;
+  if(r_pwm > 255 ) r_pwm = 255.0;
+  if(r_pwm < 0 ) r_pwm = 0.0;
 }
 
-int leftControlLoop() {
-  double Kp = 0.9;//.03;
-  double Kd = 1.1E-6;//.03;
-  double Ki = 0.09;//0001;
-  double a = 7.92E-7;
-  double b = -1.96E-2;
-  double c = 150;
+void leftControlLoop() {
 
-  int pwm0 = a * l_sp_period * l_sp_period + b * l_sp_period + c;
-  pwm0 = constrain(pwm0, 0, 255);
+  if( l_sp_period >= l_max_period ) {
+    l_pwm = 0;
+    l_status = 0;
+    return;
+  } else l_status = 1;
+  
   l_p_err = (l_period_uS_mean - l_sp_period) / l_sp_period;
-  l_pwm = pwm0 + Kp * l_p_err + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err);
+  l_pwm = l_pwm + Kp * l_p_err + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err);
   l_p_err_sum += l_p_err;
   l_p_err_old = l_p_err;
-  l_pwm = constrain(l_pwm, 0, 255);
-//  analogWrite( L_PIN_PWM, l_pwm );
-  return l_pwm;
-}
-
-void smoothValue( int l_p, int r_p) {
-  double a = 0.95;
-  int l_p_smoothed = 0;
-  int l_p_old = 0;
-  int r_p_smoothed = 0;
-  int r_p_old = 0;
-  do {
-    l_p_smoothed = l_p * (1-a) + l_p_old * a;
-    r_p_smoothed = r_p * (1-a) + r_p_old * a;
-    l_p_old = l_p_smoothed;
-    r_p_old = r_p_smoothed;
-  } while( ((l_p_smoothed - l_p) < a ) & ((r_p_smoothed - r_p) < a ) );
+  if(l_pwm > 255 ) l_pwm = 255.0;
+  if(l_pwm < 0 ) l_pwm = 0.0;
 }
 
 bool ReadFromSerial() {    
@@ -181,10 +171,10 @@ bool ReadFromSerial() {
         _command = cmdBuffer;
         _data = dataBuffer.toInt();
       
-        Serial.print("Received: "); 
-        Serial.print(_command); 
-        Serial.print(",");
-        Serial.println(_data);
+//        Serial.print("Received: "); 
+//        Serial.print(_command); 
+//        Serial.print(",");
+  //      Serial.println(_data);
       
         cmdBuffer = "";
         dataBuffer = "";
@@ -205,21 +195,39 @@ bool ReadFromSerial() {
 }
 
 void ProcessCommand(String command, int data) {  
-    if (command == "R_RPM") {
-      Serial.print("Setting speed right:  ");
-      Serial.println(data);
-      r_sp_period = data;
+    if (command == "PWM") {
+      digitalWrite(L_PIN_DIR, true);
+      digitalWrite(R_PIN_DIR, false);
+      digitalWrite(L_PIN_BRAKE, false);
+      digitalWrite(R_PIN_BRAKE, false);
+      r_status = 1;
+      analogWrite(L_PIN_PWM, data);
+      analogWrite(R_PIN_PWM, data);
+      noLoop = true;
     }
-    if (command == "L_RPM") {
-      Serial.print("Setting speed left:  ");
-      Serial.println(data);
-      l_sp_period = data;
+    if (command == "R_V") {
+//      Serial.print("Setting period right:  ");
+//      Serial.println(data);
+      r_sp_period = map(data, 100, 0, r_min_period, r_max_period);
+      digitalWrite(R_PIN_BRAKE, false);
+      r_status = 1;
     }
-    if (command == "RPM") {
-      Serial.print("Setting speed right left:  ");
-      Serial.println(data);
-      l_sp_period = data;
-      r_sp_period = data;
+    if (command == "L_V") {
+//      Serial.print("Setting period left:  ");
+//      Serial.println(data);
+      l_sp_period = map(data, 100, 0, l_min_period, l_max_period);
+      digitalWrite(L_PIN_BRAKE, false);
+      l_status = 1;
+    }
+    if (command == "V") {
+//      Serial.print("Setting velocity right left:  ");
+//      Serial.println(data);
+      r_sp_period = map(data, 100, 0, r_min_period, r_max_period);
+      l_sp_period = map(data, 100, 0, l_min_period, l_max_period);
+      digitalWrite(L_PIN_BRAKE, false);
+      digitalWrite(R_PIN_BRAKE, false);
+      r_status = 1;
+      l_status = 1;
     }
         
     // Process BRAKE command
@@ -228,18 +236,20 @@ void ProcessCommand(String command, int data) {
       Serial.println(data);
       digitalWrite(R_PIN_BRAKE, data);
       digitalWrite(L_PIN_BRAKE, data);
+      r_status = !data;
+      l_status = !data;
     }
 
     // Process DIR command
     if (command == "R_DIR") {
-      Serial.print("Setting direction right:  ");
-      Serial.println(data);
+//      Serial.print("Setting direction right:  ");
+//      Serial.println(data);
       digitalWrite(R_PIN_DIR, data);
     }
     if (command == "L_DIR") {
-      Serial.print("Setting direction left:  ");
-      Serial.println(data);
-      digitalWrite(L_PIN_DIR, data);
+//      Serial.print("Setting direction left:  ");
+//      Serial.println(data);
+      digitalWrite(L_PIN_DIR, !data);
     }
 }
 
@@ -307,18 +317,20 @@ void WriteToSerial() {
     static unsigned long updateTime;
     
     if (millis() > updateTime) {
-        Serial.print((String)"R_Period:" + r_period_uS + " ");
-        Serial.print((String)"R_PeriodMean:" + r_period_uS_mean + " ");
-        Serial.print((String)"R_SetPoint:" + r_sp_period + " ");
-        Serial.print((String)"R_Perr:" + r_p_err + " ");
+        Serial.print((String)"R_T:" + r_period_uS + " ");
+        Serial.print((String)"R_Tm:" + r_period_uS_mean + " ");
+        Serial.print((String)"R_SP:" + r_sp_period + " ");
+        Serial.print((String)"R_err:" + r_p_err + " ");
         Serial.print((String)"R_PWM:" + r_pwm + " ");
+//        Serial.print((String)"R_PWM_s:" + r_p_smoothed + " ");
 
         // Calculate next update time
-        Serial.print((String)"L_Period:" + l_period_uS + " ");
-        Serial.print((String)"L_PeriodMean:" + l_period_uS_mean + " ");
-        Serial.print((String)"L_SetPoint:" + l_sp_period + " ");
-        Serial.print((String)"L_Perr:" + l_p_err + " ");
+        Serial.print((String)"L_T:" + l_period_uS + " ");
+        Serial.print((String)"L_Tm:" + l_period_uS_mean + " ");
+        Serial.print((String)"L_SP:" + l_sp_period + " ");
+        Serial.print((String)"L_err:" + l_p_err + " ");
         Serial.println((String)"L_PWM:" + l_pwm + " ");
+//        Serial.println((String)"L_PWM_s:" + l_p_smoothed + " ");
 
         updateTime = millis() + UPDATE_TIME;
     }
