@@ -1,8 +1,8 @@
 /*
 Head Main.
 Conexión via Serial con un servidor de ROS.
-
 */
+
 #include <Adafruit_NeoPixel.h>
 #include "eyes_data.h"
 #include <Servo.h>
@@ -13,7 +13,7 @@ Conexión via Serial con un servidor de ROS.
 #define LED_PIN    5
 #define LED_COUNT 128
 
-#define UPDATE_TIME 500;             // Time used to output serial data
+#define UPDATE_TIME 300;             // Time used to output serial data
 
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 static uint32_t r = strip.Color(255,   0,   60);
@@ -23,11 +23,16 @@ int tau = 40;
 
 int min_servo = 1200;
 int max_servo = 1800;
+int min_pan_servo = 1000;
+int max_pan_servo = 2000;
 int middle_servo = 1500;
 
 float pot1 = middle_servo, pot2 = middle_servo, pot3 = middle_servo;
 float pot1Smoothed = middle_servo, pot2Smoothed = middle_servo, pot3Smoothed = middle_servo;
 float pot1SmoothedPrev = middle_servo, pot2SmoothedPrev = middle_servo, pot3SmoothedPrev = middle_servo;
+float alpha = 0.99;
+
+bool pot1_end = true, pot2_end = true, pot3_end = true;
 
 unsigned long currentMillis;
 long previousMillis = 0;    // set up timers
@@ -61,6 +66,7 @@ void setup() {
   clear(0);
   clear(1);
   show_love(tau);
+//  test();
 }
 
 void loop() {
@@ -70,14 +76,10 @@ void loop() {
     parse_command(_command, _data);
 
   move_servos();
-  show_gesture();
+  update_servos_state(); // test if servos have reached pot1 value
   print_to_serial();
 
   delay(10);
-}
-
-void show_gesture() {
-  return;
 }
 
 /**
@@ -88,7 +90,8 @@ void parse_command( String command, int data ) {
     if (command == "PAN") {
       Serial.print("Setting pan:  ");
       Serial.println(data);
-      pot1 = map( data, -60, 60, min_servo, max_servo );
+      pot1 = map( data, -60, 60, min_pan_servo, max_pan_servo );
+      Serial.println(pot1);
     } else if(command == "L_TILT") {
       Serial.print("Setting left tilt to   ");
       Serial.println(data);
@@ -125,17 +128,26 @@ void parse_command( String command, int data ) {
       show_logo_3(data);
     }
 }
+void update_servos_state() {
+  float thres = 0.99;
+  if( abs(pot1Smoothed - pot1) < thres ) pot1_end = true; 
+  else pot1_end = false;
+  if( abs(pot2Smoothed - pot2) < thres ) pot2_end = true; 
+  else pot2_end = false;
+  if( abs(pot3Smoothed - pot3) < thres ) pot3_end = true; 
+  else pot3_end = false;
+}
 
 void move_servos() {
-      pot1Smoothed = (pot1  * 0.01) + (pot1SmoothedPrev * 0.99);
-      pot2Smoothed = (pot2  * 0.01) + (pot2SmoothedPrev * 0.99);
-      pot3Smoothed = (pot3  * 0.01) + (pot3SmoothedPrev * 0.99);
+      pot1Smoothed = (pot1  * (1.0 - alpha)) + (pot1SmoothedPrev * alpha);
+      pot2Smoothed = (pot2  * (1.0 - alpha)) + (pot2SmoothedPrev * alpha);
+      pot3Smoothed = (pot3  * (1.0 - alpha)) + (pot3SmoothedPrev * alpha);
 
       pot1SmoothedPrev = pot1Smoothed;
       pot2SmoothedPrev = pot2Smoothed;
       pot3SmoothedPrev = pot3Smoothed;
 
-      pot1Smoothed = constrain(pot1Smoothed, min_servo, max_servo);
+      pot1Smoothed = constrain(pot1Smoothed, min_pan_servo, max_pan_servo);
       pot2Smoothed = constrain(pot2Smoothed, min_servo, max_servo);
       pot3Smoothed = constrain(pot3Smoothed, min_servo, max_servo);
 
@@ -201,6 +213,11 @@ void print_to_serial() {
       Serial.print(pot2Smoothed);
       Serial.print(" , ");
       Serial.println(pot3Smoothed);
+      Serial.print(pot1_end);
+      Serial.print(" , ");
+      Serial.print(pot2_end);
+      Serial.print(" , ");
+      Serial.println(pot3_end);
 
         // Calculate next update time
       updateTime = millis() + UPDATE_TIME;
@@ -427,4 +444,19 @@ void clear(int eyeID) {
 
 int toVector(int i, int j, int eyeID ) {
   return j*N+i + eyeID*N*N;
+}
+
+void test() {
+  int data = 50;
+  while( 1 ) {
+    move_servos();
+    update_servos_state(); // test if servos have reached pot1 value
+    print_to_serial();
+    if( pot1_end ) {
+      data = -data;
+      pot1 = map( data, -60, 60, min_servo, max_servo );
+      update_servos_state(); // test if servos have reached pot1 value
+      delay(1000);
+    }
+  }
 }

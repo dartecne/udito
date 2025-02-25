@@ -49,29 +49,38 @@ void setup() {
 }
 
 void loop() {
+  int tau = 4;
   for( int p = min_servo; p < max_servo; p++ ){
+    pot1 = p;
     pot2 = p;
     pot3 = map(p, min_servo, max_servo, max_servo, min_servo);
 
+    Serial.print(pot1);
+    Serial.print(" , ");
     Serial.print(pot2);
     Serial.print(" , ");
     Serial.println(pot3);
 
+    servo1.writeMicroseconds(pot1);      // pan
     servo2.writeMicroseconds(pot2);      // neck left
     servo3.writeMicroseconds(pot3);      // neck right
-    delay(10);
+    delay(tau);
   }    
   for( int p = max_servo; p >= min_servo; p-- ){
+    pot1 = p;
     pot2 = p;
     pot3 = map(p, min_servo, max_servo, max_servo, min_servo);
 
+    Serial.print(pot1);
+    Serial.print(" , ");
     Serial.print(pot2);
     Serial.print(" , ");
     Serial.println(pot3);
 
+    servo1.writeMicroseconds(pot1);      // pan
     servo2.writeMicroseconds(pot2);      // neck left
     servo3.writeMicroseconds(pot3);      // neck right
-    delay(10);
+    delay(tau);
   }    
   delay(500);
 } // end if main loop
