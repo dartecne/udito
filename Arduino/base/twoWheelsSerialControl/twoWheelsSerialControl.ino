@@ -26,12 +26,12 @@
 #define R_PIN_DIR 2      // Motor direction signal
 #define R_PIN_PWM 3      // PWM motor speed control
 #define R_PIN_SPEED 4   // SC Speed Pulse Output from RioRand board
-#define R_PIN_BRAKE 5    // Motor brake signal (active low)
+#define R_PIN_BRAKE 5    // Motor brake signal (true frena)
 
 #define L_PIN_DIR 8      // Motor direction signal
 #define L_PIN_PWM 9      // PWM motor speed control
 #define L_PIN_SPEED 10   // SC Speed Pulse Output from RioRand board
-#define L_PIN_BRAKE 11    // Motor brake signal (active low)
+#define L_PIN_BRAKE 11    // Motor brake signal (active wheel low)
 
 // Variables used in ReadFromSerial function
 String _command = "";       // Command received in Serial read command
@@ -52,6 +52,8 @@ double l_p_err; // error periodo
 double l_p_err_old = 0; // error periodo antiguo
 double l_p_err_sum = 0; // suma del error
 double l_pwm = 0; // final PWM controlled
+unsigned long l_now, l_before;
+double l_ellapsed_time;
 
 double r_period_uS;               // Frequency of the signal on the speed pin
 double r_sp_period = r_max_period; // set point
@@ -59,6 +61,9 @@ double r_p_err; // error periodo
 double r_p_err_old = 0; // error periodo antiguo
 double r_p_err_sum = 0; // suma del error
 double r_pwm = 0; // final PWM controlled
+unsigned long r_now, r_before;
+double r_ellapsed_time;
+
 
 double l_period_uS_mean;
 const int l_numReadings = 120;
@@ -93,11 +98,11 @@ void setup()  {
     
     // Set initial pin states
     digitalWrite(L_PIN_BRAKE, true);
-    digitalWrite(L_PIN_DIR, true);
+    digitalWrite(L_PIN_DIR, false);
     analogWrite(L_PIN_PWM, 0);
 
     digitalWrite(R_PIN_BRAKE, true);
-    digitalWrite(R_PIN_DIR, false);
+    digitalWrite(R_PIN_DIR, true);
     analogWrite(R_PIN_PWM, 0);
     delay(2000);
 
@@ -123,13 +128,13 @@ void loop() {
     else l_pwm = 0;
     if(r_status) rightControlLoop();
     else r_pwm = 0;
-    if( noLoop == false ) {
+    if( noLoop == false ) { // if PWM, no control Loop is made
       analogWrite( L_PIN_PWM, constrain(round(l_pwm), 0, 255)); 
       analogWrite( R_PIN_PWM, constrain(round(r_pwm), 0, 255));
     }
 
     // Outputs the speed data to the serial port 
-//    WriteToSerial(); 
+    WriteToSerial(); 
 }
 
 void rightControlLoop() {
@@ -150,6 +155,8 @@ void rightControlLoop() {
 }
 
 void leftControlLoop() {
+  l_now = millis();
+  l_ellapsed_time = (double)( l_now - l_before);
 
   if( l_sp_period >= l_max_period ) {
     l_pwm = 0;
@@ -158,9 +165,12 @@ void leftControlLoop() {
   } else l_status = 1;
   
   l_p_err = (l_period_uS_mean - l_sp_period) / l_sp_period;
-  l_pwm = l_pwm + Kp * l_p_err + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err);
-  l_p_err_sum += l_p_err;
+    
+  l_p_err_sum += l_p_err * l_ellapsed_time;
+  l_pwm = l_pwm + Kp * l_p_err + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err) / l_ellapsed_time;
+  
   l_p_err_old = l_p_err;
+  l_before = l_now;
   if(l_pwm > 255 ) l_pwm = 255.0;
   if(l_pwm < 0 ) l_pwm = 0.0;
 }
@@ -214,13 +224,14 @@ void ProcessCommand(String command, int data) {
       analogWrite(L_PIN_PWM, data);
       analogWrite(R_PIN_PWM, data);
       noLoop = true;
-    }
+    } 
     if (command == "R_V") {
 //      Serial.print("Setting period right:  ");
 //      Serial.println(data);
       r_sp_period = map(data, 100, 0, r_min_period, r_max_period);
       digitalWrite(R_PIN_BRAKE, false);
       r_status = 1;
+      noLoop = false;
     }
     if (command == "L_V") {
 //      Serial.print("Setting period left:  ");
@@ -228,6 +239,7 @@ void ProcessCommand(String command, int data) {
       l_sp_period = map(data, 100, 0, l_min_period, l_max_period);
       digitalWrite(L_PIN_BRAKE, false);
       l_status = 1;
+      noLoop = false;
     }
     if (command == "V") {
 //      Serial.print("Setting velocity right left:  ");
@@ -238,6 +250,7 @@ void ProcessCommand(String command, int data) {
       digitalWrite(R_PIN_BRAKE, false);
       r_status = 1;
       l_status = 1;
+      noLoop = false;
     }
         
     // Process BRAKE command
