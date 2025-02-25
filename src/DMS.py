@@ -20,7 +20,8 @@ class DMS:
 
         while(True):
             print("Esperando actividad de voz... ")
-            data = self.StT.stream.read(self.StT.chunk, exception_on_overflow=False)
+            #data = self.StT.stream.read(self.StT.chunk, exception_on_overflow=False)
+            data = self.StT.stream.read(self.StT.chunk, )
             # Detectar actividad de voz
             if self.StT.is_speech(data):
                 if not speaking:
