@@ -1,19 +1,7 @@
-/*   Hoverboard_Serial_Test
- *   Controls the speed, brake, and direction of a single hoverboard motor
- *   via commands sent through the serial port.
- *   Measures the speed of a hoverboard motor asynchronously
- *   using a custom ReadSpeed function.  Uses the SC speed pulse output of the
- *   RioRand 400W 6-60V PWM DC Brushless Electric Motor Speed Controller with Hall.
- *   Outputs the speed data to the serial port.
- *     
- *   created 2021
- *   Mad-EE  (Mad Electrical Engineer)
- *   www.mad-ee.com
- *   
- *   This example code is in the public domain.
- *   
- *   Platform:  Arduino UNO
- */
+/*   
+ Main program for controlling Base Wheels
+ TODO: tune PID controller
+*/
 
 // Constants
 #define SPEED_TIMEOUT 80000       // Time used to determine wheel is not spinning
@@ -67,11 +55,13 @@ double r_ellapsed_time;
 
 double l_period_uS_mean;
 const int l_numReadings = 120;
+
 double l_p[l_numReadings];
 double l_total_p = 0.0;
 int l_readIndex = 0;
 
 double r_period_uS_mean;
+
 const int r_numReadings = 120;
 double r_p[r_numReadings];
 double r_total_p = 0.0;
