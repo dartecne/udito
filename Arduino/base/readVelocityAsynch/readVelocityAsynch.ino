@@ -24,7 +24,10 @@ const double WHEEL_DIAMETER_CM = 16.5;           // Motor wheel diamater (centim
 const double WHEEL_CIRCUMFERENCE_CM = 56.5;      // Motor wheel circumference (centimeters)
 
 // Pin Declarations
-const int PIN_SPEED = 12;
+#define R_PIN_DIR 2      // Motor direction signal
+#define R_PIN_PWM 3      // PWM motor speed control
+#define R_PIN_SPEED 4   // SC Speed Pulse Output from RioRand board
+#define R_PIN_BRAKE 5    // Motor brake signal (true frena)
 
 // Variables used in ReadSpeed function
 double _freq;               // Frequency of the signal on the speed pin
@@ -36,16 +39,21 @@ double _kph;                // Wheel speed in kilometers per hour
 void setup() 
 {
     // Set pin directions
-    pinMode(PIN_SPEED, INPUT);
+    pinMode(R_PIN_SPEED, INPUT);
+    pinMode(R_PIN_PWM, OUTPUT);
+    pinMode(R_PIN_BRAKE, OUTPUT);
+    pinMode(R_PIN_DIR, OUTPUT);
     
     // Initialize serial port
     Serial.begin(BAUD_RATE);
     Serial.println("---- Program Started ----");
+    delay(2000);
 }
 
 // This is the main program loop that runs repeatedly
 void loop() 
 {
+  analogWrite( R_PIN_PWM, 20 );
     // Read the speed from input pin (sets _freq, _rpm, _mph, _kph)
     ReadSpeed();
 
@@ -62,7 +70,7 @@ void ReadSpeed()
     static unsigned long timeout_uS;  // Timer used to determine the wheel is not spinning
 
     // Read the current state of the input pin
-    bool state = digitalRead(PIN_SPEED);
+    bool state = digitalRead(R_PIN_SPEED);
 
     // Check if the pin has changed state
     if (state != lastState)

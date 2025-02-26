@@ -28,47 +28,47 @@ int _data = 0;              // Data received in Serial read command
 bool l_status = 0; // break ON
 bool r_status = 0; // break ON
 
-#define l_min_period 8000 // max velocity
-#define l_max_period 70000 // min velocity PWM = 10
-#define r_min_period 8000 // max velocity
-#define r_max_period 70000 // min velocity PWM = 10
+#define l_min_freq 0 // stopped
+#define l_max_freq 6250 // max velocity 16000 us period ( 1/ T ) * 1E6 * 1E2 (añade 2 cifras significativas al Hz)
+#define r_min_freq 0 // stopped
+#define r_max_freq 6250 // max velocity 16000 us period
 
 // Variables used in ReadSpeed function
-double l_period_uS;               // Frequency of the signal on the speed pin
-double l_sp_period = l_max_period; // set point
-double l_p_err; // error periodo
-double l_p_err_old = 0; // error periodo antiguo
-double l_p_err_sum = 0; // suma del error
+double l_freq;               // Frequency of the signal on the speed pin. in centiHerz (100cHz = 1Hz)
+double l_sp = l_min_freq; // set point
+double l_err; // error 
+double l_err_old = 0; // error periodo antiguo
+double l_err_sum = 0; // suma del error
 double l_pwm = 0; // final PWM controlled
 unsigned long l_now, l_before;
 double l_ellapsed_time;
 
-double r_period_uS;               // Frequency of the signal on the speed pin
-double r_sp_period = r_max_period; // set point
-double r_p_err; // error periodo
-double r_p_err_old = 0; // error periodo antiguo
-double r_p_err_sum = 0; // suma del error
+double r_freq;               // Frequency of the signal on the speed pin
+double r_sp = r_min_freq; // set point
+double r_err; // error 
+double r_err_old = 0; // error periodo antiguo
+double r_err_sum = 0; // suma del error
 double r_pwm = 0; // final PWM controlled
 unsigned long r_now, r_before;
 double r_ellapsed_time;
 
 
-double l_period_uS_mean;
+double l_freq_mean;
 const int l_numReadings = 100;
 
-double l_p[l_numReadings];
-double l_total_p = 0.0;
+double l[l_numReadings];
+double l_total = 0.0;
 int l_readIndex = 0;
 
-double r_period_uS_mean;
+double r_freq_mean;
 
 const int r_numReadings = 100;
-double r_p[r_numReadings];
-double r_total_p = 0.0;
+double r[r_numReadings];
+double r_total = 0.0;
 int r_readIndex = 0;
 bool noLoop = false;
 
-double Kp = 5E-6;//0.1;//0.02;
+double Kp = 0.1;//0.02;
 double Kd = 0;//0.7;//0.05;//0.1;//0.01;//30;//0.5;//2;
 double Ki = 0;//1E-7;
  
@@ -99,6 +99,9 @@ void setup()  {
     // Initialize serial port
     Serial.begin(BAUD_RATE);
     Serial.println("ACK");
+    Serial.print("l_freq - l_freq_mean - l_sp - l_error - l_error_sum - l_pwm");
+    Serial.println(" = r_freq - r_freq_mean - r_sp - r_error - r_error_sum - r_pwm");
+
 }
 
 // This is the main program loop that runs repeatedly
@@ -130,83 +133,31 @@ void loop() {
 void rightControlLoop() {
   r_now = millis();
   r_ellapsed_time = (double)( r_now - r_before);
-
-  if( r_sp_period >= r_max_period ) {
-    r_pwm = 0;
-    r_status = 0;
-    return;
-  } else r_status = 1;
   
-//  r_p_err = (r_period_uS_mean - r_sp_period) / r_sp_period;
-  r_p_err = (r_period_uS_mean - r_sp_period);
+  r_err = (r_freq_mean - r_sp);
     
-  r_p_err_sum += r_p_err * r_ellapsed_time;
-  r_pwm = r_pwm + Kp * r_p_err + Ki * (r_p_err_sum) + Kd*(r_p_err_old - r_p_err) / (r_ellapsed_time + 1);
+  r_err_sum += r_err * r_ellapsed_time;
+  r_pwm = r_pwm + Kp * r_err + Ki * (r_err_sum) + Kd*(r_err_old - r_err) / (r_ellapsed_time + 1);
   
-  r_p_err_old = r_p_err;
+  r_err_old = r_err;
   r_before = r_now;
   
   if(r_pwm > 255 ) r_pwm = 255.0;
   if(r_pwm < 0 ) r_pwm = 0.0;
 }
 
-
-void rightControlLoopOld() {
-
-  if( r_sp_period >= r_max_period ) {
-    r_pwm = 0;
-    r_status = 0;
-    r_p_err_sum = 0;
-    return;
-  } else r_status = 1;
-
-  r_p_err = (r_period_uS_mean - r_sp_period) / (r_sp_period);
-  r_pwm = r_pwm + (Kp * r_p_err) + Ki * (r_p_err_sum) + Kd*(r_p_err_old - r_p_err);
-  r_p_err_sum += r_p_err;
-  r_p_err_old = r_p_err;
-  if(r_pwm > 255 ) r_pwm = 255.0;
-  if(r_pwm < 0 ) r_pwm = 0.0;
-}
-
-
-
-
 void leftControlLoop() {
   l_now = millis();
   l_ellapsed_time = (double)( l_now - l_before);
-
-  if( l_sp_period >= l_max_period ) {
-    l_pwm = 0;
-    l_status = 0;
-    return;
-  } else l_status = 1;
   
-//  l_p_err = (l_period_uS_mean - l_sp_period) / l_sp_period;
-  l_p_err = (l_period_uS_mean - l_sp_period);
+  l_err = (l_freq_mean - l_sp);
     
-  l_p_err_sum += l_p_err * l_ellapsed_time;
-  l_pwm = l_pwm + Kp * l_p_err + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err) / (l_ellapsed_time + 1);
+  l_err_sum += l_err * l_ellapsed_time;
+  l_pwm = l_pwm + Kp * l_err + Ki * (l_err_sum) + Kd*(l_err_old - l_err) / (l_ellapsed_time + 1);
   
-  l_p_err_old = l_p_err;
+  l_err_old = l_err;
   l_before = l_now;
   
-  if(l_pwm > 255 ) l_pwm = 255.0;
-  if(l_pwm < 0 ) l_pwm = 0.0;
-}
-
-void leftControlLoopOld() {
-
-  if( l_sp_period >= l_max_period ) {
-    l_pwm = 0;
-    l_status = 0;
-    l_p_err_sum = 0;
-    return;
-  } else l_status = 1;
-
-  l_p_err = (l_period_uS_mean - l_sp_period) / (l_sp_period);
-  l_pwm = l_pwm + (Kp * l_p_err) + Ki * (l_p_err_sum) + Kd*(l_p_err_old - l_p_err);
-  l_p_err_sum += l_p_err;
-  l_p_err_old =l_p_err;
   if(l_pwm > 255 ) l_pwm = 255.0;
   if(l_pwm < 0 ) l_pwm = 0.0;
 }
@@ -261,17 +212,17 @@ void ProcessCommand(String command, int data) {
       noLoop = true;
     } 
     if (command == "R_V") {
-      Serial.print("Setting period right:  ");
+      Serial.print("Setting right:  ");
       Serial.println(data);
-      r_sp_period = map(data, 100, 0, r_min_period, r_max_period);
+      r_sp = map(data, 0, 100, r_min_freq, r_max_freq);
       digitalWrite(R_PIN_BRAKE, false);
       r_status = 1;
       noLoop = false;
     }
     if (command == "L_V") {
-      Serial.print("Setting period left:  ");
+      Serial.print("Setting left:  ");
       Serial.println(data);
-      l_sp_period = map(data, 100, 0, l_min_period, l_max_period);
+      l_sp = map(data, 0, 100, l_min_freq, l_max_freq);
       digitalWrite(L_PIN_BRAKE, false);
       l_status = 1;
       noLoop = false;
@@ -279,8 +230,8 @@ void ProcessCommand(String command, int data) {
     if (command == "V") {
 //      Serial.print("Setting velocity right left:  ");
 //      Serial.println(data);
-      r_sp_period = map(data, 100, 0, r_min_period, r_max_period);
-      l_sp_period = map(data, 100, 0, l_min_period, l_max_period);
+      r_sp = map(data, 0, 100, r_min_freq, r_max_freq);
+      l_sp = map(data, 0, 100, l_min_freq, l_max_freq);
       digitalWrite(L_PIN_BRAKE, false);
       digitalWrite(R_PIN_BRAKE, false);
       r_status = 1;
@@ -347,12 +298,12 @@ void ReadSpeed() {
       unsigned long elapsed_uS = current_uS - left_last_uS;
 
       // Calculate the frequency of the input signal
-      l_period_uS = elapsed_uS * 2.0;
+      l_freq = ( 1/ elapsed_uS * 2.0) * 1E8; // centiHz
       left_last_uS = current_uS;
       left_timeout_uS = left_last_uS + SPEED_TIMEOUT;
       leftLastState = left_state;
     } else if (micros() > left_timeout_uS) {
-        l_period_uS = SPEED_TIMEOUT;
+        l_freq = l_min_freq;
         left_last_uS = micros();
     }
     // Check if the pin has changed state
@@ -362,61 +313,50 @@ void ReadSpeed() {
       unsigned long elapsed_uS = current_uS - right_last_uS;
 
       // Calculate the frequency of the input signal
-      r_period_uS = elapsed_uS * 2.0;
+      r_freq = ( 1/ elapsed_uS * 2.0) * 1E8; // centiHz
       right_last_uS = current_uS;
       right_timeout_uS = right_last_uS + SPEED_TIMEOUT;
       rightLastState = right_state;
     } else if (micros() > right_timeout_uS) {
-        r_period_uS = SPEED_TIMEOUT;
+        r_freq = r_min_freq;
         right_last_uS = micros();
     }
-      l_total_p = l_total_p - l_p[l_readIndex];
-      l_p[l_readIndex] = l_period_uS;
-      l_total_p = l_total_p + l_p[l_readIndex];
+      l_total = l_total - l[l_readIndex];
+      l[l_readIndex] = l_freq;
+      l_total = l_total + l[l_readIndex];
       l_readIndex ++;
       if(l_readIndex >= l_numReadings) l_readIndex = 0;
-      l_period_uS_mean = l_total_p / l_numReadings;
+      l_freq_mean = l_total / l_numReadings;
 
-      r_total_p = r_total_p - r_p[r_readIndex];
-      r_p[r_readIndex] = r_period_uS;
-      r_total_p = r_total_p + r_p[r_readIndex];
+      r_total = r_total - r[r_readIndex];
+      r[r_readIndex] = r_freq;
+      r_total = r_total + r[r_readIndex];
       r_readIndex ++;
       if(r_readIndex >= r_numReadings) r_readIndex = 0;
-      r_period_uS_mean = r_total_p / r_numReadings;
+      r_freq_mean = r_total / r_numReadings;
 }
 
 // Writes the RPM and MPH to the serial port at a set interval
 void WriteToSerial() {
     static unsigned long updateTime;
     
+//    Serial.println("l_freq - l_freq_mean - l_sp - l_error - l_error_sum - l_pwm");
     if (millis() > updateTime) {
-        Serial.print((String)"R_T:" + r_period_uS + " ");
-        Serial.print((String)"R_Tm:" + r_period_uS_mean + " ");
-        Serial.print((String)"R_SP:" + r_sp_period + " ");
-        Serial.print((String)"R_err:" + r_p_err + " ");
-        Serial.print((String)"R_PWM:" + r_pwm + " ");
-//        Serial.print((String)"R_PWM_s:" + r_p_smoothed + " ");
+        Serial.print((String)millis() + ", ");
+        Serial.print((String)l_freq + ", ");
+        Serial.print((String)l_freq_mean + ", ");
+        Serial.print((String)l_sp + ", ");
+        Serial.print((String)l_err + ", ");
+        Serial.print((String)l_err_sum + ", ");
+        Serial.print((String)l_pwm + ",");
 
-        // Calculate next update time
-        Serial.print((String)"L_T:" + l_period_uS + " ");
-        Serial.print((String)"L_Tm:" + l_period_uS_mean + " ");
-        Serial.print((String)"L_SP:" + l_sp_period + " ");
-        Serial.print((String)"L_err:" + l_p_err + " ");
-        Serial.println((String)"L_PWM:" + l_pwm + " ");
-//        Serial.println((String)"L_PWM_s:" + l_p_smoothed + " ");
+        Serial.print((String)r_freq + ", ");
+        Serial.print((String)r_freq_mean + ", ");
+        Serial.print((String)r_sp + ", ");
+        Serial.print((String)r_err + ", ");
+        Serial.print((String)r_err_sum + ", ");
+        Serial.println((String)r_pwm);
 
         updateTime = millis() + UPDATE_TIME;
     }
-}
-
-void logData() {
-  static unsigned long updateTime;
-    
-  if (millis() > updateTime) {
-    Serial.print((String)millis() + "," + r_period_uS + ",");
-    Serial.print((String)r_period_uS_mean + ",");
-    Serial.print((String)l_period_uS + ",");
-    Serial.println((String)l_period_uS_mean);
-    updateTime = millis() + UPDATE_TIME;
-  }
 }
