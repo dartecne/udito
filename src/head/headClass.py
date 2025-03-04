@@ -31,8 +31,8 @@ class Head:
         self.send_msg( "R_TILT", angle )
 
     def gesture_yes(self, data):
-        self.tilt_left(10)
-        self.tilt_right(10)
+        self.tilt_left(0)
+        self.tilt_right(0)
         time.sleep(data)
         self.tilt_left(-10)
         self.tilt_right(-10)
