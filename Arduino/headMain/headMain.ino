@@ -56,10 +56,10 @@ void setup() {
   left_servo.attach( LEFT_PIN ); //
   right_servo.attach( RIGHT_PIN );
   //[1000, 2000] // [CCW, CW], 1500 - middle  //[700, 2300]
-  pan_servo.writeMicroseconds(1200);
+/*  pan_servo.writeMicroseconds(1200);
   left_servo.writeMicroseconds(1650);
   right_servo.writeMicroseconds(1650);
-
+*/
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
   strip.setBrightness(255); // Set BRIGHTNESS to about 1/5 (max = 255)
