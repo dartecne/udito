@@ -5,5 +5,5 @@ head = Head()
 v = 60
 tau = 2
 while(1):
-    head.gesture_yes(0)
+    head.gesture_yes(0.5)
     time.sleep(tau)
