@@ -33,12 +33,8 @@ class Head:
     def gesture_yes(self, data):
         self.tilt_left(10)
         self.tilt_right(10)
-        time.sleep(1)
         self.tilt_left(-10)
         self.tilt_right(-10)
-        time.sleep(1)
-        self.tilt_left(0)
-        self.tilt_right(0)
 
     def send_msg(self, cmd, value):
         order = cmd + "," + str(value) + '\r'  # Format "WORD,value"
