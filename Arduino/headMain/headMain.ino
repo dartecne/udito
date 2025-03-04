@@ -1,6 +1,8 @@
 /*
 Head Main.
 Conexión via Serial con un servidor de ROS.
+TODO:
+para evitar el shake del principio, utilizar un rele o un transistor en la alimentación del servo, para retrasar el encendido 
 */
 
 #include <Adafruit_NeoPixel.h>
@@ -21,8 +23,10 @@ static uint32_t b = strip.Color( 60,   0,   255);
 static uint32_t color = strip.Color( 0,   0,   255);
 int tau = 40;
 
-int min_servo = 1200;
-int max_servo = 1800;
+int min_left_servo = 1200;
+int max_left_servo = 1800;
+int min_right_servo = 1200;
+int max_right_servo = 1900;
 int min_pan_servo = 1000;
 int max_pan_servo = 2000;
 int middle_servo = 1500;
@@ -30,7 +34,7 @@ int middle_servo = 1500;
 float pot1 = middle_servo, pot2 = middle_servo, pot3 = middle_servo;
 float pot1Smoothed = middle_servo, pot2Smoothed = middle_servo, pot3Smoothed = middle_servo;
 float pot1SmoothedPrev = middle_servo, pot2SmoothedPrev = middle_servo, pot3SmoothedPrev = middle_servo;
-float alpha = 0.99;
+float alpha = 0.999;
 
 bool pot1_end = true, pot2_end = true, pot3_end = true;
 
@@ -51,21 +55,32 @@ int _data = 0;              // Data received in Serial read command
 void setup() {
 
   Serial.begin(115200);
-
+/*
+  pinMode( PAN_PIN, INPUT_PULLUP );
+  pinMode( LEFT_PIN, INPUT_PULLUP );
+  pinMode( LEFT_PIN, INPUT_PULLUP );
+*/
+  
   pan_servo.attach( PAN_PIN ); // pan
   left_servo.attach( LEFT_PIN ); //
   right_servo.attach( RIGHT_PIN );
-  //[1000, 2000] // [CCW, CW], 1500 - middle  //[700, 2300]
-/*  pan_servo.writeMicroseconds(1200);
-  left_servo.writeMicroseconds(1650);
-  right_servo.writeMicroseconds(1650);
+
+/*  softAttach( pan_servo, PAN_PIN );
+  softAttach( left_servo, LEFT_PIN );
+  softAttach( right_servo, RIGHT_PIN );
 */
+  pan_servo.writeMicroseconds(1500);
+  left_servo.writeMicroseconds(1700);
+  right_servo.writeMicroseconds(1700);
+//[1000, 2000] // [CCW, CW], 1500 - middle  //[700, 2300]
+
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
   strip.setBrightness(255); // Set BRIGHTNESS to about 1/5 (max = 255)
   clear(0);
   clear(1);
   show_love(tau);
+  blink(tau);
 //  test();
 }
 
@@ -77,9 +92,27 @@ void loop() {
 
   move_servos();
   update_servos_state(); // test if servos have reached pot1 value
-  print_to_serial();
+//  print_to_serial();
 
-  delay(10);
+//  delay(10);
+}
+
+// No funciona. Al revés: multiplica los shocks iniciales
+void softAttach( Servo s, int pin ) {
+  for( int i = 0; i < 10; i++ ){
+    s.attach(pin);
+    delay(10);
+    s.detach();
+    delay(100);
+  }
+  s.attach(pin);
+}
+
+void initServos() {
+  pot1 = 1500;
+  pot2 = 1700;
+  pot3 = 1700;
+  move_servos();
 }
 
 /**
@@ -95,15 +128,11 @@ void parse_command( String command, int data ) {
     } else if(command == "L_TILT") {
       Serial.print("Setting left tilt to   ");
       Serial.println(data);
-      pot2 = map( data, -10, 10, min_servo, max_servo );
+      pot2 = map( data, -10, 10, min_left_servo, max_left_servo );
     } else if(command == "R_TILT") {
       Serial.print("Setting right tilt to   ");
       Serial.println(data);
-      pot3 = map( data, 10, -10, min_servo, max_servo );
-    } else if(command == "NODE") {
-      Serial.print("Setting right tilt to   ");
-      Serial.println(data);
-      pot3 = map( data, 10, -10, min_servo, max_servo );
+      pot3 = map( data, 10, -10, min_right_servo, max_right_servo );
     } else if( command == "LOVE" ){
       show_love(data);
     } else if( command == "LAUGH" ){
@@ -148,8 +177,8 @@ void move_servos() {
       pot3SmoothedPrev = pot3Smoothed;
 
       pot1Smoothed = constrain(pot1Smoothed, min_pan_servo, max_pan_servo);
-      pot2Smoothed = constrain(pot2Smoothed, min_servo, max_servo);
-      pot3Smoothed = constrain(pot3Smoothed, min_servo, max_servo);
+      pot2Smoothed = constrain(pot2Smoothed, min_left_servo, max_left_servo);
+      pot3Smoothed = constrain(pot3Smoothed, min_right_servo, max_right_servo);
 
       pan_servo.writeMicroseconds(pot1Smoothed);  // neck rotate
       left_servo.writeMicroseconds(pot2Smoothed); // neck left
@@ -454,7 +483,7 @@ void test() {
     print_to_serial();
     if( pot1_end ) {
       data = -data;
-      pot1 = map( data, -60, 60, min_servo, max_servo );
+      pot1 = map( data, -60, 60, min_pan_servo, max_pan_servo );
       update_servos_state(); // test if servos have reached pot1 value
       delay(1000);
     }

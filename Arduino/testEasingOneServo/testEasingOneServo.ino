@@ -18,8 +18,9 @@
 #include "PinDefinitionsAndMore.h"
 
 #define START_DEGREE_VALUE  0 // The degree value written to the servo at time of attach.
-#define SERVO1_PIN  9
-int servo1_pin = 9;
+#define SERVO1_PIN  2
+const int servo1_pin = 2;
+
 ServoEasing Servo1;
 
 int v =60;
@@ -30,9 +31,9 @@ void setup() {
     while (!Serial)
         ; // Wait for Serial to become available. Is optimized away for some cores.
 
-    Serial.println(F("Attach servo at pin " STR(SERVO1_PIN)));
+    Serial.println(F("Attach servo at pin " STR(servo1_pin)));
     Serial.println(F("Operate servo 1 from -90 to + 90 degree by using attachWithTrim()"));
-    Servo1.attachWithTrim(servo1_pin, 90, START_DEGREE_VALUE - 90, DEFAULT_MICROSECONDS_FOR_0_DEGREE,
+    Servo1.attachWithTrim(servo1_pin, 60, START_DEGREE_VALUE - 60, DEFAULT_MICROSECONDS_FOR_0_DEGREE,
     DEFAULT_MICROSECONDS_FOR_180_DEGREE);
 //    Servo1.setMinMaxConstraint(-50, +50);
     setSpeedForAllServos(30);
@@ -44,13 +45,13 @@ void setup() {
 void loop() {
     Serial.println(F("Move back"));
 //    setSpeedForAllServos(30);
-    Servo1.setEaseTo(-40.0f, v); // Use x.y with trailing f (to specify a floating point constant) to avoid compiler errors.
+    Servo1.setEaseTo(-10.0f, v); // Use x.y with trailing f (to specify a floating point constant) to avoid compiler errors.
     synchronizeAllServosStartAndWaitForAllServosToStop();
     while (ServoEasing::areInterruptsActive()) {
         // Here you can insert your own code
       blinkLED();
     }
-//    delay(2000);
+    delay(2000);
 
     Serial.println(F("Move fwd"));
     Servo1.setEaseTo(10.0f, v);
