@@ -1,0 +1,29 @@
+[0.465s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ros2_ws/build/respeaker_ros': PS1=(python-3.9.21) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ VIRTUAL_ENV_PROMPT=(python-3.9.21) /usr/bin/cmake /home/udito/OneDrive/UDITO/udito/ros2_ws/src/respeaker_ros -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ros2_ws/install/respeaker_ros
+[0.478s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.478s]   Compatibility with CMake < 2.8.12 will be removed from a future version of
+[0.478s]   CMake.
+[0.478s] 
+[0.478s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[0.478s]   CMake that the project does not need compatibility with older versions.
+[0.479s] 
+[0.479s] [0m
+[0.501s] [31mCMake Error at CMakeLists.txt:4 (find_package):
+[0.501s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[0.501s]   asked CMake to find a package configuration file provided by "catkin", but
+[0.501s]   CMake did not find one.
+[0.501s] 
+[0.501s]   Could not find a package configuration file provided by "catkin" with any
+[0.501s]   of the following names:
+[0.501s] 
+[0.501s]     catkinConfig.cmake
+[0.502s]     catkin-config.cmake
+[0.502s] 
+[0.502s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[0.502s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[0.502s]   provides a separate development package or SDK, be sure it has been
+[0.502s]   installed.
+[0.502s] 
+[0.502s] [0m
+[0.502s] -- Configuring incomplete, errors occurred!
+[0.502s] See also "/home/udito/OneDrive/UDITO/udito/ros2_ws/build/respeaker_ros/CMakeFiles/CMakeOutput.log".
+[0.503s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ros2_ws/build/respeaker_ros' returned '1': PS1=(python-3.9.21) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h:\w\$ VIRTUAL_ENV_PROMPT=(python-3.9.21) /usr/bin/cmake /home/udito/OneDrive/UDITO/udito/ros2_ws/src/respeaker_ros -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ros2_ws/install/respeaker_ros

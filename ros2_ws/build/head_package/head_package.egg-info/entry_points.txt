@@ -1,0 +1,3 @@
+[console_scripts]
+head_node = head_package.head_node:main
+
