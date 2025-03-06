@@ -38,6 +38,35 @@ class Head:
 
     def tilt_right(self, angle):
         self.send_msg( "R_TILT", angle )
+    
+    # data [-10, 10]
+    def gesture_happy(self, data):
+        self.tilt_left(-data)
+        self.tilt_right(-data)
+        self.send_msg("HAPPY",data)
+    
+    def gesture_sad(self, data):
+        self.tilt_left(data)
+        self.tilt_right(data)
+        self.send_msg("SAD",data)
+
+    def gesture_angry(self, data):
+        self.tilt_left(data)
+        self.tilt_right(data)
+        self.send_msg("ANGRY",data)
+
+    def gesture_surprised(self, data):  
+        self.tilt_left(-data)
+        self.tilt_right(-data)
+        self.send_msg("CELEBRATION",data)
+    
+    def gesture_neutral(self, data):
+        self.tilt_left(0)
+        self.tilt_right(0)
+        self.send_msg("BLINK_LINE",data)
+    
+    def blink(self, data):
+        self.send_msg("BLINK_LINE",data)
 
     def gesture_yes( self, data ):
         for p in self.pos:

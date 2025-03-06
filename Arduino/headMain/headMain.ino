@@ -2,7 +2,8 @@
 Head Main.
 Conexión via Serial con un servidor de ROS.
 TODO:
-para evitar el shake del principio, utilizar un rele o un transistor en la alimentación del servo, para retrasar el encendido 
+- para evitar el shake del principio, utilizar un rele o un transistor en la alimentación del servo, para retrasar el encendido 
+- coordinar las animaciones de los ojos con los servos. Hacer que las animaciones no sean bloqueantes (threads?)
 */
 
 #include <Adafruit_NeoPixel.h>
@@ -30,6 +31,9 @@ int max_right_servo = 1900;
 int min_pan_servo = 1000;
 int max_pan_servo = 2000;
 int middle_servo = 1500;
+
+int min_tau = 10; // minimum time in gestures
+int max_tau = 100;  // maximum time
 
 float pot1 = middle_servo, pot2 = middle_servo, pot3 = middle_servo;
 float pot1Smoothed = middle_servo, pot2Smoothed = middle_servo, pot3Smoothed = middle_servo;
@@ -87,8 +91,10 @@ void setup() {
 void loop() {
   bool dataReceived = read_from_serial();
 
-  if (dataReceived == true)
+  if (dataReceived == true) {
     parse_command(_command, _data);
+    Serial.println("ACK");
+  }
 
   move_servos();
   update_servos_state(); // test if servos have reached pot1 value
@@ -121,42 +127,54 @@ void initServos() {
 */
 void parse_command( String command, int data ) {  
     if (command == "PAN") {
-      Serial.print("Setting pan:  ");
-      Serial.println(data);
+//      Serial.print("Setting pan:  ");
+//      Serial.println(data);
       pot1 = map( data, -60, 60, min_pan_servo, max_pan_servo );
-      Serial.println(pot1);
+//      Serial.println(pot1);
     } else if(command == "L_TILT") {
-      Serial.print("Setting left tilt to   ");
-      Serial.println(data);
+//      Serial.print("Setting left tilt to   ");
+//      Serial.println(data);
       pot2 = map( data, -10, 10, min_left_servo, max_left_servo );
     } else if(command == "R_TILT") {
-      Serial.print("Setting right tilt to   ");
-      Serial.println(data);
+//      Serial.print("Setting right tilt to   ");
+//      Serial.println(data);
       pot3 = map( data, 10, -10, min_right_servo, max_right_servo );
     } else if( command == "LOVE" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       show_love(data);
     } else if( command == "LAUGH" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       laugh(data);
     } else if( command == "SAD" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       sad(data);
     } else if( command == "HAPPY" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       happy(data);
     } else if( command == "ANGRY" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       angry( tau);
     } else if( command == "BLINK" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       blink(data);
     } else if( command == "WINK" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       wink_right(data);
     } else if( command == "CELEBRATION" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       celebration(data);
     } else if( command == "BLINK_CIRCLE" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       blink(data);
     } else if( command == "BLINK_LINE" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       blink_line(data);
     } else if( command == "LOGO" ){
+      data = map(data, -10, 10, min_tau, max_tau);
       show_logo_3(data);
     }
 }
+
 void update_servos_state() {
   float thres = 0.99;
   if( abs(pot1Smoothed - pot1) < thres ) pot1_end = true; 
@@ -207,10 +225,12 @@ bool read_from_serial() {
         _data = dataBuffer.toInt();
       
         // Write what was received back to the serial port
+        /*
         Serial.print("Received: "); 
         Serial.print(_command); 
         Serial.print(",");
         Serial.println(_data);
+        */
         // Clear local variables
         cmdBuffer = "";
         dataBuffer = "";
