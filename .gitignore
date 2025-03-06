@@ -7,4 +7,6 @@ python-3.10.12
 python-3.9.21
 *.pyc
 ROS/*
-Arduino/libraries/
+Arduino/libraries
+*__pycache__*
+
