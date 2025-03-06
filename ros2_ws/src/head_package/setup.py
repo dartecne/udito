@@ -15,12 +15,14 @@ setup(
     zip_safe=True,
     maintainer='udito',
     maintainer_email='dartecne@gmail.com',
-    description='TODO: Package description',
+    description='Manejador de la cabeza de UDITO',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'head_node = head_package.head_node:main'
+            'head_node = head_package.head_node:main',
+            'talker = head_package.publisher_member_function:main',
+            'listener = head_package.subscriber_member_function:main'
         ],
     },
 )
