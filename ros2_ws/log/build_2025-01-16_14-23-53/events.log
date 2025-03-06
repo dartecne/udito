@@ -1,0 +1,30 @@
+[0.000000] (-) TimerEvent: {}
+[0.000905] (examples_rclcpp_async_client) JobQueued: {'identifier': 'examples_rclcpp_async_client', 'dependencies': OrderedDict()}
+[0.000963] (examples_rclcpp_cbg_executor) JobQueued: {'identifier': 'examples_rclcpp_cbg_executor', 'dependencies': OrderedDict()}
+[0.000995] (examples_rclcpp_minimal_action_client) JobQueued: {'identifier': 'examples_rclcpp_minimal_action_client', 'dependencies': OrderedDict()}
+[0.001293] (examples_rclcpp_minimal_action_server) JobQueued: {'identifier': 'examples_rclcpp_minimal_action_server', 'dependencies': OrderedDict()}
+[0.001488] (examples_rclcpp_minimal_client) JobQueued: {'identifier': 'examples_rclcpp_minimal_client', 'dependencies': OrderedDict()}
+[0.001644] (examples_rclcpp_minimal_composition) JobQueued: {'identifier': 'examples_rclcpp_minimal_composition', 'dependencies': OrderedDict()}
+[0.001800] (examples_rclcpp_minimal_publisher) JobQueued: {'identifier': 'examples_rclcpp_minimal_publisher', 'dependencies': OrderedDict()}
+[0.001977] (examples_rclcpp_minimal_service) JobQueued: {'identifier': 'examples_rclcpp_minimal_service', 'dependencies': OrderedDict()}
+[0.002124] (examples_rclcpp_minimal_subscriber) JobQueued: {'identifier': 'examples_rclcpp_minimal_subscriber', 'dependencies': OrderedDict()}
+[0.002338] (examples_rclcpp_minimal_timer) JobQueued: {'identifier': 'examples_rclcpp_minimal_timer', 'dependencies': OrderedDict()}
+[0.002370] (examples_rclcpp_multithreaded_executor) JobQueued: {'identifier': 'examples_rclcpp_multithreaded_executor', 'dependencies': OrderedDict()}
+[0.002508] (examples_rclcpp_wait_set) JobQueued: {'identifier': 'examples_rclcpp_wait_set', 'dependencies': OrderedDict()}
+[0.002547] (turtlesim) JobQueued: {'identifier': 'turtlesim', 'dependencies': OrderedDict()}
+[0.002578] (examples_rclcpp_async_client) JobStarted: {'identifier': 'examples_rclcpp_async_client'}
+[0.040461] (examples_rclcpp_async_client) JobEnded: {'identifier': 'examples_rclcpp_async_client', 'rc': 1}
+[0.041870] (examples_rclcpp_cbg_executor) JobStarted: {'identifier': 'examples_rclcpp_cbg_executor'}
+[0.078623] (examples_rclcpp_cbg_executor) JobEnded: {'identifier': 'examples_rclcpp_cbg_executor', 'rc': 1}
+[0.091279] (examples_rclcpp_minimal_action_client) JobSkipped: {'identifier': 'examples_rclcpp_minimal_action_client'}
+[0.091405] (examples_rclcpp_minimal_action_server) JobSkipped: {'identifier': 'examples_rclcpp_minimal_action_server'}
+[0.091457] (examples_rclcpp_minimal_client) JobSkipped: {'identifier': 'examples_rclcpp_minimal_client'}
+[0.091504] (examples_rclcpp_minimal_composition) JobSkipped: {'identifier': 'examples_rclcpp_minimal_composition'}
+[0.091574] (examples_rclcpp_minimal_publisher) JobSkipped: {'identifier': 'examples_rclcpp_minimal_publisher'}
+[0.091617] (examples_rclcpp_minimal_service) JobSkipped: {'identifier': 'examples_rclcpp_minimal_service'}
+[0.091648] (examples_rclcpp_minimal_subscriber) JobSkipped: {'identifier': 'examples_rclcpp_minimal_subscriber'}
+[0.091675] (examples_rclcpp_minimal_timer) JobSkipped: {'identifier': 'examples_rclcpp_minimal_timer'}
+[0.091702] (examples_rclcpp_multithreaded_executor) JobSkipped: {'identifier': 'examples_rclcpp_multithreaded_executor'}
+[0.091728] (examples_rclcpp_wait_set) JobSkipped: {'identifier': 'examples_rclcpp_wait_set'}
+[0.091754] (turtlesim) JobSkipped: {'identifier': 'turtlesim'}
+[0.091779] (-) EventReactorShutdown: {}

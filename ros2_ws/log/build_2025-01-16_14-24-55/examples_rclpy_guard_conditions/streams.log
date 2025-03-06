@@ -1,0 +1,21 @@
+[1.284s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclpy/guard_conditions': PS1=(python-3.9.21) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(python-3.9.21) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_guard_conditions build --build-base /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/build install --record /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/install.log --single-version-externally-managed install_data
+[1.720s] running egg_info
+[1.723s] writing ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/PKG-INFO
+[1.723s] writing dependency_links to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/dependency_links.txt
+[1.724s] writing entry points to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/entry_points.txt
+[1.725s] writing requirements to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/requires.txt
+[1.726s] writing top-level names to ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/top_level.txt
+[1.731s] reading manifest file '../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/SOURCES.txt'
+[1.732s] writing manifest file '../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info/SOURCES.txt'
+[1.734s] running build
+[1.734s] running build_py
+[1.736s] running install
+[1.736s] running install_lib
+[1.741s] running install_data
+[1.741s] running install_egg_info
+[1.744s] removing '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions-0.15.3-py3.10.egg-info' (and everything under it)
+[1.746s] Copying ../../../../build/examples_rclpy_guard_conditions/examples_rclpy_guard_conditions.egg-info to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages/examples_rclpy_guard_conditions-0.15.3-py3.10.egg-info
+[1.751s] running install_scripts
+[1.794s] Installing trigger_guard_condition script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_guard_conditions/lib/examples_rclpy_guard_conditions
+[1.797s] writing list of installed files to '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/install.log'
+[1.866s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclpy/guard_conditions' returned '0': PS1=(python-3.9.21) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_guard_conditions/lib/python3.10/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(python-3.9.21) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_guard_conditions build --build-base /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/build install --record /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_guard_conditions/install.log --single-version-externally-managed install_data

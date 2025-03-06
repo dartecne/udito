@@ -1,0 +1,295 @@
+[0.000000] (-) TimerEvent: {}
+[0.001151] (examples_rclcpp_async_client) JobQueued: {'identifier': 'examples_rclcpp_async_client', 'dependencies': OrderedDict()}
+[0.001204] (examples_rclcpp_cbg_executor) JobQueued: {'identifier': 'examples_rclcpp_cbg_executor', 'dependencies': OrderedDict()}
+[0.001232] (examples_rclcpp_minimal_action_client) JobQueued: {'identifier': 'examples_rclcpp_minimal_action_client', 'dependencies': OrderedDict()}
+[0.001348] (examples_rclcpp_minimal_action_server) JobQueued: {'identifier': 'examples_rclcpp_minimal_action_server', 'dependencies': OrderedDict()}
+[0.001376] (examples_rclcpp_minimal_client) JobQueued: {'identifier': 'examples_rclcpp_minimal_client', 'dependencies': OrderedDict()}
+[0.001401] (examples_rclcpp_minimal_composition) JobQueued: {'identifier': 'examples_rclcpp_minimal_composition', 'dependencies': OrderedDict()}
+[0.001424] (examples_rclcpp_minimal_publisher) JobQueued: {'identifier': 'examples_rclcpp_minimal_publisher', 'dependencies': OrderedDict()}
+[0.001446] (examples_rclcpp_minimal_service) JobQueued: {'identifier': 'examples_rclcpp_minimal_service', 'dependencies': OrderedDict()}
+[0.001469] (examples_rclcpp_minimal_subscriber) JobQueued: {'identifier': 'examples_rclcpp_minimal_subscriber', 'dependencies': OrderedDict()}
+[0.001491] (examples_rclcpp_minimal_timer) JobQueued: {'identifier': 'examples_rclcpp_minimal_timer', 'dependencies': OrderedDict()}
+[0.001514] (examples_rclcpp_multithreaded_executor) JobQueued: {'identifier': 'examples_rclcpp_multithreaded_executor', 'dependencies': OrderedDict()}
+[0.001536] (examples_rclcpp_wait_set) JobQueued: {'identifier': 'examples_rclcpp_wait_set', 'dependencies': OrderedDict()}
+[0.001558] (examples_rclpy_executors) JobQueued: {'identifier': 'examples_rclpy_executors', 'dependencies': OrderedDict()}
+[0.001586] (examples_rclpy_guard_conditions) JobQueued: {'identifier': 'examples_rclpy_guard_conditions', 'dependencies': OrderedDict()}
+[0.001657] (examples_rclpy_minimal_action_client) JobQueued: {'identifier': 'examples_rclpy_minimal_action_client', 'dependencies': OrderedDict()}
+[0.001683] (examples_rclpy_minimal_action_server) JobQueued: {'identifier': 'examples_rclpy_minimal_action_server', 'dependencies': OrderedDict()}
+[0.001705] (examples_rclpy_minimal_client) JobQueued: {'identifier': 'examples_rclpy_minimal_client', 'dependencies': OrderedDict()}
+[0.001726] (examples_rclpy_minimal_publisher) JobQueued: {'identifier': 'examples_rclpy_minimal_publisher', 'dependencies': OrderedDict()}
+[0.001748] (examples_rclpy_minimal_service) JobQueued: {'identifier': 'examples_rclpy_minimal_service', 'dependencies': OrderedDict()}
+[0.001777] (examples_rclpy_minimal_subscriber) JobQueued: {'identifier': 'examples_rclpy_minimal_subscriber', 'dependencies': OrderedDict()}
+[0.001800] (examples_rclpy_pointcloud_publisher) JobQueued: {'identifier': 'examples_rclpy_pointcloud_publisher', 'dependencies': OrderedDict()}
+[0.001822] (launch_testing_examples) JobQueued: {'identifier': 'launch_testing_examples', 'dependencies': OrderedDict()}
+[0.001843] (ldlidar_component) JobQueued: {'identifier': 'ldlidar_component', 'dependencies': OrderedDict()}
+[0.001865] (py_test_package) JobQueued: {'identifier': 'py_test_package', 'dependencies': OrderedDict()}
+[0.001886] (ldlidar_node) JobQueued: {'identifier': 'ldlidar_node', 'dependencies': OrderedDict([('ldlidar_component', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component')])}
+[0.001914] (ldlidar) JobQueued: {'identifier': 'ldlidar', 'dependencies': OrderedDict([('ldlidar_component', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component'), ('ldlidar_node', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node')])}
+[0.001947] (ldlidar_component) JobStarted: {'identifier': 'ldlidar_component'}
+[0.049145] (examples_rclcpp_async_client) JobStarted: {'identifier': 'examples_rclcpp_async_client'}
+[0.060716] (ldlidar_component) JobProgress: {'identifier': 'ldlidar_component', 'progress': 'cmake'}
+[0.061372] (ldlidar_component) Command: {'cmd': ['/usr/bin/cmake', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component', '-DCMAKE_BUILD_TYPE=Release', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.075957] (examples_rclcpp_async_client) JobProgress: {'identifier': 'examples_rclcpp_async_client', 'progress': 'cmake'}
+[0.099653] (-) TimerEvent: {}
+[0.108990] (examples_rclcpp_async_client) Command: {'cmd': ['/usr/bin/cmake', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclcpp/services/async_client', '-DCMAKE_BUILD_TYPE=Release', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_async_client'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.199849] (-) TimerEvent: {}
+[0.300484] (-) TimerEvent: {}
+[0.401080] (-) TimerEvent: {}
+[0.501505] (-) TimerEvent: {}
+[0.602155] (-) TimerEvent: {}
+[0.661863] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.702332] (-) TimerEvent: {}
+[0.802833] (-) TimerEvent: {}
+[0.903480] (-) TimerEvent: {}
+[1.004064] (-) TimerEvent: {}
+[1.104609] (-) TimerEvent: {}
+[1.205309] (-) TimerEvent: {}
+[1.305939] (-) TimerEvent: {}
+[1.406469] (-) TimerEvent: {}
+[1.472496] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.506671] (-) TimerEvent: {}
+[1.607256] (-) TimerEvent: {}
+[1.632057] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found example_interfaces: 0.9.3 (/opt/ros/humble/share/example_interfaces/cmake)\n'}
+[1.707450] (-) TimerEvent: {}
+[1.808152] (-) TimerEvent: {}
+[1.908815] (-) TimerEvent: {}
+[2.009565] (-) TimerEvent: {}
+[2.013446] (ldlidar_component) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[2.109699] (-) TimerEvent: {}
+[2.173939] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[2.189363] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[2.209852] (-) TimerEvent: {}
+[2.310399] (-) TimerEvent: {}
+[2.323974] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.410548] (-) TimerEvent: {}
+[2.511028] (-) TimerEvent: {}
+[2.529412] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.611197] (-) TimerEvent: {}
+[2.711857] (-) TimerEvent: {}
+[2.812521] (-) TimerEvent: {}
+[2.839720] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.912690] (-) TimerEvent: {}
+[3.013282] (-) TimerEvent: {}
+[3.106981] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[3.113462] (-) TimerEvent: {}
+[3.214013] (-) TimerEvent: {}
+[3.314377] (-) TimerEvent: {}
+[3.415114] (-) TimerEvent: {}
+[3.515743] (-) TimerEvent: {}
+[3.616406] (-) TimerEvent: {}
+[3.717069] (-) TimerEvent: {}
+[3.745066] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[3.792425] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[3.817212] (-) TimerEvent: {}
+[3.914270] (ldlidar_component) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.917605] (-) TimerEvent: {}
+[3.959552] (ldlidar_component) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[4.017692] (-) TimerEvent: {}
+[4.118176] (-) TimerEvent: {}
+[4.218811] (-) TimerEvent: {}
+[4.238154] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.318941] (-) TimerEvent: {}
+[4.349761] (ldlidar_component) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.360600] (ldlidar_component) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[4.361950] (ldlidar_component) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.385346] (ldlidar_component) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.400213] (ldlidar_component) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.419667] (-) TimerEvent: {}
+[4.520170] (-) TimerEvent: {}
+[4.584205] (ldlidar_component) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.595410] (ldlidar_component) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.595730] (ldlidar_component) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.596363] (ldlidar_component) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.597186] (ldlidar_component) StdoutLine: {'line': b'--  * Release Mode\n'}
+[4.597380] (ldlidar_component) StdoutLine: {'line': b'-- * Found ROS2 humble\n'}
+[4.597483] (ldlidar_component) StdoutLine: {'line': b'-- * ROS2 humble is officially supported by this package.\n'}
+[4.613259] (ldlidar_component) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[4.614061] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[4.620242] (-) TimerEvent: {}
+[4.720543] (-) TimerEvent: {}
+[4.822815] (-) TimerEvent: {}
+[4.870035] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[4.871325] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[4.872176] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[4.872368] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[4.872977] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[4.873253] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[4.875383] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[4.877053] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[4.877326] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[4.877688] (examples_rclcpp_async_client) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[4.897902] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.922921] (-) TimerEvent: {}
+[4.949811] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Generating done\n'}
+[4.954835] (examples_rclcpp_async_client) StdoutLine: {'line': b'-- Build files have been written to: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client\n'}
+[4.969880] (examples_rclcpp_async_client) CommandEnded: {'returncode': 0}
+[4.971857] (examples_rclcpp_async_client) JobProgress: {'identifier': 'examples_rclcpp_async_client', 'progress': 'build'}
+[4.971936] (examples_rclcpp_async_client) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client', '--', '-j2', '-l2'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_async_client'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[5.023818] (-) TimerEvent: {}
+[5.028903] (examples_rclcpp_async_client) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target client_main\x1b[0m\n'}
+[5.123929] (-) TimerEvent: {}
+[5.171146] (ldlidar_component) StdoutLine: {'line': b'-- Found Python3: /usr/local/bin/python3 (found version "3.9.21") found components: Interpreter \n'}
+[5.187629] (examples_rclcpp_async_client) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/client_main.dir/main.cpp.o\x1b[0m\n'}
+[5.224656] (-) TimerEvent: {}
+[5.265879] (ldlidar_component) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[5.324791] (-) TimerEvent: {}
+[5.345228] (ldlidar_component) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[5.424915] (-) TimerEvent: {}
+[5.449967] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[5.457686] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.474116] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[5.492437] (ldlidar_component) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.518308] (ldlidar_component) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.524990] (-) TimerEvent: {}
+[5.575850] (ldlidar_component) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[5.578763] (ldlidar_component) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[5.625121] (-) TimerEvent: {}
+[5.725602] (-) TimerEvent: {}
+[5.826114] (-) TimerEvent: {}
+[5.872847] (ldlidar_component) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[5.911511] (ldlidar_component) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[5.926640] (-) TimerEvent: {}
+[5.966551] (ldlidar_component) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.976489] (ldlidar_component) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[6.026788] (-) TimerEvent: {}
+[6.091466] (ldlidar_component) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[6.091815] (ldlidar_component) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[6.126897] (-) TimerEvent: {}
+[6.227315] (-) TimerEvent: {}
+[6.314462] (ldlidar_component) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[6.316196] (ldlidar_component) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[6.327408] (-) TimerEvent: {}
+[6.427793] (-) TimerEvent: {}
+[6.495404] (ldlidar_component) StdoutLine: {'line': b'-- Found rclcpp_components: 16.0.11 (/opt/ros/humble/share/rclcpp_components/cmake)\n'}
+[6.527933] (-) TimerEvent: {}
+[6.628399] (-) TimerEvent: {}
+[6.729088] (-) TimerEvent: {}
+[6.750733] (ldlidar_component) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:99 (find_package):\n'}
+[6.751543] (ldlidar_component) StderrLine: {'line': b'  By not providing "Findnav2_util.cmake" in CMAKE_MODULE_PATH this project\n'}
+[6.751701] (ldlidar_component) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[6.751814] (ldlidar_component) StderrLine: {'line': b'  "nav2_util", but CMake did not find one.\n'}
+[6.751907] (ldlidar_component) StderrLine: {'line': b'\n'}
+[6.751994] (ldlidar_component) StderrLine: {'line': b'  Could not find a package configuration file provided by "nav2_util" with\n'}
+[6.752083] (ldlidar_component) StderrLine: {'line': b'  any of the following names:\n'}
+[6.752168] (ldlidar_component) StderrLine: {'line': b'\n'}
+[6.752252] (ldlidar_component) StderrLine: {'line': b'    nav2_utilConfig.cmake\n'}
+[6.752333] (ldlidar_component) StderrLine: {'line': b'    nav2_util-config.cmake\n'}
+[6.752412] (ldlidar_component) StderrLine: {'line': b'\n'}
+[6.752488] (ldlidar_component) StderrLine: {'line': b'  Add the installation prefix of "nav2_util" to CMAKE_PREFIX_PATH or set\n'}
+[6.752565] (ldlidar_component) StderrLine: {'line': b'  "nav2_util_DIR" to a directory containing one of the above files.  If\n'}
+[6.752665] (ldlidar_component) StderrLine: {'line': b'  "nav2_util" provides a separate development package or SDK, be sure it has\n'}
+[6.752744] (ldlidar_component) StderrLine: {'line': b'  been installed.\n'}
+[6.752819] (ldlidar_component) StderrLine: {'line': b'\n'}
+[6.752894] (ldlidar_component) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[6.752992] (ldlidar_component) StdoutLine: {'line': b'See also "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component/CMakeFiles/CMakeOutput.log".\n'}
+[6.753075] (ldlidar_component) StderrLine: {'line': b'\x1b[0m\n'}
+[6.765961] (ldlidar_component) CommandEnded: {'returncode': 1}
+[6.829241] (-) TimerEvent: {}
+[6.929892] (-) TimerEvent: {}
+[7.030496] (-) TimerEvent: {}
+[7.065481] (ldlidar_component) JobEnded: {'identifier': 'ldlidar_component', 'rc': 1}
+[7.130624] (-) TimerEvent: {}
+[7.230978] (-) TimerEvent: {}
+[7.331451] (-) TimerEvent: {}
+[7.432065] (-) TimerEvent: {}
+[7.532614] (-) TimerEvent: {}
+[7.633038] (-) TimerEvent: {}
+[7.733556] (-) TimerEvent: {}
+[7.833947] (-) TimerEvent: {}
+[7.934346] (-) TimerEvent: {}
+[8.034773] (-) TimerEvent: {}
+[8.135155] (-) TimerEvent: {}
+[8.235539] (-) TimerEvent: {}
+[8.335936] (-) TimerEvent: {}
+[8.436354] (-) TimerEvent: {}
+[8.536740] (-) TimerEvent: {}
+[8.637151] (-) TimerEvent: {}
+[8.737685] (-) TimerEvent: {}
+[8.838082] (-) TimerEvent: {}
+[8.938631] (-) TimerEvent: {}
+[9.039025] (-) TimerEvent: {}
+[9.139436] (-) TimerEvent: {}
+[9.239969] (-) TimerEvent: {}
+[9.340391] (-) TimerEvent: {}
+[9.440804] (-) TimerEvent: {}
+[9.541329] (-) TimerEvent: {}
+[9.641733] (-) TimerEvent: {}
+[9.742281] (-) TimerEvent: {}
+[9.842671] (-) TimerEvent: {}
+[9.943175] (-) TimerEvent: {}
+[10.043598] (-) TimerEvent: {}
+[10.144127] (-) TimerEvent: {}
+[10.244506] (-) TimerEvent: {}
+[10.345058] (-) TimerEvent: {}
+[10.445463] (-) TimerEvent: {}
+[10.545989] (-) TimerEvent: {}
+[10.646399] (-) TimerEvent: {}
+[10.746910] (-) TimerEvent: {}
+[10.847304] (-) TimerEvent: {}
+[10.947817] (-) TimerEvent: {}
+[11.048227] (-) TimerEvent: {}
+[11.148742] (-) TimerEvent: {}
+[11.249151] (-) TimerEvent: {}
+[11.349546] (-) TimerEvent: {}
+[11.450079] (-) TimerEvent: {}
+[11.550521] (-) TimerEvent: {}
+[11.651113] (-) TimerEvent: {}
+[11.751482] (-) TimerEvent: {}
+[11.851822] (-) TimerEvent: {}
+[11.952295] (-) TimerEvent: {}
+[12.052660] (-) TimerEvent: {}
+[12.153201] (-) TimerEvent: {}
+[12.253834] (-) TimerEvent: {}
+[12.354432] (-) TimerEvent: {}
+[12.454941] (-) TimerEvent: {}
+[12.555470] (-) TimerEvent: {}
+[12.656041] (-) TimerEvent: {}
+[12.756638] (-) TimerEvent: {}
+[12.857036] (-) TimerEvent: {}
+[12.957408] (-) TimerEvent: {}
+[13.057809] (-) TimerEvent: {}
+[13.158188] (-) TimerEvent: {}
+[13.258669] (-) TimerEvent: {}
+[13.359058] (-) TimerEvent: {}
+[13.459437] (-) TimerEvent: {}
+[13.559941] (-) TimerEvent: {}
+[13.660333] (-) TimerEvent: {}
+[13.760836] (-) TimerEvent: {}
+[13.861227] (-) TimerEvent: {}
+[13.961622] (-) TimerEvent: {}
+[14.062133] (-) TimerEvent: {}
+[14.096044] (examples_rclcpp_async_client) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable client_main\x1b[0m\n'}
+[14.162318] (-) TimerEvent: {}
+[14.262841] (-) TimerEvent: {}
+[14.363517] (-) TimerEvent: {}
+[14.464225] (-) TimerEvent: {}
+[14.564864] (-) TimerEvent: {}
+[14.665258] (-) TimerEvent: {}
+[14.765691] (-) TimerEvent: {}
+[14.793956] (examples_rclcpp_async_client) StdoutLine: {'line': b'[100%] Built target client_main\n'}
+[14.809368] (examples_rclcpp_async_client) JobEnded: {'identifier': 'examples_rclcpp_async_client', 'rc': 'SIGINT'}
+[14.820129] (examples_rclcpp_cbg_executor) JobSkipped: {'identifier': 'examples_rclcpp_cbg_executor'}
+[14.820197] (examples_rclcpp_minimal_action_client) JobSkipped: {'identifier': 'examples_rclcpp_minimal_action_client'}
+[14.820229] (examples_rclcpp_minimal_action_server) JobSkipped: {'identifier': 'examples_rclcpp_minimal_action_server'}
+[14.820254] (examples_rclcpp_minimal_client) JobSkipped: {'identifier': 'examples_rclcpp_minimal_client'}
+[14.820278] (examples_rclcpp_minimal_composition) JobSkipped: {'identifier': 'examples_rclcpp_minimal_composition'}
+[14.820300] (examples_rclcpp_minimal_publisher) JobSkipped: {'identifier': 'examples_rclcpp_minimal_publisher'}
+[14.820322] (examples_rclcpp_minimal_service) JobSkipped: {'identifier': 'examples_rclcpp_minimal_service'}
+[14.820344] (examples_rclcpp_minimal_subscriber) JobSkipped: {'identifier': 'examples_rclcpp_minimal_subscriber'}
+[14.820374] (examples_rclcpp_minimal_timer) JobSkipped: {'identifier': 'examples_rclcpp_minimal_timer'}
+[14.820396] (examples_rclcpp_multithreaded_executor) JobSkipped: {'identifier': 'examples_rclcpp_multithreaded_executor'}
+[14.820417] (examples_rclcpp_wait_set) JobSkipped: {'identifier': 'examples_rclcpp_wait_set'}
+[14.820436] (examples_rclpy_executors) JobSkipped: {'identifier': 'examples_rclpy_executors'}
+[14.820456] (examples_rclpy_guard_conditions) JobSkipped: {'identifier': 'examples_rclpy_guard_conditions'}
+[14.820475] (examples_rclpy_minimal_action_client) JobSkipped: {'identifier': 'examples_rclpy_minimal_action_client'}
+[14.820496] (examples_rclpy_minimal_action_server) JobSkipped: {'identifier': 'examples_rclpy_minimal_action_server'}
+[14.820515] (examples_rclpy_minimal_client) JobSkipped: {'identifier': 'examples_rclpy_minimal_client'}
+[14.820534] (examples_rclpy_minimal_publisher) JobSkipped: {'identifier': 'examples_rclpy_minimal_publisher'}
+[14.820553] (examples_rclpy_minimal_service) JobSkipped: {'identifier': 'examples_rclpy_minimal_service'}
+[14.820573] (examples_rclpy_minimal_subscriber) JobSkipped: {'identifier': 'examples_rclpy_minimal_subscriber'}
+[14.820602] (examples_rclpy_pointcloud_publisher) JobSkipped: {'identifier': 'examples_rclpy_pointcloud_publisher'}
+[14.820643] (launch_testing_examples) JobSkipped: {'identifier': 'launch_testing_examples'}
+[14.820665] (py_test_package) JobSkipped: {'identifier': 'py_test_package'}
+[14.820754] (ldlidar_node) JobSkipped: {'identifier': 'ldlidar_node'}
+[14.820788] (ldlidar) JobSkipped: {'identifier': 'ldlidar'}
+[14.820812] (-) EventReactorShutdown: {}

@@ -1,0 +1,83 @@
+[0.060s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclcpp/topics/minimal_subscriber -DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber
+[0.098s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.303s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.319s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.362s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.367s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.381s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.399s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.416s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.464s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.464s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.618s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.717s] -- Found rclcpp_components: 16.0.11 (/opt/ros/humble/share/rclcpp_components/cmake)
+[0.813s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.180s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.190s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.193s] -- Configured cppcheck include dirs: 
+[1.193s] -- Configured cppcheck exclude dirs and/or files: 
+[1.202s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.202s] -- Configured cpplint exclude dirs and/or files: 
+[1.207s] -- Added test 'lint_cmake' to check CMake code style
+[1.211s] -- Added test 'uncrustify' to check C / C++ code style
+[1.211s] -- Configured uncrustify additional arguments: 
+[1.211s] -- Added test 'xmllint' to check XML markup files
+[1.244s] -- Configuring done
+[1.452s] -- Generating done
+[1.514s] -- Build files have been written to: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber
+[1.555s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclcpp/topics/minimal_subscriber -DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber
+[1.556s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber -- -j2 -l2
+[1.625s] [35m[1mConsolidate compiler generated dependencies of target subscriber_lambda[0m
+[1.646s] [  8%] Built target subscriber_lambda
+[1.662s] [35m[1mConsolidate compiler generated dependencies of target subscriber_member_function[0m
+[1.689s] [ 16%] Built target subscriber_member_function
+[1.764s] [35m[1mConsolidate compiler generated dependencies of target subscriber_member_function_with_topic_statistics[0m
+[1.809s] [ 25%] Built target subscriber_member_function_with_topic_statistics
+[1.858s] [35m[1mConsolidate compiler generated dependencies of target subscriber_member_function_with_type_adapter[0m
+[1.902s] [ 33%] Built target subscriber_member_function_with_type_adapter
+[1.930s] [35m[1mConsolidate compiler generated dependencies of target subscriber_member_function_with_unique_network_flow_endpoints[0m
+[1.967s] [ 41%] Built target subscriber_member_function_with_unique_network_flow_endpoints
+[1.993s] [35m[1mConsolidate compiler generated dependencies of target subscriber_not_composable[0m
+[2.038s] [ 50%] Built target subscriber_not_composable
+[2.098s] [35m[1mConsolidate compiler generated dependencies of target subscriber_content_filtering[0m
+[2.248s] [ 58%] Built target subscriber_content_filtering
+[2.322s] [35m[1mConsolidate compiler generated dependencies of target wait_set_subscriber_library[0m
+[2.374s] [ 75%] Built target wait_set_subscriber_library
+[2.413s] [35m[1mConsolidate compiler generated dependencies of target wait_set_subscriber[0m
+[2.448s] [ 83%] Built target wait_set_subscriber
+[2.482s] [35m[1mConsolidate compiler generated dependencies of target static_wait_set_subscriber[0m
+[2.588s] [ 91%] Built target static_wait_set_subscriber
+[2.612s] [35m[1mConsolidate compiler generated dependencies of target time_triggered_wait_set_subscriber[0m
+[2.757s] [100%] Built target time_triggered_wait_set_subscriber
+[2.792s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber -- -j2 -l2
+[2.794s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber
+[2.821s] -- Install configuration: ""
+[2.822s] -- Execute custom install script
+[2.825s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/wait_set_subscriber
+[2.825s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/static_wait_set_subscriber
+[2.828s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/time_triggered_wait_set_subscriber
+[2.829s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/libwait_set_subscriber_library.so
+[2.830s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_lambda
+[2.830s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function
+[2.830s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_topic_statistics
+[2.830s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_type_adapter
+[2.833s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_member_function_with_unique_network_flow_endpoints
+[2.833s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_not_composable
+[2.833s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/lib/examples_rclcpp_minimal_subscriber/subscriber_content_filtering
+[2.833s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_subscriber
+[2.834s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_subscriber
+[2.836s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/ament_prefix_path.sh
+[2.836s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/ament_prefix_path.dsv
+[2.836s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/path.sh
+[2.837s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/environment/path.dsv
+[2.839s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.bash
+[2.839s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.sh
+[2.839s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.zsh
+[2.839s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/local_setup.dsv
+[2.839s] -- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/package.dsv
+[2.855s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/packages/examples_rclcpp_minimal_subscriber
+[2.858s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/ament_index/resource_index/rclcpp_components/examples_rclcpp_minimal_subscriber
+[2.860s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/cmake/examples_rclcpp_minimal_subscriberConfig.cmake
+[2.862s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/cmake/examples_rclcpp_minimal_subscriberConfig-version.cmake
+[2.862s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_subscriber/share/examples_rclcpp_minimal_subscriber/package.xml
+[2.862s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_subscriber

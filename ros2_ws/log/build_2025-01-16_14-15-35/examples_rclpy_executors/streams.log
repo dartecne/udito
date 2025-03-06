@@ -1,0 +1,56 @@
+[3.132s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build
+[3.753s] running develop
+[4.073s] Removing /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples-rclpy-executors.egg-link (link to .)
+[4.143s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors' returned '0': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build
+[4.148s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclpy/executors': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build install --record /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/install.log --single-version-externally-managed install_data --force
+[4.539s] running egg_info
+[4.544s] writing ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/PKG-INFO
+[4.545s] writing dependency_links to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/dependency_links.txt
+[4.545s] writing entry points to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/entry_points.txt
+[4.545s] writing requirements to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/requires.txt
+[4.545s] writing top-level names to ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/top_level.txt
+[4.550s] reading manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[4.558s] writing manifest file '../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info/SOURCES.txt'
+[4.558s] running build
+[4.558s] running build_py
+[4.558s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build
+[4.560s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib
+[4.561s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.561s] copying examples_rclpy_executors/listener.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.563s] copying examples_rclpy_executors/custom_callback_group.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.563s] copying examples_rclpy_executors/callback_group.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.565s] copying examples_rclpy_executors/talker.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.565s] copying examples_rclpy_executors/__init__.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.565s] copying examples_rclpy_executors/composed.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.568s] copying examples_rclpy_executors/custom_executor.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors
+[4.569s] running install
+[4.571s] running install_lib
+[4.574s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/listener.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/custom_callback_group.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/callback_group.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/talker.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/__init__.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/composed.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] copying /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build/lib/examples_rclpy_executors/custom_executor.py -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors
+[4.575s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/listener.py to listener.cpython-310.pyc
+[4.578s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/custom_callback_group.py to custom_callback_group.cpython-310.pyc
+[4.581s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/callback_group.py to callback_group.cpython-310.pyc
+[4.583s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/talker.py to talker.cpython-310.pyc
+[4.585s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/__init__.py to __init__.cpython-310.pyc
+[4.586s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/composed.py to composed.cpython-310.pyc
+[4.588s] byte-compiling /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors/custom_executor.py to custom_executor.cpython-310.pyc
+[4.589s] running install_data
+[4.590s] copying resource/examples_rclpy_executors -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/share/ament_index/resource_index/packages
+[4.591s] copying package.xml -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/share/examples_rclpy_executors
+[4.594s] running install_egg_info
+[4.596s] Copying ../../../../build/examples_rclpy_executors/examples_rclpy_executors.egg-info to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages/examples_rclpy_executors-0.15.3-py3.10.egg-info
+[4.599s] running install_scripts
+[4.639s] Installing callback_group script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.642s] Installing composed script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.644s] Installing custom_callback_group script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.644s] Installing custom_executor script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.647s] Installing listener script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.647s] Installing talker script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/examples_rclpy_executors
+[4.657s] writing list of installed files to '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/install.log'
+[5.017s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/examples/rclpy/executors' returned '0': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_executors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../../build/examples_rclpy_executors build --build-base /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/build install --record /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_executors/install.log --single-version-externally-managed install_data --force

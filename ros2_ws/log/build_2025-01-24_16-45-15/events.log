@@ -1,0 +1,541 @@
+[0.000000] (-) TimerEvent: {}
+[0.001012] (ldlidar_component) JobQueued: {'identifier': 'ldlidar_component', 'dependencies': OrderedDict()}
+[0.001070] (ldlidar_node) JobQueued: {'identifier': 'ldlidar_node', 'dependencies': OrderedDict([('ldlidar_component', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component')])}
+[0.001107] (ldlidar) JobQueued: {'identifier': 'ldlidar', 'dependencies': OrderedDict([('ldlidar_component', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component'), ('ldlidar_node', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node')])}
+[0.001144] (ldlidar_component) JobStarted: {'identifier': 'ldlidar_component'}
+[0.010290] (ldlidar_component) JobProgress: {'identifier': 'ldlidar_component', 'progress': 'cmake'}
+[0.011256] (ldlidar_component) Command: {'cmd': ['/usr/bin/cmake', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component', '-DCMAKE_BUILD_TYPE=Release', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.029336] (ldlidar_component) StdoutLine: {'line': b'--  * Release Mode\n'}
+[0.029696] (ldlidar_component) StdoutLine: {'line': b'-- * Found ROS2 humble\n'}
+[0.029842] (ldlidar_component) StdoutLine: {'line': b'-- * ROS2 humble is officially supported by this package.\n'}
+[0.029944] (ldlidar_component) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099719] (-) TimerEvent: {}
+[0.186268] (ldlidar_component) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.199886] (-) TimerEvent: {}
+[0.200565] (ldlidar_component) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[0.242064] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.245579] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.253891] (ldlidar_component) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.267326] (ldlidar_component) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.284847] (ldlidar_component) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.299964] (-) TimerEvent: {}
+[0.330426] (ldlidar_component) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.332220] (ldlidar_component) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.400091] (-) TimerEvent: {}
+[0.455328] (ldlidar_component) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.500209] (-) TimerEvent: {}
+[0.545560] (ldlidar_component) StdoutLine: {'line': b'-- Found rclcpp_components: 16.0.11 (/opt/ros/humble/share/rclcpp_components/cmake)\n'}
+[0.572952] (ldlidar_component) StdoutLine: {'line': b'-- Found nav2_util: 1.1.17 (/opt/ros/humble/share/nav2_util/cmake)\n'}
+[0.600318] (-) TimerEvent: {}
+[0.700620] (-) TimerEvent: {}
+[0.801053] (-) TimerEvent: {}
+[0.901411] (-) TimerEvent: {}
+[1.001874] (-) TimerEvent: {}
+[1.065230] (ldlidar_component) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[1.079612] (ldlidar_component) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[1.080213] (ldlidar_component) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.102002] (-) TimerEvent: {}
+[1.147047] (ldlidar_component) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.202137] (-) TimerEvent: {}
+[1.218793] (ldlidar_component) StdoutLine: {'line': b'-- Found diagnostic_msgs: 4.2.4 (/opt/ros/humble/share/diagnostic_msgs/cmake)\n'}
+[1.253806] (ldlidar_component) StdoutLine: {'line': b'-- Found diagnostic_updater: 4.0.0 (/opt/ros/humble/share/diagnostic_updater/cmake)\n'}
+[1.302257] (-) TimerEvent: {}
+[1.318267] (ldlidar_component) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.402399] (-) TimerEvent: {}
+[1.493707] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.499358] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.501693] (ldlidar_component) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/include;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/tools/include;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/component/include;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/core;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/dataprocess;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/filter;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/logger;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/networkcom;/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_component/ldlidar_driver/include/serialcom\n'}
+[1.501885] (ldlidar_component) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.502477] (-) TimerEvent: {}
+[1.506543] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[1.506680] (ldlidar_component) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[1.508516] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.512911] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.513044] (ldlidar_component) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.513929] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.517848] (ldlidar_component) StdoutLine: {'line': b"-- Added test 'clang_format' to check C / C++ code style\n"}
+[1.553024] (ldlidar_component) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.602634] (-) TimerEvent: {}
+[1.703145] (-) TimerEvent: {}
+[1.803695] (-) TimerEvent: {}
+[1.903993] (-) TimerEvent: {}
+[2.004355] (-) TimerEvent: {}
+[2.018040] (ldlidar_component) StdoutLine: {'line': b'-- Generating done\n'}
+[2.037688] (ldlidar_component) StdoutLine: {'line': b'-- Build files have been written to: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component\n'}
+[2.059324] (ldlidar_component) CommandEnded: {'returncode': 0}
+[2.060443] (ldlidar_component) JobProgress: {'identifier': 'ldlidar_component', 'progress': 'build'}
+[2.061663] (ldlidar_component) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component', '--', '-j2', '-l2'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.104465] (-) TimerEvent: {}
+[2.129070] (ldlidar_component) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/dataprocess/lipkg.cpp.o\x1b[0m\n'}
+[2.129348] (ldlidar_component) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/core/ldlidar_driver.cpp.o\x1b[0m\n'}
+[2.204609] (-) TimerEvent: {}
+[2.305108] (-) TimerEvent: {}
+[2.405523] (-) TimerEvent: {}
+[2.507973] (-) TimerEvent: {}
+[2.608470] (-) TimerEvent: {}
+[2.708973] (-) TimerEvent: {}
+[2.809325] (-) TimerEvent: {}
+[2.912003] (-) TimerEvent: {}
+[3.012500] (-) TimerEvent: {}
+[3.047934] (ldlidar_component) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/filter/tofbf.cpp.o\x1b[0m\n'}
+[3.112664] (-) TimerEvent: {}
+[3.213245] (-) TimerEvent: {}
+[3.315067] (-) TimerEvent: {}
+[3.322501] (ldlidar_component) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/logger/log_module.cpp.o\x1b[0m\n'}
+[3.415195] (-) TimerEvent: {}
+[3.516944] (-) TimerEvent: {}
+[3.617320] (-) TimerEvent: {}
+[3.717695] (-) TimerEvent: {}
+[3.814855] (ldlidar_component) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/networkcom/network_socket_interface_linux.cpp.o\x1b[0m\n'}
+[3.818239] (-) TimerEvent: {}
+[3.921049] (-) TimerEvent: {}
+[4.021456] (-) TimerEvent: {}
+[4.106890] (ldlidar_component) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object ldlidar_driver/CMakeFiles/ldlidar.dir/src/serialcom/serial_interface_linux.cpp.o\x1b[0m\n'}
+[4.121567] (-) TimerEvent: {}
+[4.222062] (-) TimerEvent: {}
+[4.322614] (-) TimerEvent: {}
+[4.424140] (-) TimerEvent: {}
+[4.524698] (-) TimerEvent: {}
+[4.627005] (-) TimerEvent: {}
+[4.727531] (-) TimerEvent: {}
+[4.800505] (ldlidar_component) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX static library libldlidar.a\x1b[0m\n'}
+[4.827641] (-) TimerEvent: {}
+[4.928047] (-) TimerEvent: {}
+[5.028643] (-) TimerEvent: {}
+[5.129358] (-) TimerEvent: {}
+[5.230044] (-) TimerEvent: {}
+[5.330688] (-) TimerEvent: {}
+[5.431343] (-) TimerEvent: {}
+[5.531947] (-) TimerEvent: {}
+[5.632538] (-) TimerEvent: {}
+[5.733120] (-) TimerEvent: {}
+[5.833564] (-) TimerEvent: {}
+[5.934109] (-) TimerEvent: {}
+[6.034434] (-) TimerEvent: {}
+[6.135033] (-) TimerEvent: {}
+[6.235578] (-) TimerEvent: {}
+[6.335984] (-) TimerEvent: {}
+[6.436581] (-) TimerEvent: {}
+[6.497244] (ldlidar_component) StdoutLine: {'line': b'[ 70%] Built target ldlidar\n'}
+[6.527848] (ldlidar_component) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding CXX object CMakeFiles/ldlidar_component.dir/component/src/ldlidar_component.cpp.o\x1b[0m\n'}
+[6.528125] (ldlidar_component) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding CXX object CMakeFiles/ldlidar_component.dir/tools/src/ldlidar_tools.cpp.o\x1b[0m\n'}
+[6.536686] (-) TimerEvent: {}
+[6.638837] (-) TimerEvent: {}
+[6.739260] (-) TimerEvent: {}
+[6.839588] (-) TimerEvent: {}
+[6.940061] (-) TimerEvent: {}
+[7.040531] (-) TimerEvent: {}
+[7.141980] (-) TimerEvent: {}
+[7.242476] (-) TimerEvent: {}
+[7.343031] (-) TimerEvent: {}
+[7.443574] (-) TimerEvent: {}
+[7.545999] (-) TimerEvent: {}
+[7.646545] (-) TimerEvent: {}
+[7.748842] (-) TimerEvent: {}
+[7.849253] (-) TimerEvent: {}
+[7.949822] (-) TimerEvent: {}
+[8.050367] (-) TimerEvent: {}
+[8.151983] (-) TimerEvent: {}
+[8.252373] (-) TimerEvent: {}
+[8.353993] (-) TimerEvent: {}
+[8.454555] (-) TimerEvent: {}
+[8.557002] (-) TimerEvent: {}
+[8.657553] (-) TimerEvent: {}
+[8.758127] (-) TimerEvent: {}
+[8.858689] (-) TimerEvent: {}
+[8.960836] (-) TimerEvent: {}
+[9.061244] (-) TimerEvent: {}
+[9.161796] (-) TimerEvent: {}
+[9.263980] (-) TimerEvent: {}
+[9.364532] (-) TimerEvent: {}
+[9.465068] (-) TimerEvent: {}
+[9.566952] (-) TimerEvent: {}
+[9.667320] (-) TimerEvent: {}
+[9.768010] (-) TimerEvent: {}
+[9.868365] (-) TimerEvent: {}
+[9.969958] (-) TimerEvent: {}
+[10.070469] (-) TimerEvent: {}
+[10.171830] (-) TimerEvent: {}
+[10.272213] (-) TimerEvent: {}
+[10.372610] (-) TimerEvent: {}
+[10.473844] (-) TimerEvent: {}
+[10.574242] (-) TimerEvent: {}
+[10.675840] (-) TimerEvent: {}
+[10.776243] (-) TimerEvent: {}
+[10.876664] (-) TimerEvent: {}
+[10.977220] (-) TimerEvent: {}
+[11.077802] (-) TimerEvent: {}
+[11.178185] (-) TimerEvent: {}
+[11.278570] (-) TimerEvent: {}
+[11.379090] (-) TimerEvent: {}
+[11.479475] (-) TimerEvent: {}
+[11.579998] (-) TimerEvent: {}
+[11.680412] (-) TimerEvent: {}
+[11.780937] (-) TimerEvent: {}
+[11.881354] (-) TimerEvent: {}
+[11.981883] (-) TimerEvent: {}
+[12.082304] (-) TimerEvent: {}
+[12.182714] (-) TimerEvent: {}
+[12.283119] (-) TimerEvent: {}
+[12.383636] (-) TimerEvent: {}
+[12.484036] (-) TimerEvent: {}
+[12.584528] (-) TimerEvent: {}
+[12.684854] (-) TimerEvent: {}
+[12.785304] (-) TimerEvent: {}
+[12.885684] (-) TimerEvent: {}
+[12.986217] (-) TimerEvent: {}
+[13.086604] (-) TimerEvent: {}
+[13.187140] (-) TimerEvent: {}
+[13.287515] (-) TimerEvent: {}
+[13.388014] (-) TimerEvent: {}
+[13.488425] (-) TimerEvent: {}
+[13.588931] (-) TimerEvent: {}
+[13.689337] (-) TimerEvent: {}
+[13.789854] (-) TimerEvent: {}
+[13.890266] (-) TimerEvent: {}
+[13.990812] (-) TimerEvent: {}
+[14.091223] (-) TimerEvent: {}
+[14.191766] (-) TimerEvent: {}
+[14.292182] (-) TimerEvent: {}
+[14.392596] (-) TimerEvent: {}
+[14.493129] (-) TimerEvent: {}
+[14.593535] (-) TimerEvent: {}
+[14.694011] (-) TimerEvent: {}
+[14.794386] (-) TimerEvent: {}
+[14.894862] (-) TimerEvent: {}
+[14.995215] (-) TimerEvent: {}
+[15.095561] (-) TimerEvent: {}
+[15.195981] (-) TimerEvent: {}
+[15.296326] (-) TimerEvent: {}
+[15.396753] (-) TimerEvent: {}
+[15.497100] (-) TimerEvent: {}
+[15.597550] (-) TimerEvent: {}
+[15.697966] (-) TimerEvent: {}
+[15.798500] (-) TimerEvent: {}
+[15.898908] (-) TimerEvent: {}
+[15.999360] (-) TimerEvent: {}
+[16.099728] (-) TimerEvent: {}
+[16.200194] (-) TimerEvent: {}
+[16.300563] (-) TimerEvent: {}
+[16.400850] (-) TimerEvent: {}
+[16.501339] (-) TimerEvent: {}
+[16.601730] (-) TimerEvent: {}
+[16.702135] (-) TimerEvent: {}
+[16.802612] (-) TimerEvent: {}
+[16.902960] (-) TimerEvent: {}
+[17.003411] (-) TimerEvent: {}
+[17.103771] (-) TimerEvent: {}
+[17.204240] (-) TimerEvent: {}
+[17.304633] (-) TimerEvent: {}
+[17.405000] (-) TimerEvent: {}
+[17.505502] (-) TimerEvent: {}
+[17.605919] (-) TimerEvent: {}
+[17.706398] (-) TimerEvent: {}
+[17.806787] (-) TimerEvent: {}
+[17.907261] (-) TimerEvent: {}
+[18.007630] (-) TimerEvent: {}
+[18.108084] (-) TimerEvent: {}
+[18.208450] (-) TimerEvent: {}
+[18.308825] (-) TimerEvent: {}
+[18.409406] (-) TimerEvent: {}
+[18.509824] (-) TimerEvent: {}
+[18.610343] (-) TimerEvent: {}
+[18.710764] (-) TimerEvent: {}
+[18.811274] (-) TimerEvent: {}
+[18.911648] (-) TimerEvent: {}
+[19.012152] (-) TimerEvent: {}
+[19.112573] (-) TimerEvent: {}
+[19.212950] (-) TimerEvent: {}
+[19.313459] (-) TimerEvent: {}
+[19.413856] (-) TimerEvent: {}
+[19.461702] (ldlidar_component) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libldlidar_component.so\x1b[0m\n'}
+[19.514004] (-) TimerEvent: {}
+[19.614417] (-) TimerEvent: {}
+[19.715007] (-) TimerEvent: {}
+[19.815701] (-) TimerEvent: {}
+[19.916337] (-) TimerEvent: {}
+[20.016871] (-) TimerEvent: {}
+[20.117327] (-) TimerEvent: {}
+[20.162555] (ldlidar_component) StdoutLine: {'line': b'[100%] Built target ldlidar_component\n'}
+[20.177724] (ldlidar_component) CommandEnded: {'returncode': 0}
+[20.178598] (ldlidar_component) JobProgress: {'identifier': 'ldlidar_component', 'progress': 'install'}
+[20.191973] (ldlidar_component) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_component'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[20.203256] (ldlidar_component) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[20.204058] (ldlidar_component) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[20.204597] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib/libldlidar_component.so\n'}
+[20.216505] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//defines.hpp\n'}
+[20.217438] (-) TimerEvent: {}
+[20.227083] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//ldlidar_component.hpp\n'}
+[20.237938] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//ldlidar_tools.hpp\n'}
+[20.248804] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//visibility_control.hpp\n'}
+[20.259651] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//ldlidar_datatype.h\n'}
+[20.270389] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//ldlidar_driver.h\n'}
+[20.281250] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//lipkg.h\n'}
+[20.292136] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//tofbf.h\n'}
+[20.303089] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//log_module.h\n'}
+[20.314042] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//network_socket_interface_linux.h\n'}
+[20.317559] (-) TimerEvent: {}
+[20.325189] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/include/ldlidar_component//serial_interface_linux.h\n'}
+[20.336094] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/library_path.sh\n'}
+[20.346931] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/library_path.dsv\n'}
+[20.357854] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ament_index/resource_index/package_run_dependencies/ldlidar_component\n'}
+[20.368753] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ament_index/resource_index/parent_prefix_path/ldlidar_component\n'}
+[20.379617] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/ament_prefix_path.sh\n'}
+[20.390268] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/ament_prefix_path.dsv\n'}
+[20.401132] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/path.sh\n'}
+[20.411971] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/environment/path.dsv\n'}
+[20.417690] (-) TimerEvent: {}
+[20.422934] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/local_setup.bash\n'}
+[20.433828] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/local_setup.sh\n'}
+[20.444633] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/local_setup.zsh\n'}
+[20.455273] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/local_setup.dsv\n'}
+[20.465998] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/package.dsv\n'}
+[20.477082] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ament_index/resource_index/packages/ldlidar_component\n'}
+[20.488014] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ament_index/resource_index/rclcpp_components/ldlidar_component\n'}
+[20.498885] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[20.509734] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[20.517829] (-) TimerEvent: {}
+[20.520586] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[20.531264] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake/ldlidar_componentConfig.cmake\n'}
+[20.541966] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake/ldlidar_componentConfig-version.cmake\n'}
+[20.552740] (ldlidar_component) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/package.xml\n'}
+[20.565735] (ldlidar_component) CommandEnded: {'returncode': 0}
+[20.618032] (-) TimerEvent: {}
+[20.633242] (ldlidar_component) JobEnded: {'identifier': 'ldlidar_component', 'rc': 0}
+[20.635204] (ldlidar_node) JobStarted: {'identifier': 'ldlidar_node'}
+[20.643001] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'cmake'}
+[20.643723] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node', '-DCMAKE_BUILD_TYPE=Release', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[20.713457] (ldlidar_node) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[20.718133] (-) TimerEvent: {}
+[20.788937] (ldlidar_node) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[20.799535] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[20.818259] (-) TimerEvent: {}
+[20.889159] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[20.899951] (ldlidar_node) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[20.900277] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[20.900820] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[20.904906] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[20.918380] (-) TimerEvent: {}
+[21.005386] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[21.016588] (ldlidar_node) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[21.016954] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[21.017608] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[21.018402] (ldlidar_node) StdoutLine: {'line': b'--  * Release Mode\n'}
+[21.018529] (-) TimerEvent: {}
+[21.018828] (ldlidar_node) StdoutLine: {'line': b'-- * Found ROS2 humble\n'}
+[21.018947] (ldlidar_node) StdoutLine: {'line': b'-- * ROS2 humble is officially supported by this package.\n'}
+[21.020544] (ldlidar_node) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[21.118669] (-) TimerEvent: {}
+[21.219029] (-) TimerEvent: {}
+[21.319483] (-) TimerEvent: {}
+[21.419844] (-) TimerEvent: {}
+[21.503505] (ldlidar_node) StdoutLine: {'line': b'-- Found Python3: /usr/local/bin/python3 (found version "3.9.21") found components: Interpreter \n'}
+[21.519987] (-) TimerEvent: {}
+[21.598488] (ldlidar_node) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[21.620142] (-) TimerEvent: {}
+[21.642919] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[21.703141] (ldlidar_node) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[21.709004] (ldlidar_node) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[21.719477] (ldlidar_node) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[21.720203] (-) TimerEvent: {}
+[21.735603] (ldlidar_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[21.757108] (ldlidar_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[21.814750] (ldlidar_node) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[21.817829] (ldlidar_node) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[21.820296] (-) TimerEvent: {}
+[21.920579] (-) TimerEvent: {}
+[21.921676] (ldlidar_node) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[21.956583] (ldlidar_node) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[22.006412] (ldlidar_node) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[22.016341] (ldlidar_node) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[22.020679] (-) TimerEvent: {}
+[22.106632] (ldlidar_node) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[22.107251] (ldlidar_node) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[22.120817] (-) TimerEvent: {}
+[22.199481] (ldlidar_node) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[22.200987] (ldlidar_node) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[22.220912] (-) TimerEvent: {}
+[22.273377] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp_components: 16.0.11 (/opt/ros/humble/share/rclcpp_components/cmake)\n'}
+[22.309234] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[22.321007] (-) TimerEvent: {}
+[22.336013] (ldlidar_node) StdoutLine: {'line': b'-- Found ldlidar_component: 0.2.0 (/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake)\n'}
+[22.421131] (-) TimerEvent: {}
+[22.521461] (-) TimerEvent: {}
+[22.600730] (ldlidar_node) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[22.602510] (ldlidar_node) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[22.602690] (ldlidar_node) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[22.621559] (-) TimerEvent: {}
+[22.675795] (ldlidar_node) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[22.721867] (-) TimerEvent: {}
+[22.822237] (-) TimerEvent: {}
+[22.922663] (-) TimerEvent: {}
+[22.941145] (ldlidar_node) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[22.983851] (ldlidar_node) StdoutLine: {'line': b'-- Found PythonInterp: /usr/local/bin/python3 (found suitable version "3.9.21", minimum required is "3.6") \n'}
+[23.022338] (ldlidar_node) StdoutLine: {'line': b'-- Found PythonLibs: /usr/local/lib/libpython3.9.a (found suitable version "3.9.21", minimum required is "3.5") \n'}
+[23.022805] (-) TimerEvent: {}
+[23.023547] (ldlidar_node) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/local/bin/python3\n'}
+[23.023777] (ldlidar_node) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/local/include/python3.9\n'}
+[23.023872] (ldlidar_node) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/local/lib/libpython3.9.a\n'}
+[23.049455] (ldlidar_node) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[23.067116] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[23.069662] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[23.070037] (ldlidar_node) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[23.070159] (ldlidar_node) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[23.072097] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[23.072226] (ldlidar_node) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[23.072938] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[23.073980] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[23.074735] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[23.076770] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[23.076939] (ldlidar_node) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[23.077572] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[23.079565] (ldlidar_node) StdoutLine: {'line': b'-- Configuring done\n'}
+[23.122913] (-) TimerEvent: {}
+[23.132336] (ldlidar_node) StdoutLine: {'line': b'-- Generating done\n'}
+[23.140591] (ldlidar_node) StdoutLine: {'line': b'-- Build files have been written to: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node\n'}
+[23.156808] (ldlidar_node) CommandEnded: {'returncode': 0}
+[23.157609] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'build'}
+[23.158632] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node', '--', '-j2', '-l2'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[23.223041] (-) TimerEvent: {}
+[23.226194] (ldlidar_node) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ldlidar_node.dir/src/ldlidar_container_node.cpp.o\x1b[0m\n'}
+[23.323164] (-) TimerEvent: {}
+[23.423512] (-) TimerEvent: {}
+[23.523842] (-) TimerEvent: {}
+[23.624298] (-) TimerEvent: {}
+[23.724666] (-) TimerEvent: {}
+[23.825154] (-) TimerEvent: {}
+[23.925533] (-) TimerEvent: {}
+[24.025911] (-) TimerEvent: {}
+[24.126422] (-) TimerEvent: {}
+[24.226826] (-) TimerEvent: {}
+[24.327190] (-) TimerEvent: {}
+[24.427671] (-) TimerEvent: {}
+[24.528051] (-) TimerEvent: {}
+[24.628561] (-) TimerEvent: {}
+[24.728928] (-) TimerEvent: {}
+[24.829398] (-) TimerEvent: {}
+[24.930146] (-) TimerEvent: {}
+[25.030605] (-) TimerEvent: {}
+[25.130961] (-) TimerEvent: {}
+[25.231431] (-) TimerEvent: {}
+[25.331810] (-) TimerEvent: {}
+[25.432285] (-) TimerEvent: {}
+[25.532653] (-) TimerEvent: {}
+[25.633119] (-) TimerEvent: {}
+[25.733480] (-) TimerEvent: {}
+[25.833945] (-) TimerEvent: {}
+[25.934351] (-) TimerEvent: {}
+[26.034912] (-) TimerEvent: {}
+[26.135291] (-) TimerEvent: {}
+[26.235821] (-) TimerEvent: {}
+[26.336224] (-) TimerEvent: {}
+[26.436772] (-) TimerEvent: {}
+[26.537186] (-) TimerEvent: {}
+[26.637579] (-) TimerEvent: {}
+[26.738099] (-) TimerEvent: {}
+[26.838508] (-) TimerEvent: {}
+[26.939032] (-) TimerEvent: {}
+[27.039448] (-) TimerEvent: {}
+[27.139992] (-) TimerEvent: {}
+[27.240405] (-) TimerEvent: {}
+[27.340791] (-) TimerEvent: {}
+[27.441307] (-) TimerEvent: {}
+[27.541709] (-) TimerEvent: {}
+[27.642211] (-) TimerEvent: {}
+[27.742626] (-) TimerEvent: {}
+[27.843149] (-) TimerEvent: {}
+[27.943572] (-) TimerEvent: {}
+[28.044092] (-) TimerEvent: {}
+[28.144443] (-) TimerEvent: {}
+[28.244910] (-) TimerEvent: {}
+[28.345282] (-) TimerEvent: {}
+[28.445770] (-) TimerEvent: {}
+[28.461065] (ldlidar_node) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ldlidar_node\x1b[0m\n'}
+[28.545858] (-) TimerEvent: {}
+[28.646269] (-) TimerEvent: {}
+[28.742014] (ldlidar_node) StdoutLine: {'line': b'[100%] Built target ldlidar_node\n'}
+[28.746377] (-) TimerEvent: {}
+[28.756292] (ldlidar_node) CommandEnded: {'returncode': 0}
+[28.757137] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'install'}
+[28.757642] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar_node'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[28.768369] (ldlidar_node) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[28.769121] (ldlidar_node) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[28.769714] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/lib/ldlidar_node/ldlidar_node\n'}
+[28.781690] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/params/ldlidar.yaml\n'}
+[28.792554] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr.yaml\n'}
+[28.803275] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr_slam.yaml\n'}
+[28.814265] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/params/slam_toolbox.yaml\n'}
+[28.825561] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/config/ldlidar.rviz\n'}
+[28.836501] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/config/ldlidar_slam.rviz\n'}
+[28.846503] (-) TimerEvent: {}
+[28.847881] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/urdf/ldlidar_descr.urdf.xml\n'}
+[28.858730] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/urdf/model/LD19.stl\n'}
+[28.869957] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/launch/ldlidar.launch.py\n'}
+[28.880774] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_rviz2.launch.py\n'}
+[28.891789] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_slam.launch.py\n'}
+[28.902656] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_with_mgr.launch.py\n'}
+[28.913609] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ament_index/resource_index/package_run_dependencies/ldlidar_node\n'}
+[28.924856] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ament_index/resource_index/parent_prefix_path/ldlidar_node\n'}
+[28.935874] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.sh\n'}
+[28.946631] (-) TimerEvent: {}
+[28.947034] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.dsv\n'}
+[28.958464] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/environment/path.sh\n'}
+[28.972341] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/environment/path.dsv\n'}
+[28.985452] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/local_setup.bash\n'}
+[28.997959] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/local_setup.sh\n'}
+[29.009843] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/local_setup.zsh\n'}
+[29.022902] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/local_setup.dsv\n'}
+[29.035938] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/package.dsv\n'}
+[29.046774] (-) TimerEvent: {}
+[29.049181] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ament_index/resource_index/packages/ldlidar_node\n'}
+[29.061142] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig.cmake\n'}
+[29.074113] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig-version.cmake\n'}
+[29.087159] (ldlidar_node) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node/share/ldlidar_node/package.xml\n'}
+[29.101573] (ldlidar_node) CommandEnded: {'returncode': 0}
+[29.117467] (ldlidar_node) JobEnded: {'identifier': 'ldlidar_node', 'rc': 0}
+[29.119158] (ldlidar) JobStarted: {'identifier': 'ldlidar'}
+[29.127415] (ldlidar) JobProgress: {'identifier': 'ldlidar', 'progress': 'cmake'}
+[29.128606] (ldlidar) Command: {'cmd': ['/usr/bin/cmake', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar', '-DCMAKE_BUILD_TYPE=Release', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[29.146869] (-) TimerEvent: {}
+[29.148113] (ldlidar) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[29.246998] (-) TimerEvent: {}
+[29.347350] (-) TimerEvent: {}
+[29.447710] (-) TimerEvent: {}
+[29.548220] (-) TimerEvent: {}
+[29.642080] (ldlidar) StdoutLine: {'line': b'-- Found Python3: /usr/local/bin/python3 (found version "3.9.21") found components: Interpreter \n'}
+[29.648342] (-) TimerEvent: {}
+[29.730461] (ldlidar) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[29.748499] (-) TimerEvent: {}
+[29.849051] (-) TimerEvent: {}
+[29.892533] (ldlidar) StdoutLine: {'line': b'-- Configuring done\n'}
+[29.896060] (ldlidar) StdoutLine: {'line': b'-- Generating done\n'}
+[29.899825] (ldlidar) StdoutLine: {'line': b'-- Build files have been written to: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar\n'}
+[29.902921] (ldlidar) CommandEnded: {'returncode': 0}
+[29.903620] (ldlidar) JobProgress: {'identifier': 'ldlidar', 'progress': 'build'}
+[29.904561] (ldlidar) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar', '--', '-j2', '-l2'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[29.949161] (-) TimerEvent: {}
+[29.953561] (ldlidar) CommandEnded: {'returncode': 0}
+[29.954455] (ldlidar) JobProgress: {'identifier': 'ldlidar', 'progress': 'install'}
+[29.954663] (ldlidar) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar'], 'cwd': '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'udito'), ('SSH_CLIENT', '192.168.0.5 51367 22'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/udito'), ('OLDPWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('GTK_MODULES', 'appmenu-gtk-module'), ('PS1', '(python-3.9.21) \\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$'), ('LC_MONETARY', 'es_ES.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('_colcon_cd_root', '/opt/ros/humble/'), ('UBUNTU_MENUPROXY', '1'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'udito'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '6'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/udito/.local/bin:/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21/bin:/home/udito/.local/bin:/home/udito/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('VIRTUAL_ENV_PROMPT', '(python-3.9.21)'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('VIRTUAL_ENV', '/home/vboxuser/OneDrive/UDITO/udito/python-3.9.21'), ('PWD', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/ldlidar'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.0.5 51367 192.168.0.87 22'), ('XDG_DATA_DIRS', '/home/udito/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_node:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar_component:/opt/ros/humble')]), 'shell': False}
+[29.966935] (ldlidar) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[29.967645] (ldlidar) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[29.968179] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ament_index/resource_index/package_run_dependencies/ldlidar\n'}
+[29.979898] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ament_index/resource_index/parent_prefix_path/ldlidar\n'}
+[29.991026] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/environment/ament_prefix_path.sh\n'}
+[30.002037] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/environment/ament_prefix_path.dsv\n'}
+[30.013040] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/environment/path.sh\n'}
+[30.023981] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/environment/path.dsv\n'}
+[30.034928] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/local_setup.bash\n'}
+[30.045910] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/local_setup.sh\n'}
+[30.049271] (-) TimerEvent: {}
+[30.056921] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/local_setup.zsh\n'}
+[30.067887] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/local_setup.dsv\n'}
+[30.078926] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/package.dsv\n'}
+[30.089936] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ament_index/resource_index/packages/ldlidar\n'}
+[30.101086] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/cmake/ldlidarConfig.cmake\n'}
+[30.111897] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/cmake/ldlidarConfig-version.cmake\n'}
+[30.122862] (ldlidar) StdoutLine: {'line': b'-- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/ldlidar/share/ldlidar/package.xml\n'}
+[30.135607] (ldlidar) CommandEnded: {'returncode': 0}
+[30.149483] (-) TimerEvent: {}
+[30.154332] (ldlidar) JobEnded: {'identifier': 'ldlidar', 'rc': 0}
+[30.155632] (-) EventReactorShutdown: {}

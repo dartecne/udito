@@ -1,0 +1,23 @@
+[0.031s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service -- -j2 -l2
+[0.213s] [100%] Built target service_main
+[0.239s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service -- -j2 -l2
+[0.240s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service
+[0.267s] -- Install configuration: ""
+[0.270s] -- Execute custom install script
+[0.271s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/lib/examples_rclcpp_minimal_service/service_main
+[0.273s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/ament_index/resource_index/package_run_dependencies/examples_rclcpp_minimal_service
+[0.274s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/ament_index/resource_index/parent_prefix_path/examples_rclcpp_minimal_service
+[0.275s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/environment/ament_prefix_path.sh
+[0.276s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/environment/ament_prefix_path.dsv
+[0.282s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/environment/path.sh
+[0.292s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/environment/path.dsv
+[0.292s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/local_setup.bash
+[0.292s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/local_setup.sh
+[0.292s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/local_setup.zsh
+[0.292s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/local_setup.dsv
+[0.292s] -- Symlinking: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/package.dsv
+[0.306s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/ament_index/resource_index/packages/examples_rclcpp_minimal_service
+[0.306s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/cmake/examples_rclcpp_minimal_serviceConfig.cmake
+[0.306s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/cmake/examples_rclcpp_minimal_serviceConfig-version.cmake
+[0.306s] -- Up-to-date symlink: /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclcpp_minimal_service/share/examples_rclcpp_minimal_service/package.xml
+[0.317s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclcpp_minimal_service

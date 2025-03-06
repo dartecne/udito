@@ -1,0 +1,13 @@
+{
+  "package_name": "turtlesim",
+  "non_idl_tuples": [
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:action/RotateAbsolute.action",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:msg/Color.msg",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:msg/Pose.msg",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:srv/Kill.srv",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:srv/SetPen.srv",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:srv/Spawn.srv",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:srv/TeleportAbsolute.srv",
+    "/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ros_tutorials/turtlesim:srv/TeleportRelative.srv"
+  ]
+}

@@ -1,0 +1,26 @@
+[1.240s] Invoking command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/build --no-deps symlink_data
+[1.898s] running develop
+[2.356s] running egg_info
+[2.357s] creating examples_rclpy_minimal_subscriber.egg-info
+[2.360s] writing examples_rclpy_minimal_subscriber.egg-info/PKG-INFO
+[2.367s] writing dependency_links to examples_rclpy_minimal_subscriber.egg-info/dependency_links.txt
+[2.367s] writing entry points to examples_rclpy_minimal_subscriber.egg-info/entry_points.txt
+[2.368s] writing requirements to examples_rclpy_minimal_subscriber.egg-info/requires.txt
+[2.369s] writing top-level names to examples_rclpy_minimal_subscriber.egg-info/top_level.txt
+[2.373s] writing manifest file 'examples_rclpy_minimal_subscriber.egg-info/SOURCES.txt'
+[2.374s] reading manifest file 'examples_rclpy_minimal_subscriber.egg-info/SOURCES.txt'
+[2.376s] writing manifest file 'examples_rclpy_minimal_subscriber.egg-info/SOURCES.txt'
+[2.444s] running build_ext
+[2.446s] Creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/python3.10/site-packages/examples-rclpy-minimal-subscriber.egg-link (link to .)
+[2.446s] Installing subscriber_lambda script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/examples_rclpy_minimal_subscriber
+[2.447s] Installing subscriber_member_function script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/examples_rclpy_minimal_subscriber
+[2.448s] Installing subscriber_old_school script to /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/examples_rclpy_minimal_subscriber
+[2.450s] 
+[2.451s] Installed /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber
+[2.451s] running symlink_data
+[2.451s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/share/ament_index
+[2.452s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/share/ament_index/resource_index
+[2.452s] creating /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/share/ament_index/resource_index/packages
+[2.452s] symbolically linking /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/resource/examples_rclpy_minimal_subscriber -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/share/ament_index/resource_index/packages
+[2.452s] symbolically linking /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/package.xml -> /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/share/examples_rclpy_minimal_subscriber
+[2.544s] Invoked command in '/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber' returned '0': PYTHONPATH=/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/install/examples_rclpy_minimal_subscriber/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/build/examples_rclpy_minimal_subscriber/build --no-deps symlink_data
