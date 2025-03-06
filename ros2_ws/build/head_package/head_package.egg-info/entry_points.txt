@@ -1,3 +1,5 @@
 [console_scripts]
 head_node = head_package.head_node:main
+listener = head_package.subscriber_member_function:main
+talker = head_package.publisher_member_function:main
 

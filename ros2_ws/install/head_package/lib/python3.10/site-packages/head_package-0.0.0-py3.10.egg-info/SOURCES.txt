@@ -11,6 +11,8 @@ setup.py
 ../../build/head_package/head_package.egg-info/zip-safe
 head_package/__init__.py
 head_package/head_node.py
+head_package/publisher_member_function.py
+head_package/subscriber_member_function.py
 resource/head_package
 test/test_copyright.py
 test/test_flake8.py

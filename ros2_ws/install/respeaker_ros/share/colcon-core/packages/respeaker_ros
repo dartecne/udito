@@ -1,1 +1,1 @@
-angles:audio_common_msgs:catkin_virtualenv:dynamic_reconfigure:geometry_msgs:portaudio19-dev:python-pyaudio:speech_recognition_msgs:std_msgs:tf
+angles:geometry_msgs:portaudio19-dev:python3-pyaudio:std_msgs
