@@ -15,7 +15,6 @@ setup(
     zip_safe=True,
     maintainer='udito',
     maintainer_email='dartecne@gmail.com',
-    description='Manejador de la cabeza de UDITO',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
