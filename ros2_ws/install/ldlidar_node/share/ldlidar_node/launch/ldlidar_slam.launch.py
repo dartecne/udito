@@ -1,1 +1,0 @@
-/home/udito/OneDrive/UDITO/udito/ROS/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/launch/ldlidar_slam.launch.py

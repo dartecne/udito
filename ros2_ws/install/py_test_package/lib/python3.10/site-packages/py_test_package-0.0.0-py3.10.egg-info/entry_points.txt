@@ -1,3 +1,0 @@
-[console_scripts]
-my_node = py_test_package.my_node:main
-
