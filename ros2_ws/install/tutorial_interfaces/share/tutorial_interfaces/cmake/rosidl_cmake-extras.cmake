@@ -1,4 +1,1 @@
-# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
-
-set(tutorial_interfaces_IDL_FILES "srv/Command.idl")
-set(tutorial_interfaces_INTERFACE_FILES "srv/Command.srv;srv/Command_Request.msg;srv/Command_Response.msg")
+/home/udito/OneDrive/UDITO/udito/ros2_ws/build/tutorial_interfaces/rosidl_cmake/rosidl_cmake-extras.cmake

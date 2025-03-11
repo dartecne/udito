@@ -1,1 +1,1 @@
-geometry_msgs:rclpy:rosidl_default_runtime:rosidl_typesupport_c:std_msgs:tutorial_interfaces
+geometry_msgs:rclpy:rosidl_default_runtime:std_msgs:tutorial_interfaces

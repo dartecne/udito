@@ -1,15 +1,1 @@
-// generated from rosidl_adapter/resource/srv.idl.em
-// with input from tutorial_interfaces/srv/Command.srv
-// generated code does not contain a copyright notice
-
-
-module tutorial_interfaces {
-  module srv {
-    struct Command_Request {
-      string data;
-    };
-    struct Command_Response {
-      string rta;
-    };
-  };
-};
+/home/udito/OneDrive/UDITO/udito/ros2_ws/build/tutorial_interfaces/rosidl_adapter/tutorial_interfaces/srv/Command.idl

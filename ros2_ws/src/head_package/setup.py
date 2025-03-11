@@ -5,7 +5,9 @@ package_name = 'head_package'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+#    packages=find_packages(exclude=['test']),
+    packages=find_packages(),
+#    packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -20,9 +22,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service = head_package.minimal_service:main',
+            'head_server = head_package.head_service:main',
             'client = head_package.minimal_client:main',
-            'head_node = head_package.head_node:main',
             'talker = head_package.publisher_member_function:main',
             'listener = head_package.subscriber_member_function:main'
         ],
