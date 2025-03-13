@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 string command
 int64 data
 ---
-=======
-string command
-int64 data
----
->>>>>>> d75813b06134359daeaea89edeabe871241fbad3
 string rta
