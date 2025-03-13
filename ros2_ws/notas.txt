@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # create ROS package
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
 
@@ -6,3 +7,13 @@ rm -rf build install log
 colcon build --cmake-clean-cache
 
 
+=======
+# create ROS package
+ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
+
+# make clean colcon
+rm -rf build install log
+colcon build --cmake-clean-cache
+
+
+>>>>>>> d75813b06134359daeaea89edeabe871241fbad3

@@ -38,3 +38,4 @@ sudo update-alternatives --config python
 
 Compilar poniendo explícitamente 
 colcon build --symlink-install --cmake-args -DPYTHON_EXECUTABLE=/usr/bin/python3.10
+pip install catkin_pkg lark
