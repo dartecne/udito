@@ -1,6 +1,0 @@
-[console_scripts]
-client = head_package.minimal_client:main
-head_server = head_package.head_service:main
-listener = head_package.subscriber_member_function:main
-talker = head_package.publisher_member_function:main
-
