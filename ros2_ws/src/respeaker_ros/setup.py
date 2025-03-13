@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'head_package'
+package_name = 'respeaker_ros'
 
 setup(
     name=package_name,
@@ -17,15 +17,12 @@ setup(
     zip_safe=True,
     maintainer='udito',
     maintainer_email='dartecne@gmail.com',
-    description='Manejador de la cabeza de UDITO',
+    description='Audio',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'head_server = head_package.head_service:main',
-            'client = head_package.minimal_client:main',
-            'talker = head_package.publisher_member_function:main',
-            'listener = head_package.subscriber_member_function:main'
+            'respeaker_node = respeaker_ros.respeaker_node:main'
         ],
     },
 )

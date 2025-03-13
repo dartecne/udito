@@ -1,4 +1,5 @@
-from tutorial_interfaces.srv import Command                            # CHANGE
+#from tutorial_interfaces.srv import Command                            # CHANGE                                                     # CHANGE
+from body_interfaces.srv import HeadMove          
 import sys
 import rclpy
 from rclpy.node import Node
@@ -8,15 +9,15 @@ class MinimalClientAsync(Node):
 
     def __init__(self):
         super().__init__('minimal_client_async')
-        self.cli = self.create_client(Command, 'add_three_ints')       # CHANGE
+        self.cli = self.create_client(HeadMove, 'head_move_service')       # CHANGE
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
-        self.req = Command.Request()                                   # CHANGE
+        self.req = HeadMove.Request()                                   # CHANGE
 
     def send_request(self):
-        self.req.data = "HAPPY"
+        self.req.command = "GESTURE_HAPPY"
+        self.req.data = 7
         self.future = self.cli.call_async(self.req)
-
 
 def main(args=None):
     rclpy.init(args=args)
