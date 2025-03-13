@@ -1,1 +1,0 @@
-/home/udito/OneDrive/UDITO/udito/ros2_ws/build/tutorial_interfaces/rosidl_typesupport_fastrtps_cpp/tutorial_interfaces/srv/detail/command__rosidl_typesupport_fastrtps_cpp.hpp
