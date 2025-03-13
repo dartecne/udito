@@ -19,7 +19,6 @@ class MinimalClientAsync(Node):
         self.req.data = 7
         self.future = self.cli.call_async(self.req)
 
-
 def main(args=None):
     rclpy.init(args=args)
 
