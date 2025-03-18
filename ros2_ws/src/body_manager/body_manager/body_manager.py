@@ -25,13 +25,24 @@ class RobotBody(Node):
 #            self.cli.send_request("PAN", map_range(msg.angle, 180, 360, 60, -60))
             if (msg.angle > 180) & (msg.angle < 240):
 #                self.send_request("PAN", map_range(msg.angle, 180, 360, 60, -60))
+<<<<<<< HEAD
                 self.send_request("PAN", -40)
+=======
+                self.send_request("PAN", -40) # RIGHT
+>>>>>>> f8ce2ec1ae480949a449280c2870e9cefa27901c
             elif(msg.angle > 300) & (msg.angle < 360):  
                 self.send_request("PAN", 40)
             elif(msg.angle >= 240) & (msg.angle <= 300):  
                 self.send_request("PAN", 0)
+<<<<<<< HEAD
             elif msg.angle < 180 :  
                 self.send_request("PAN", 0)
+=======
+            elif msg.angle < 90 :  
+                self.send_request("PAN", 40) # LEFT
+            elif(msg.angle >= 90) & (msg.angle <= 180):  
+                self.send_request("PAN", -40) # LEFT
+>>>>>>> f8ce2ec1ae480949a449280c2870e9cefa27901c
     
     def send_request(self, cmd, data):
         self.req.command = cmd
