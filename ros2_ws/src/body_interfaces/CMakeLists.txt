@@ -14,6 +14,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/DOA.msg"
   "srv/HeadMove.srv"
   DEPENDENCIES geometry_msgs std_msgs builtin_interfaces # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
