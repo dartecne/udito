@@ -16,25 +16,25 @@ class Base():
             print("Connected!"); 
         else:
             print("Serial.error"); 
-    
+    # V [0,100] - Velocidad
     def fwd(self, v):
         self.send_msg( "R_DIR", 0 )
-        self.send_msg( "L_DIR", 0 )
+        self.send_msg( "L_DIR", 1 )
         self.send_msg( "V", v )
 
     def bwd(self, v):
         self.send_msg( "R_DIR", 1 )
-        self.send_msg( "L_DIR", 1 )
+        self.send_msg( "L_DIR", 0 )
         self.send_msg( "V", v )
 
     def rotate_left(self, v):
         self.send_msg( "R_DIR", 0 )
-        self.send_msg( "L_DIR", 1 )
+        self.send_msg( "L_DIR", 0 )
         self.send_msg( "V", v )
 
     def rotate_right(self, v):
         self.send_msg( "R_DIR", 1 )
-        self.send_msg( "L_DIR", 0 )
+        self.send_msg( "L_DIR", 1 )
         self.send_msg( "V", v )
 
     def stop( self ):
@@ -42,7 +42,7 @@ class Base():
 
     def brake( self ):
         self.send_msg( "V", 0 )
-        self.send_msg( "BRAKE", 0 )
+        self.send_msg( "BRAKE", 1 )
 
     def send_msg(self, cmd, value):
         orden = cmd + "," + str(value) + '\r'  # Formato "WORD,value"

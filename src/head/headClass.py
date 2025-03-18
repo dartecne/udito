@@ -15,8 +15,9 @@ class Head:
         self.t = np.arange(0, d, 1)
         #a = BounceEaseInOut(start = 0, end = 10, duration = d )
         #b = BounceEaseInOut(start = 10, end = 0, duration = d )
-        a = QuadEaseInOut(start = 0, end = 10, duration = d )
-        b = QuadEaseInOut(start = 10, end = 0, duration = d )
+        a = QuadEaseInOut(start = -4, end = 10, duration = d )
+        b = QuadEaseInOut(start = 10, end = -4, duration = d )
+        # ease para gesto "yes"
         self.pos = list(map(a,self.t)) + list(map(b,self.t))
 
         port = '/dev/ttyACM1'  # Arduino MEGA. Cuello
@@ -26,7 +27,10 @@ class Head:
             print("Connected!"); 
         else:
             print("Serial.error");  
-        
+    
+    def serial_send(self, cmd, value):
+        self.send_msg(cmd, value)   
+
     def pan(self, angle):
         self.send_msg( "PAN", angle )
 
@@ -41,11 +45,13 @@ class Head:
     
     # data [-10, 10]
     def gesture_happy(self, data):
+        self.pan(-20)
         self.tilt_left(-data)
         self.tilt_right(-data)
         self.send_msg("HAPPY",data)
     
     def gesture_sad(self, data):
+        self.pan(20)
         self.tilt_left(data)
         self.tilt_right(data)
         self.send_msg("SAD",data)
@@ -61,6 +67,7 @@ class Head:
         self.send_msg("CELEBRATION",data)
     
     def gesture_neutral(self, data):
+        self.pan(0)
         self.tilt_left(0)
         self.tilt_right(0)
         self.send_msg("BLINK_LINE",data)
@@ -68,11 +75,12 @@ class Head:
     def blink(self, data):
         self.send_msg("BLINK_LINE",data)
 
-    def gesture_yes( self, data ):
-        for p in self.pos:
-            self.tilt_left(round(p))
-            self.tilt_right(round(p))
-            time.sleep(data)
+    def gesture_yes( self, data, n ):
+        for i in range(n):
+            for p in self.pos:
+                self.tilt_left(round(p))
+                self.tilt_right(round(p))
+                time.sleep(data)
 
     def gesture_yes_old( self, data ):
         for i in range(2):

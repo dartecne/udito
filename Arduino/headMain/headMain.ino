@@ -15,6 +15,7 @@ TODO:
 #define RIGHT_PIN 4
 #define LED_PIN    5
 #define LED_COUNT 128
+#define RELE  7
 
 #define UPDATE_TIME 300;             // Time used to output serial data
 
@@ -24,10 +25,10 @@ static uint32_t b = strip.Color( 60,   0,   255);
 static uint32_t color = strip.Color( 0,   0,   255);
 int tau = 40;
 
-int min_left_servo = 1200;
+int min_left_servo = 1100;
 int max_left_servo = 1800;
 int min_right_servo = 1200;
-int max_right_servo = 1900;
+int max_right_servo = 2000;
 int min_pan_servo = 1000;
 int max_pan_servo = 2000;
 int middle_servo = 1500;
@@ -59,11 +60,9 @@ int _data = 0;              // Data received in Serial read command
 void setup() {
 
   Serial.begin(115200);
-/*
-  pinMode( PAN_PIN, INPUT_PULLUP );
-  pinMode( LEFT_PIN, INPUT_PULLUP );
-  pinMode( LEFT_PIN, INPUT_PULLUP );
-*/
+
+  pinMode( RELE, OUTPUT );
+  digitalWrite(RELE, LOW); // OFF
   
   pan_servo.attach( PAN_PIN ); // pan
   left_servo.attach( LEFT_PIN ); //
@@ -76,6 +75,9 @@ void setup() {
   pan_servo.writeMicroseconds(1500);
   left_servo.writeMicroseconds(1700);
   right_servo.writeMicroseconds(1700);
+  move_servos();
+  update_servos_state(); // test if servos have reached pot1 value
+
 //[1000, 2000] // [CCW, CW], 1500 - middle  //[700, 2300]
 
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
@@ -83,8 +85,10 @@ void setup() {
   strip.setBrightness(255); // Set BRIGHTNESS to about 1/5 (max = 255)
   clear(0);
   clear(1);
-  show_love(tau);
+  delay(1000);
+  digitalWrite(RELE, HIGH); // ON
   blink(tau);
+  show_love(tau);
 //  test();
 }
 
@@ -100,7 +104,7 @@ void loop() {
   update_servos_state(); // test if servos have reached pot1 value
 //  print_to_serial();
 
-//  delay(10);
+  delay(1);
 }
 
 // No funciona. Al revés: multiplica los shocks iniciales

@@ -15,7 +15,9 @@
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-  <exec_depend>tutorial_interfaces</exec_depend>
+  <exec_depend>body_interfaces</exec_depend>
+  <exec_depend>head_package</exec_depend>
+  <exec_depend>speech_to_text</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -51,6 +51,7 @@ double r_sp = r_min_freq; // set point
 double r_err; // error 
 double r_err_old = 0; // error periodo antiguo
 double r_err_sum = 0; // suma del error
+double r_err_dev = 0; // derivada del error
 double r_pwm = 0; // final PWM controlled
 unsigned long r_now, r_before;
 double r_ellapsed_time;
@@ -71,9 +72,9 @@ double r_total = 0.0;
 int r_readIndex = 0;
 bool noLoop = false;
 
-double Kp = 3E-7;//0.02;
-double Kd = 3E-7;//0.7;//0.05;//0.1;//0.01;//30;//0.5;//2;
-double Ki = 1E-12;
+double Kp = 1E-6;//0.02;
+double Kd = 6E-7;//0.7;//0.05;//0.1;//0.01;//30;//0.5;//2;
+double Ki = 1E-13;
  
 
 // This is ran only once at startup
@@ -139,9 +140,9 @@ void rightControlLoop() {
   r_ellapsed_time = (double)( r_now - r_before);
   
   r_err = r_sp -  r_freq;
-    
-  r_err_sum += r_err;// * r_ellapsed_time;
-  r_pwm = r_pwm + Kp * r_err + Ki * (r_err_sum) + Kd*(r_err_old - r_err) / (r_ellapsed_time + 1);
+  r_err_dev = (r_err - r_err_old);// (l_ellapsed_time + 1);   
+  r_err_sum = r_err + r_err_old;// * r_ellapsed_time;
+  r_pwm = r_pwm + Kp * r_err + Ki * (r_err_sum) + Kd * r_err_dev / (r_ellapsed_time + 1);
   
   r_err_old = r_err;
   r_before = r_now;
@@ -154,10 +155,9 @@ void leftControlLoop() {
   l_now = millis();
   l_ellapsed_time = (double)( l_now - l_before);
   
-  l_err = l_sp - l_freq;
-    
+  l_err = l_sp - l_freq; 
   l_err_dev = (l_err - l_err_old);// (l_ellapsed_time + 1);
-  l_err_sum += l_err;// l_ellapsed_time;
+  l_err_sum = l_err + l_err_old;// l_ellapsed_time;
   l_pwm = l_pwm + Kp * l_err + Ki * l_err_sum + Kd * l_err_dev;
 //  Serial.print("l_pwm = "); Serial.println(l_pwm);
   l_err_old = l_err;
@@ -330,7 +330,8 @@ void ReadSpeed() {
       unsigned long current_uS = micros();
       unsigned long elapsed_uS = current_uS - right_last_uS;
 
-      r_freq = 1E8/ elapsed_uS; // centiHz
+      if( elapsed_uS > 15E3)
+        r_freq = 1E8/ elapsed_uS; // centiHz
       right_last_uS = current_uS;
       right_timeout_uS = right_last_uS + SPEED_TIMEOUT;
       rightLastState = right_state;
