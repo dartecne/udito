@@ -1,7 +1,7 @@
 from TtS import TtS
 
 myTtS = TtS()
-myTtS.speak("Hola ¿cómo estás?")
+myTtS.speak("Hola.¿cómo estás?")
 #myTtS.tts_to_file("Hola, cómo estás?")
 
 print("TTS en tiempo real. Escribe 'salir' para terminar.")
