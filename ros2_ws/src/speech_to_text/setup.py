@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'talker = speech_to_text.doa_publisher:main',
+            'doa_publisher = speech_to_text.doa_publisher:main',
             'listener = speech_to_text.doa_subscriber:main'
         ],
     },

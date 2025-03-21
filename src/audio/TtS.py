@@ -32,11 +32,11 @@ authenticator = IAMAuthenticator(api_key)
 class TtS:
     def __init__(self):
         print("TtS::ctor")
-#        self.model = "tts_models/es/css10/vits" # 500ms de latencia
+        self.model = "tts_models/es/css10/vits" # 500ms de latencia
 #        self.model = "tts_models/multilingual/multi-dataset/xtts_v2" # 8 segundos de latencia
 #        self.model = "tts_models/multilingual/multi-dataset/xtts_v1.1" #OSError: [WinError 6] Controlador no válido
                                     # UBUNTU: error raro de pytorch 
-        self.model = "tts_models/es/mai/tacotron2-DDC"
+#        self.model = "tts_models/es/mai/tacotron2-DDC"
 #        self.model = "tts_models/spa/fairseq/vits" # 
         self.emotion = "neutral"
         self.coqui_speakers_idx = ['Claribel Dervla', 'Daisy Studious', 'Gracie Wise', 'Tammie Ema', 'Alison Dietlinde', 'Ana Florence', 'Annmarie Nele', 'Asya Anara', 'Brenda Stern', 'Gitta Nikolina', 'Henriette Usha', 'Sofia Hellen', 'Tammy Grit', 'Tanja Adelina', 'Vjollca Johnnie', 'Andrew Chipper', 'Badr Odhiambo', 'Dionisio Schuyler', 'Royston Min', 'Viktor Eka', 'Abrahan Mack', 'Adde Michal', 'Baldur Sanjin', 'Craig Gutsy', 'Damien Black', 'Gilberto Mathias', 'Ilkin Urbano', 'Kazuhiko Atallah', 'Ludvig Milivoj', 'Suad Qasim', 'Torcull Diarmuid', 'Viktor Menelaos', 'Zacharie Aimilios', 'Nova Hogarth', 'Maja Ruoho', 'Uta Obando', 'Lidiya Szekeres', 'Chandra MacFarland', 'Szofi Granger', 'Camilla Holmström', 'Lilya Stainthorpe', 'Zofija Kendrick', 'Narelle Moon', 'Barbora MacLean', 'Alexandra Hisakawa', 'Alma María', 'Rosemary Okafor', 'Ige Behringer', 'Filip Traverse', 'Damjan Chapman', 'Wulf Carlevaro', 'Aaron Dreschner', 'Kumar Dahl', 'Eugenio Mataracı', 'Ferran Simen', 'Xavier Hayasaka', 'Luis Moray', 'Marcos Rudaski']
@@ -64,6 +64,14 @@ class TtS:
     def set_tts_audio_device(self, engine):
         self.audio_device_type = engine
 
+    def set_tts_coqui_speaker(self, id):
+        self.speaker = self.coqui_speakers_idx[id]
+        self.tts_engine = "coquitts"
+
+    def set_tts_watson_speaker(self, id):
+        self.speaker = self.watson_speakers_idx[id]
+        self.tts_engine = "watson"
+
     def set_tts_speaker(self, speaker):
         self.speaker = speaker
         if speaker in self.coqui_speakers_idx:
@@ -71,9 +79,19 @@ class TtS:
         elif speaker in self.watson_speakers_idx:
             self.tts_engine = "watson"
 
-    def tts_to_file(self, text):
+    def tts_to_file_coqui(self, text):
         self.tts_model.tts_to_file(text=text, file_path=WAVE_OUTPUT_FILENAME)
-    
+
+    def tts_to_file_watson(self, text):
+        response = self.tts_watson.synthesize(
+            text,
+            voice=self.watson_speaker,
+            accept='audio/wav;rate=16000'#'audio/wav'
+        ).get_result()
+        audio_data = response.content
+        with open(WAVE_OUTPUT_FILENAME, 'wb') as audio_file:
+            audio_file.write(audio_data)
+
     def speak_sd(self, text):
         audio_data = self.tts_model.tts(text, 
                               emotion=self.emotion, 
@@ -83,6 +101,7 @@ class TtS:
         sd.wait()
 
     def speak(self, text):
+        audio_data = None
         if(self.tts_engine == "watson"):
             response = self.tts_watson.synthesize(
                 text,
@@ -90,14 +109,14 @@ class TtS:
                 accept='audio/l16;rate=16000'#'audio/wav'
             ).get_result()
             audio_data = response.content
-            self.audio_device.write(audio_data)
         elif(self.tts_engine == "coquitts"):
             audio_data = self.tts_model.tts(text, 
                               emotion=self.emotion, 
                               language="es", 
                               speaker=self.speaker)
-            self.audio_device.write(audio_data)
-
+        len = self.audio_device.write(audio_data)
+        return len
+    
     def shut_up(self):
         if(self.audio_device_type == "pyaudio"):
             self.audio_device.stop_stream()

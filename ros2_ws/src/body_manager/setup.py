@@ -20,7 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'body_manager = body_manager.body_manager:main'
+            'idle_behavior = body_manager.idle:main',
+            'gaze_behavior = body_manager.gaze:main',
+            'introduce_myself_behavior = body_manager.introduce_myself:main',
+            'sequencer = body_manager.sequencer:main'
         ],
     },
 )

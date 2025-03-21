@@ -1,0 +1,4 @@
+bool active
+string new_state
+---
+string rta

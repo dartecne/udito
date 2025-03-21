@@ -18,6 +18,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Speech2Text.msg"
   "srv/HeadMove.srv"
   "srv/Text2Speech.srv"
+  "srv/Behavior.srv"
   DEPENDENCIES geometry_msgs std_msgs builtin_interfaces # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
 

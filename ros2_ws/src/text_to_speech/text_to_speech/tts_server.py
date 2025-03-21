@@ -9,10 +9,10 @@ from TtS import TtS
 class TtsService(Node):
 
     def __init__(self):
-        super().__init__('minimal_service')
-        self.srv = self.create_service(Text2Speech, 'tts', self.speech_callback)
+        super().__init__('text_to_speech_server')
+        self.srv = self.create_service(Text2Speech, 'text_to_speech_server', self.speech_callback)
         self.myTtS = TtS()
-        self.myTtS.speak("Hola.¿cómo estás?")
+        self.myTtS.speak("Hola¿cómo estás?")
 
     def speech_callback(self, request, response):
         self.get_logger().info('Server received\ntext: %s speaker: %s' % (request.text, request.speaker))

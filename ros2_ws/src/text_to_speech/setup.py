@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'service = text_to_speech.tts_server:main',
+            'text_to_speech_server = text_to_speech.tts_server:main',
             'client = text_to_speech.tts_client:main'
         ],
     },

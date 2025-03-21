@@ -1,8 +1,9 @@
 from TtS import TtS
 
 myTtS = TtS()
-myTtS.speak("Hola ¿cómo estás?")
-myTtS.tts_to_file("Inicializando sistema...")
+len = myTtS.speak("Hola ¿cómo estás?")
+print(len)
+#myTtS.tts_to_file_watson("Inicializando sistema...")
 
 print("TTS en tiempo real. Escribe 'salir' para terminar.")
 while True:
@@ -19,6 +20,7 @@ while True:
     try:
         # Generar audio como numpy array
 #        myTtS.speak_es(text)
-        myTtS.speak(text)
+        len = myTtS.speak(text)
+        print(len)
     except Exception as e:
         print(f"Error: {e}")
