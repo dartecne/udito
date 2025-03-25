@@ -3,7 +3,7 @@ import rclpy
 import time
 from random import randint
 from rclpy.node import Node
-from body_interfaces.srv import ComAct
+from body_interfaces.srv import ComActMsg
 from body_interfaces.srv import HeadMove
 from body_interfaces.msg import DOA
 from body_interfaces.srv import Behavior
@@ -13,7 +13,7 @@ class Idle(Node):
     def __init__(self):
         super().__init__('idle')
         self.cli_seq = self.create_client(Behavior, 'sequencer_server')    
-        self.cli_com_act = self.create_client(ComAct, 'multimodal_expression_server')
+        self.cli_com_act = self.create_client(ComActMsg, 'com_act_server')
 
         while not self.cli_seq.wait_for_service(timeout_sec=2.0):
             self.get_logger().info('sequencer_server not available, waiting again...')
@@ -24,7 +24,7 @@ class Idle(Node):
         self.req = Behavior.Request()
         self.req.id = "IDLE"
 
-        self.com_act_req = ComAct.Request()
+        self.com_act_req = ComActMsg.Request()
 
         self.sequencer_subscription = self.create_subscription(
             SequencerMsg,
@@ -51,10 +51,10 @@ class Idle(Node):
             t2 = randint(-5,5)
             tau = randint(10,60)
             d = randint(100, 2000)
-            self.send_com_act("","R_TILT", t1)
-            self.send_com_act("","L_TILT", t2)
-            self.send_com_act("","PAN", p)
-            self.send_com_act("","BLINK", tau)
+            self.send_com_act("me aburro","R_TILT", t1)
+            self.send_com_act("guapi","L_TILT", t2)
+            self.send_com_act("a","PAN", p)
+            self.send_com_act("op","BLINK", tau)
             time.sleep(d/1000)
             rclpy.spin_once(self)
             if not self.active:
@@ -92,7 +92,7 @@ def map_range(x, in_min, in_max, out_min, out_max):
 def main(args=None):
     rclpy.init()
     idle_node = Idle()
-#    rclpy.spin(idle_node)
+    rclpy.spin(idle_node)
     rclpy.shutdown()
 
 if __name__ == '__main__':

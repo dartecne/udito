@@ -39,7 +39,7 @@ class DOAPublisher(Node):
             else:
                 msg.vad = 0
             self.publisher_.publish(msg)
-            self.get_logger().info('publishing.angle: "%d", vad:%d' %(msg.angle, msg.vad))  
+#            self.get_logger().info('publishing.angle: "%d", vad:%d' %(msg.angle, msg.vad))  
 
 def main(args=None):
     rclpy.init(args=args)

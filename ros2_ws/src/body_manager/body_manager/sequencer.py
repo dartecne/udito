@@ -16,11 +16,11 @@ class Sequencer(Node):
         self.req = Behavior.Request()
         self.states = ["IDLE", "GAZE", "INTRODUCE_MYSELF"]
         self.current_state = "IDLE"
-        msg = SequencerMsg()
-        msg.state = "IDLE"
-        msg.param = 0
-        self.pub.publish(msg)
-        self.get_logger().info('publishing.new_state: "%s", param:%d' %(msg.state, msg.param))  
+        self.msg = SequencerMsg()
+        self.msg.state = "IDLE"
+        self.msg.param = 0
+        self.pub.publish(self.msg)
+        self.get_logger().info('publishing.new_state: "%s", param:%d' %(self.msg.state, self.msg.param))  
 
     def sequencer_callback(self, request, response):
         self.get_logger().info('%s says state: %d' %(request.id,request.end))
@@ -30,7 +30,7 @@ class Sequencer(Node):
     
     def change_state(self, state):
         if state =="IDLE":
-            self.msg.state = "INTRUDUCE_MYSELF"
+            self.msg.state = "INTRODUCE_MYSELF"
         elif state =="INTRODUCE_MYSELF":
             self.msg.state = "GAZE"
         elif state =="GAZE":
@@ -56,13 +56,13 @@ def main(args=None):
     rclpy.init()
     seq_node = Sequencer()
     for i in range(50):
-        rclpy.spin_once(seq_node)
+#        rclpy.spin_once(seq_node)
         time.sleep(0.1)
-    seq_node.msg.state = "IDLE"
+    seq_node.msg.state = "INTRODUCE_MYSELF"
     seq_node.msg.param = 0
     seq_node.pub.publish(seq_node.msg)
     seq_node.get_logger().info('publishing.new_state: "%s", param:%d' %(seq_node.msg.state, seq_node.msg.param))  
-    rclpy.spin()
+    rclpy.spin(seq_node)
     rclpy.shutdown()
 
 if __name__ == '__main__':

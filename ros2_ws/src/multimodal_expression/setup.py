@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'multimodal_expression_server = multimodal_expression.multimodal_expression_server:main',    
-            'multimodal_expression_client = multimodal_expression.multimodal_expression_client:main',    
+            'com_act_server = multimodal_expression.multimodal_expression_server:main',    
+            'com_act_client = multimodal_expression.multimodal_expression_client:main',    
         ],
     },
 )

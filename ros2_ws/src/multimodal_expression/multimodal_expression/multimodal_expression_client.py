@@ -1,4 +1,4 @@
-from body_interfaces.srv import ComAct
+from body_interfaces.srv import ComActMsg
 
 import rclpy
 from rclpy.node import Node 
@@ -9,15 +9,15 @@ from ComAct import ComAct
 class ComActClient(Node):
     def __init__(self):
         super().__init__('com_act_client')
-        self.cli = self.create_client(ComAct, 'com_act_server')
+        self.cli = self.create_client(ComActMsg, 'com_act_server')
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
-        self.req = ComAct.Request()
+        self.req = ComActMsg.Request()
 
     def send_request(self, text, gesture, gesture_parameter):
         self.req.text = text
         self.req.gesture = gesture
-        self.req.gesture_parameter = gesture_parameter
+        self.req.data = gesture_parameter
         return self.cli.call_async(self.req)
 
     
