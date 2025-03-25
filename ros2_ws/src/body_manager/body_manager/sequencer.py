@@ -61,7 +61,7 @@ def main(args=None):
     seq_node.msg.state = "IDLE"
     seq_node.msg.param = 0
     seq_node.pub.publish(seq_node.msg)
-    seq_node.get_logger().info('publishing.new_state: "%s", param:%d' %(msg.state, msg.param))  
+    seq_node.get_logger().info('publishing.new_state: "%s", param:%d' %(seq_node.msg.state, seq_node.msg.param))  
     rclpy.spin()
     rclpy.shutdown()
 
