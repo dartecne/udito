@@ -1,5 +1,6 @@
 # Communicative Multimodal Act
 # 
+import time
 import threading
 from TtS import TtS
 
@@ -33,7 +34,9 @@ class ComAct:
         self.audio_data_len = len(self.audio_data)
         print(f"audio_data_len: {self.audio_data_len}")
         self.head.parse_gesture(self.gesture, self.gesture_parameter)
-        self.tts.write_audio_data(self.audio_data)
+        time.sleep(self.audio_data_len/11000)   
+#        self.tts.write_audio_data(self.audio_data)
+
 #        self.tts_thread.start()
 #        self.gesture_thread.start()
 #        self.gesture_thread.join()

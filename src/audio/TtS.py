@@ -14,6 +14,7 @@ import websocket
 import json
 import threading
 import base64
+import time
 
 RESPEAKER_RATE = 16000
 RESPEAKER_CHANNELS = 6 # change base on firmwares, 1_channel_firmware.bin as 1 or 6_channels_firmware.bin as 6
@@ -56,8 +57,8 @@ class TtS:
         self.audio_device = self.p.open(format=pyaudio.paInt16,
                 channels=1,
                 rate=RESPEAKER_RATE,
-                output=True,
-                output_device_index=RESPEAKER_INDEX)
+                output=True)
+#                output_device_index=RESPEAKER_INDEX)
         self.audio_device_type = "pyaudio" # "sounddevice"
         self.tts_engine = "watson" # "coquitts"
    
@@ -94,7 +95,9 @@ class TtS:
 
     def speak(self, text):
         ad = self.get_audio_data(text)
-        self.write_audio_data(ad)
+        print(len(ad))
+#        self.write_audio_data(ad)
+        time.sleep(len(ad)/RESPEAKER_RATE)   
         
     def get_audio_data(self,text):
         audio_data = None

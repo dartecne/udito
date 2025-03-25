@@ -22,12 +22,14 @@ class Head:
 
         port = '/dev/ttyACM1'  # Arduino MEGA. Cuello
         baudrate = 115200
-        self.ser = Serial(port, baudrate, timeout=1) 
-        if(self.ser):
-            print("Connected!"); 
-        else:
-            print("Serial.error");  
-    
+        self.ser = None
+        try:
+            self.ser = Serial(port, baudrate, timeout=1) 
+            print("Connected!")
+        except Exception as e:
+            print("Serial.error")  
+            print(e)
+
     def parse_gesture(self, gesture, data):
         if gesture == "PAN":
             self.pan(data)
@@ -144,11 +146,14 @@ class Head:
 
     def send_msg(self, cmd, value):
         order = cmd + "," + str(value) + '\r'  # Format "WORD,value"
-        self.ser.write(order.encode())  # Send the order
         print(f"Sent: {order.strip()}")
-        rpta = self.ser.readline()
-        print(f"Head says:{rpta}")
-        self.ser.flush()
+        if self.ser:
+            self.ser.write(order.encode())  # Send the order
+            rpta = self.ser.readline()
+            print(f"Head says:{rpta}")
+            self.ser.flush()
+        else:
+            print("HEAD not connected")
 
     def exit(self):
         print("Closing Serial...")

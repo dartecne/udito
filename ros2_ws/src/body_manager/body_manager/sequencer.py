@@ -12,6 +12,12 @@ class Sequencer(Node):
         super().__init__('sequencer_node')
         self.server = self.create_service(Behavior, 'sequencer_server', self.sequencer_callback)
         self.pub = self.create_publisher(SequencerMsg, 'sequencer_topic', 10)
+        self.sub = self.create_subscription(
+            DOA,                                               
+            'topic',
+            self.doa_callback,
+            10)
+        self.sub  # prevent unused variable warning
 
         self.req = Behavior.Request()
         self.states = ["IDLE", "GAZE", "INTRODUCE_MYSELF"]
@@ -24,19 +30,19 @@ class Sequencer(Node):
 
     def sequencer_callback(self, request, response):
         self.get_logger().info('%s says state: %d' %(request.id,request.end))
-        self.change_state(request.id)
+        if request.id == "INTRODUCE_MYSELF":
+            self.current_state = "IDLE"
+        self.msg.state = self.current_state
+        self.pub.publish(self.msg)
+        self.get_logger().info('publishing.new_state: "%s", param:%d' %(self.msg.state, self.msg.param))  
+
         response.rta = "ACK"
         return response 
-    
-    def change_state(self, state):
-        if state =="IDLE":
-            self.msg.state = "INTRODUCE_MYSELF"
-        elif state =="INTRODUCE_MYSELF":
-            self.msg.state = "GAZE"
-        elif state =="GAZE":
-            self.msg.state = "IDLE"
-        else:
-            self.get_logger().info('Invalid state: %s' %state)
+
+    def doa_callback(self, msg):    
+        if self.current_state =="IDLE":
+            self.current_state = "INTRODUCE_MYSELF"
+        self.msg.state = self.current_state
         self.pub.publish(self.msg)
         self.get_logger().info('publishing.new_state: "%s", param:%d' %(self.msg.state, self.msg.param))  
 
