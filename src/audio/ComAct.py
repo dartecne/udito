@@ -1,151 +1,39 @@
 # Communicative Multimodal Act
-
-
-# requirementes TTS (CoquiTTS)
-# también hace TtS mediante voces de IBM-Watson
-import os
-from TTS.api import TTS
-from ibm_watson import TextToSpeechV1
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from pydub import AudioSegment
-import requests
-import io
-import pyaudio
-import sounddevice as sd
-import numpy as np
-import websocket
-import json
+# 
 import threading
-import base64
-
-RESPEAKER_RATE = 16000
-RESPEAKER_CHANNELS = 6 # change base on firmwares, 1_channel_firmware.bin as 1 or 6_channels_firmware.bin as 6
-RESPEAKER_WIDTH = 2
-RESPEAKER_INDEX = 4  # refer to input device id
-CHUNK = 1024
-RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "output.wav"
-
-# Configuración de autenticación
-api_key = "wFGvz40iMm2kOmhvIAd3TpNcwUcgL8gfrK9agNb9K_TY"
-url = "https://api.au-syd.text-to-speech.watson.cloud.ibm.com/instances/e82b66a7-1179-4249-8b60-4c7003432423"
-print("connecting...")
-authenticator = IAMAuthenticator(api_key)
-
-class TtS:
-    def __init__(self):
-        print("TtS::ctor")
-        self.tts_engine = "watson" # "coquitts"
-#        if(self.tts_engine == "coquitts"):
-        self.model = "tts_models/es/css10/vits" # 500ms de latencia
-    #        self.model = "tts_models/multilingual/multi-dataset/xtts_v2" # 8 segundos de latencia
-    #        self.model = "tts_models/multilingual/multi-dataset/xtts_v1.1" #OSError: [WinError 6] Controlador no válido
-                                        # UBUNTU: error raro de pytorch 
-    #        self.model = "tts_models/es/mai/tacotron2-DDC"
-    #        self.model = "tts_models/spa/fairseq/vits" # 
-        self.tts_model = TTS(model_name=self.model)
-        self.coqui_speakers_idx = ['Claribel Dervla', 'Daisy Studious', 'Gracie Wise', 'Tammie Ema', 'Alison Dietlinde', 'Ana Florence', 'Annmarie Nele', 'Asya Anara', 'Brenda Stern', 'Gitta Nikolina', 'Henriette Usha', 'Sofia Hellen', 'Tammy Grit', 'Tanja Adelina', 'Vjollca Johnnie', 'Andrew Chipper', 'Badr Odhiambo', 'Dionisio Schuyler', 'Royston Min', 'Viktor Eka', 'Abrahan Mack', 'Adde Michal', 'Baldur Sanjin', 'Craig Gutsy', 'Damien Black', 'Gilberto Mathias', 'Ilkin Urbano', 'Kazuhiko Atallah', 'Ludvig Milivoj', 'Suad Qasim', 'Torcull Diarmuid', 'Viktor Menelaos', 'Zacharie Aimilios', 'Nova Hogarth', 'Maja Ruoho', 'Uta Obando', 'Lidiya Szekeres', 'Chandra MacFarland', 'Szofi Granger', 'Camilla Holmström', 'Lilya Stainthorpe', 'Zofija Kendrick', 'Narelle Moon', 'Barbora MacLean', 'Alexandra Hisakawa', 'Alma María', 'Rosemary Okafor', 'Ige Behringer', 'Filip Traverse', 'Damjan Chapman', 'Wulf Carlevaro', 'Aaron Dreschner', 'Kumar Dahl', 'Eugenio Mataracı', 'Ferran Simen', 'Xavier Hayasaka', 'Luis Moray', 'Marcos Rudaski']
-        self.coqui_speaker = "Andrew Chipper"
-        self.watson_speakers_idx =['es-ES_LauraV3Voice', 
-                                    'es-ES_EnriqueVoice', 
-                                    'es-ES_EnriqueV3Voice', 
-                                    'es-LA_SofiaV3Voice', 
-                                    'es-US_SofiaV3Voice']
-        self.watson_speaker = "es-ES_LauraV3Voice"
-
-        self.tts_watson = TextToSpeechV1(authenticator=authenticator)
-        self.tts_watson.set_service_url(url) 
-        self.emotion = "neutral"
-   
-    def set_tts_audio_device(self, engine):
-        self.audio_device_type = engine
-
-    def set_tts_coqui_speaker(self, id):
-        self.speaker = self.coqui_speakers_idx[id]
-        self.tts_engine = "coquitts"
-
-    def set_tts_watson_speaker(self, id):
-        self.speaker = self.watson_speakers_idx[id]
-        self.tts_engine = "watson"
-
-    def set_tts_speaker(self, speaker):
-        self.speaker = speaker
-        if speaker in self.coqui_speakers_idx:
-            self.tts_engine = "coquitts"
-        elif speaker in self.watson_speakers_idx:
-            self.tts_engine = "watson"
-
-    def tts_to_file_coqui(self, text):
-        self.tts_model.tts_to_file(text=text, file_path=WAVE_OUTPUT_FILENAME)
-
-    def tts_to_file_watson(self, text):
-        response = self.tts_watson.synthesize(
-            text,
-            voice=self.watson_speaker,
-            accept='audio/wav;rate=16000'#'audio/wav'
-        ).get_result()
-        audio_data = response.content
-        with open(WAVE_OUTPUT_FILENAME, 'wb') as audio_file:
-            audio_file.write(audio_data)
-
-    def speak_sd(self, text):
-        audio_data = self.tts_model.tts(text, 
-                              emotion=self.emotion, 
-                              language="es", 
-                              speaker=self.coqui_speakerspeaker)
-        sd.play(audio_data, samplerate=RESPEAKER_RATE)
-        sd.wait()
-
-    def speak(self, text):
-        audio_data = None
-        if(self.tts_engine == "watson"):
-            response = self.tts_watson.synthesize(
-                text,
-                voice=self.watson_speaker,
-                accept='audio/l16;rate=16000'#'audio/wav'
-            ).get_result()
-            audio_data = response.content
-        elif(self.tts_engine == "coquitts"):
-            audio_data = self.tts_model.tts(text, 
-                              emotion=self.emotion, 
-                              language="es", 
-                              speaker=self.speaker)
-        return audio_data
-    
+from TtS import TtS
+from head.headClass import Head
 
 class ComAct:
     def __init__(self):
         print("ComAct::ctor")
         self.tts = TtS()
-        self.audio_stream = self.tts.speak("Hola")
-        self.audio_iter = self.audio_generator()
-        self.p = pyaudio.PyAudio()
-        self.audio_device = self.p.open(format=pyaudio.paInt16,
-            channels=1,
-            rate=RESPEAKER_RATE,
-            output=True,
-            output_device_index=RESPEAKER_INDEX,
-            frames_per_buffer=CHUNK,
-            stream_callback=self.tts_callback)
-        self.audio_device.start_stream()
+        self.head = Head()
+        self.tts_thread = threading.Thread(target = self.tts_thread_function, args=(1,))
+        self.gesture_thread = threading.Thread(target = self.gesture_thread_function, args=(1,))
+        self.audio_data = self.tts.get_audio_data("hola")
+        self.audio_data_len = len(self.audio_data)
+        self.text = ""
+        self.gesture = ""
+        self.gesture_parameter = 0
 
-    def audio_generator(self):
-        for i in range(0, len(self.audio_stream), CHUNK):
-            yield self.audio_stream[i:i + CHUNK]    
+    def speak(self, text, gesture, gesture_parameter):
+        self.text = text
+        self.gesture = gesture
+        self.gesture_parameter = gesture_parameter
+        self.audio_data = self.tts.get_audio_data(text)
+        self.audio_data_len = len(self.audio_data)
+        print(f"audio_data_len: {self.audio_data_len}")
+        self.tts_thread.start()
+        self.gesture_thread.start()
+        self.gesture_thread.join()
 
-    def tts_callback(self,in_data, frame_count, time_info, status):
-        print(".")
-        try:
-            data = next(self.audio_iter)
-        except StopIteration:
-            return (None, pyaudio.paComplete)
-        return (data, pyaudio.paContinue)
-    
-    def say(self, text):
-        self.audio_stream = self.tts.speak(text)
-        print(f"audio_stream: {len(self.audio_stream)}")
-        self.audio_iter = self.audio_generator()
-        self.audio_device.start_stream()
+    def tts_thread_function(self): 
+        self.tts.write_audio_data(self.audio_data)
+
+    def gesture_thread_function(self):
+        self.head.parse_gesture(self.gesture, self.gesture_parameter)
+        self.tts_thread.join()
 
     def shut_up(self):
         self.audio_device.stop_stream()

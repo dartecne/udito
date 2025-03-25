@@ -28,10 +28,38 @@ class Head:
         else:
             print("Serial.error");  
     
+    def parse_gesture(self, gesture, data):
+        if gesture == "PAN":
+            self.pan(data)
+        elif gesture == "L_TILT":
+            self.tilt_left(data)
+        elif gesture == "R_TILT":
+            self.tilt_right(data)
+        elif gesture == "HAPPY":    
+            self.gesture_happy(data)
+        elif gesture == "SAD":
+            self.gesture_sad(data)
+        elif gesture == "ANGRY":
+            self.gesture_angry(data)
+        elif gesture == "SURPRISED":
+            self.gesture_surprised(data)
+        elif gesture == "NEUTRAL":
+            self.gesture_neutral(data)
+        elif gesture == "BLINK":
+            self.blink(data)
+        elif gesture == "YES":
+            self.gesture_yes(data, 2)
+        elif gesture == "NO":
+            self.gesture_no(data)
+        else:
+            print("Gesture not found")
+
     def serial_send(self, cmd, value):
         self.send_msg(cmd, value)   
 
-    def pan(self, angle):
+    # max pan angle:60º
+    def pan(self, data):
+        angle = data * 60 / 10
         self.send_msg( "PAN", angle )
 
     # rango [-10, 10]
@@ -48,39 +76,39 @@ class Head:
         self.pan(-20)
         self.tilt_left(-data)
         self.tilt_right(-data)
-        self.send_msg("HAPPY",data)
+        self.send_msg("HAPPY",abs(data))
     
     def gesture_sad(self, data):
         self.pan(20)
         self.tilt_left(data)
         self.tilt_right(data)
-        self.send_msg("SAD",data)
+        self.send_msg("SAD",abs(data))
 
     def gesture_angry(self, data):
         self.tilt_left(data)
         self.tilt_right(data)
-        self.send_msg("ANGRY",data)
+        self.send_msg("ANGRY",abs(data))
 
     def gesture_surprised(self, data):  
         self.tilt_left(-data)
         self.tilt_right(-data)
-        self.send_msg("CELEBRATION",data)
+        self.send_msg("CELEBRATION",abs(data))
     
     def gesture_neutral(self, data):
         self.pan(0)
         self.tilt_left(0)
         self.tilt_right(0)
-        self.send_msg("BLINK_LINE",data)
+        self.send_msg("BLINK_LINE",abs(data))
     
     def blink(self, data):
-        self.send_msg("BLINK_LINE",data)
+        self.send_msg("BLINK_LINE",abs(data))
 
     def gesture_yes( self, data, n ):
         for i in range(n):
             for p in self.pos:
                 self.tilt_left(round(p))
                 self.tilt_right(round(p))
-                time.sleep(data)
+                time.sleep(abs(data)/100)
 
     def gesture_yes_old( self, data ):
         for i in range(2):
@@ -96,6 +124,13 @@ class Head:
             self.tilt_left(5)
             self.tilt_right(5)
             time.sleep(data)
+
+    #data [-10,10]
+    def gesture_no( self, data ):
+        a = data
+        t = data / 100
+        nn = abs(data) / 2
+        self.gesture_no(a, t, nn)
 
 
     def gesture_no( self, amp, tau, n ):

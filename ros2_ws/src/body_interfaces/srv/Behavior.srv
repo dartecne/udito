@@ -1,4 +1,4 @@
-bool active
-string new_state
+string id
+bool end
 ---
 string rta

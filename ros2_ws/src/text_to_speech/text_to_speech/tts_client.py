@@ -26,9 +26,8 @@ def main():
     rclpy.spin_until_future_complete(minimal_client, future)
     response = future.result()
     minimal_client.get_logger().info(
-        'Result of add_two_ints: for %d + %d = %d' %
-        (int(sys.argv[1]), int(sys.argv[2]), response.sum))
-
+        'Result of tts: %s' % response.rta)
+    
     minimal_client.destroy_node()
     rclpy.shutdown()
 

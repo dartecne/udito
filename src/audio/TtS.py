@@ -92,15 +92,11 @@ class TtS:
         with open(WAVE_OUTPUT_FILENAME, 'wb') as audio_file:
             audio_file.write(audio_data)
 
-    def speak_sd(self, text):
-        audio_data = self.tts_model.tts(text, 
-                              emotion=self.emotion, 
-                              language="es", 
-                              speaker=self.coqui_speakerspeaker)
-        sd.play(audio_data, samplerate=RESPEAKER_RATE)
-        sd.wait()
-
     def speak(self, text):
+        ad = self.get_audio_data(text)
+        self.write_audio_data(ad)
+        
+    def get_audio_data(self,text):
         audio_data = None
         if(self.tts_engine == "watson"):
             response = self.tts_watson.synthesize(
@@ -114,9 +110,11 @@ class TtS:
                               emotion=self.emotion, 
                               language="es", 
                               speaker=self.speaker)
-        len = self.audio_device.write(audio_data)
-        return len
-    
+        return audio_data
+
+    def write_audio_data(self, audio_data):
+        self.audio_device.write(audio_data)
+
     def shut_up(self):
         if(self.audio_device_type == "pyaudio"):
             self.audio_device.stop_stream()

@@ -3,62 +3,88 @@ import rclpy
 import time
 from random import randint
 from rclpy.node import Node
+from body_interfaces.srv import ComAct
 from body_interfaces.srv import HeadMove
 from body_interfaces.msg import DOA
 from body_interfaces.srv import Behavior
+from body_interfaces.msg import SequencerMsg
 
 class Idle(Node):
     def __init__(self):
         super().__init__('idle')
-        self.srv = self.create_service(Behavior, 'idle_behavior', self.idle_callback)    
-        self.cli = self.create_client(HeadMove, 'head_server')
-        while not self.cli.wait_for_service(timeout_sec=2.0):
-            self.get_logger().info('head_server not available, waiting again...')
-        self.req = HeadMove.Request()
-        self.active = 1
+        self.cli_seq = self.create_client(Behavior, 'sequencer_server')    
+        self.cli_com_act = self.create_client(ComAct, 'multimodal_expression_server')
 
-    def idle_callback(self, request, response):
-        self.get_logger().info('Incoming request\nactive: %d' %request.active)  
-        self.active = request.active
-        if request.active == 1:
-            self.get_logger().info('Idle active')
+        while not self.cli_seq.wait_for_service(timeout_sec=2.0):
+            self.get_logger().info('sequencer_server not available, waiting again...')
+
+        while not self.cli_com_act.wait_for_service(timeout_sec=2.0):
+            self.get_logger().info('multimodal_expression_server not available, waiting again...')
+
+        self.req = Behavior.Request()
+        self.req.id = "IDLE"
+
+        self.com_act_req = ComAct.Request()
+
+        self.sequencer_subscription = self.create_subscription(
+            SequencerMsg,
+            'sequencer_topic',
+            self.sequencer_callback,
+            10) 
+        self.speaking = False
+        self.active = False
+
+    def sequencer_callback(self, msg):
+        self.get_logger().info('Sequencer publishes\nstate: %s \nparam:%d' %(msg.state,msg.param))
+        if msg.state == "IDLE":
+            self.active = True
+            self.do_idle()
         else:
-            self.get_logger().info('Idle inactive')
-        response.rta = "ACK"    
-        return response
-    
-    def move_head(self, cmd, data):
-        self.req.command = cmd
-        self.req.data = data
-        future = self.cli.call_async(self.req)
-        future.add_done_callback(self.service_response_callback)
+            if self.active:
+                self.active = False
+                self.get_logger().info('Stopping idle')
 
-
-    def service_response_callback(self, future):
-        try:
-            response = future.result()
-            self.get_logger().info(
-                        'Result of service: for %s  = %s' %                                # CHANGE
-                        (self.req.data, response.rta))  # CHANGE
-        except Exception as e:
-            self.get_logger().info(
-                        'Service call failed %r' % (e,))     
-    def loop(self):
-        if(self.active == 0):
-            return
+    def do_idle(self):
         while rclpy.ok():
             p = randint(-30,30)
             t1 = randint(-5,5)
             t2 = randint(-5,5)
             tau = randint(10,60)
             d = randint(100, 2000)
-            self.move_head("R_TILT", t1)
-            self.move_head("L_TILT", t2)
-            self.move_head("PAN", p)
-            self.move_head("BLINK", tau)
+            self.send_com_act("","R_TILT", t1)
+            self.send_com_act("","L_TILT", t2)
+            self.send_com_act("","PAN", p)
+            self.send_com_act("","BLINK", tau)
             time.sleep(d/1000)
             rclpy.spin_once(self)
+            if not self.active:
+                self.send_com_act("Ejem","NEUTRAL", 10)
+                self.req.end = True
+                self.cli_seq.call_async(self.req)
+                break
 
+    def send_com_act(self, text, gesture, data):
+        while self.speaking:
+            rclpy.spin_once(self)
+            time.sleep(0.1)
+        self.com_act_req.text = text
+        self.com_act_req.gesture = gesture
+        self.com_act_req.data = data
+        self.speaking = True
+        future = self.cli_com_act.call_async(self.com_act_req)
+        future.add_done_callback(self.com_act_service_callback) 
+
+    def com_act_service_callback( self, future ):
+        try:
+            response = future.result()
+            self.get_logger().info(
+                        'Result of ComAct service: for %s  = %s' %                                
+                        (self.com_act_req.text, response.rta)) 
+            if response.rta == "ACK":
+                self.speaking = False
+        except Exception as e:
+            self.get_logger().info(
+                        'Service call failed %r' % (e,))    
                
 def map_range(x, in_min, in_max, out_min, out_max):
     return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
@@ -66,7 +92,7 @@ def map_range(x, in_min, in_max, out_min, out_max):
 def main(args=None):
     rclpy.init()
     idle_node = Idle()
-    idle_node.loop()
+#    rclpy.spin(idle_node)
     rclpy.shutdown()
 
 if __name__ == '__main__':

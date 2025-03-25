@@ -8,22 +8,17 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='body_manager',
-            executable='inroduce_myself',
+            executable='inroduce_myself_behavior',
             name='introduce_myself'
         ),
         Node(
-            package='head_package',
-            executable='head_server',
-            name='head_server'
+            package='multimodal_expression',
+            executable='multimodal_expression_server',
+            name='multimodal_expression_server'
         ),
         Node(
             package='speech_to_text',
             executable='doa_publisher',
             name='doa_publisher'
         ),
-        Node(
-            package='text_to_speech',
-            executable='text_to_speech_server',
-            name='text_to_speech_server'
-        )
     ])

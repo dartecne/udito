@@ -20,7 +20,7 @@ class DOAPublisher(Node):
     def __init__(self):
         super().__init__('doa_publisher')
         self.dev = usb.core.find(idVendor=0x2886, idProduct=0x0018)
-        self.publisher_ = self.create_publisher(DOA, 'topic', 10)
+        self.publisher_ = self.create_publisher(DOA, 'doa_topic', 10)
         timer_period = 0.1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
