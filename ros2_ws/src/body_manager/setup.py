@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'idle_behavior = body_manager.idle:main',
+            'gaze_by_lidar_behavior = body_manager.gaze_by_lidar:main', 
             'gaze_behavior = body_manager.gaze:main',
             'introduce_myself_behavior = body_manager.introduce_myself:main',
             'sequencer = body_manager.sequencer:main'

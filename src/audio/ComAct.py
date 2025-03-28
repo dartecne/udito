@@ -25,17 +25,16 @@ class ComAct:
         self.speak(text, "NEUTRAL", 5)
 
     def speak(self, text, gesture, gesture_parameter):
-        if text == "":
-            text = "aha"
         self.text = text
         self.gesture = gesture
         self.gesture_parameter = gesture_parameter
-        self.audio_data = self.tts.get_audio_data(text)
-        self.audio_data_len = len(self.audio_data)
-        print(f"audio_data_len: {self.audio_data_len}")
         self.head.parse_gesture(self.gesture, self.gesture_parameter)
-        time.sleep(self.audio_data_len/11000)   
-#        self.tts.write_audio_data(self.audio_data)
+        if text != "":
+            self.audio_data = self.tts.get_audio_data(text)
+            self.audio_data_len = len(self.audio_data)
+            print(f"audio_data_len: {self.audio_data_len}")
+            self.tts.write_audio_data(self.audio_data)
+#        time.sleep(self.audio_data_len/11000)   
 
 #        self.tts_thread.start()
 #        self.gesture_thread.start()

@@ -8,7 +8,6 @@ from body_interfaces.srv import Behavior
 class Gaze(Node):
     def __init__(self):
         super().__init__('gaze')
-        self.srv = self.create_service(Behavior, 'gaze_behavior', self.gaze_callback)    
         self.cli = self.create_client(HeadMove, 'head_server')
         while not self.cli.wait_for_service(timeout_sec=2.0):
             self.get_logger().info('head_server not available, waiting again...')
@@ -20,16 +19,6 @@ class Gaze(Node):
             10)
         self.subscription  # prevent unused variable warning
         self.active = 0
-
-    def gaze_callback(self, request, response):
-        self.get_logger().info('Incoming request\nactive: %d' %request.active)  
-        self.active = request.active
-        if request.active == 1:
-            self.get_logger().info('Gaze active')
-        else:
-            self.get_logger().info('Gaze inactive')
-        response.rta = "ACK"    
-        return response
 
     def doa_callback(self, msg):
         if self.active == 0:

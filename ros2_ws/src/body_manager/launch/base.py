@@ -16,4 +16,9 @@ def generate_launch_description():
             executable='doa_publisher',
             name='doa_publisher'
         ),
+        Node(
+            package='speech_to_text',
+            executable='doa_publisher',
+            name='doa_publisher'
+        ),
     ])

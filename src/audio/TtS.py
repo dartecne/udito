@@ -94,10 +94,13 @@ class TtS:
             audio_file.write(audio_data)
 
     def speak(self, text):
+        if text == "":
+            print("No text to speak")
+            return
         ad = self.get_audio_data(text)
         print(len(ad))
-#        self.write_audio_data(ad)
-        time.sleep(len(ad)/RESPEAKER_RATE)   
+        self.write_audio_data(ad)
+#        time.sleep(len(ad)/RESPEAKER_RATE)   
         
     def get_audio_data(self,text):
         audio_data = None
