@@ -154,13 +154,13 @@ void parse_command( String command, int data ) {
       data = map(abs(data), 0, 10, min_tau, max_tau);
       sad(data);
     } else if( command == "HAPPY" ){
-      data = map(abs(data), 0, 10, min_tau, max_tau);
+      data = map(data, -10, 10, min_tau, max_tau);
       happy(data);
     } else if( command == "ANGRY" ){
       data = map(abs(data), 0, 10, min_tau, max_tau);
       angry( tau);
     } else if( command == "BLINK" ){
-      data = map(abs(data), 0, 10, min_tau, max_tau);
+      data = map(data, -10, 10, min_tau, max_tau);
       blink(data);
     } else if( command == "WINK" ){
       data = map(abs(data), 0, 10, min_tau, max_tau);

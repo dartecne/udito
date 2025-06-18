@@ -1,8 +1,8 @@
-from TtS import TtS
+from ComAct import ComAct
 
-myTtS = TtS()
-myTtS.speak("Hola ¿cómo estás?")
-myTtS.tts_to_file_watson("Inicializando sistema...")
+myCA = ComAct()
+len = myCA.speak("Hola ¿cómo estás?", "HAPPY", 5)
+print(len)
 
 print("TTS en tiempo real. Escribe 'salir' para terminar.")
 while True:
@@ -12,13 +12,14 @@ while True:
         break
     elif text.lower() == "speaker":
         print("Speakers disponibles:")
-        print(myTtS.coqui_speakers_idx)
-        print(myTtS.watson_speakers_idx)
+        print(myCA.tts.coqui_speakers_idx)
+        print(myCA.tts.watson_speakers_idx)
         speaker = input("Escribe el nombre del speaker: ")
-        myTtS.set_tts_speaker(speaker)
+        myCA.tts.set_tts_speaker(speaker)
     try:
         # Generar audio como numpy array
-#        myTtS.speak_es(text)
-        myTtS.speak(text)
+#        myCA.speak_es(text)
+        len = myCA.speak(text, "YES", 5)
+        print(len)
     except Exception as e:
         print(f"Error: {e}")

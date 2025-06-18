@@ -60,3 +60,5 @@ torch
 webrtcvad
 TTS
 whisper
+pyserial
+easing_functions
