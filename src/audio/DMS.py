@@ -3,9 +3,9 @@ import numpy as np
 import sys 
 sys.path.insert(0, '..')
 
-from TtS import TtS
-from StTwhisper import StT 
-
+from audio.TtS import TtS
+from audio.StTwhisper import StT 
+# watson API KEY: s5nN6X_3X70mPv3ovMpOX7xgfXpfv6Gq3P0i3wb2JLbz
 class DMS:
     def __init__(self):
         print("DMS::ctor")

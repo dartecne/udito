@@ -144,37 +144,38 @@ void parse_command( String command, int data ) {
 //      Serial.println(data);
       pot3 = map( data, 10, -10, min_right_servo, max_right_servo );
     } else if( command == "LOVE" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+//      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       show_love(data);
     } else if( command == "LAUGH" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       laugh(data);
     } else if( command == "SAD" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       sad(data);
     } else if( command == "HAPPY" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       happy(data);
     } else if( command == "ANGRY" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       angry( tau);
     } else if( command == "BLINK" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       blink(data);
     } else if( command == "WINK" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       wink_right(data);
     } else if( command == "CELEBRATION" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       celebration(data);
     } else if( command == "BLINK_CIRCLE" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       blink(data);
     } else if( command == "BLINK_LINE" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       blink_line(data);
     } else if( command == "LOGO" ){
-      data = map(data, -10, 10, min_tau, max_tau);
+      data = map(abs(data), 0, 10, min_tau, max_tau);
       show_logo_3(data);
     }
 }

@@ -11,8 +11,8 @@ from headClass import Head
 class HeadService(Node):
 
     def __init__(self):
-        super().__init__('head_service')
-        self.srv = self.create_service(HeadMove, 'head_move_service', self.head_manager_callback)       # CHANGE
+        super().__init__('head_server')
+        self.srv = self.create_service(HeadMove, 'head_server', self.head_manager_callback)       # CHANGE
         self.head = Head()
         
     def head_manager_callback(self, request, response):
@@ -27,6 +27,18 @@ class HeadService(Node):
             self.head.gesture_happy(request.data)
         elif(request.command == "GESTURE_SAD"):
             self.head.gesture_sad(request.data)
+        elif(request.command == "GESTURE_ANGRY"):
+            self.head.gesture_angry(request.data)
+        elif(request.command == "GESTURE_SURPRUISED"):
+            self.head.gesture_surprised(request.data)
+        elif(request.command == "GESTURE_NEUTRAL"):
+            self.head.gesture_neutral(request.data)
+        elif(request.command == "BLINK"):
+            self.head.blink(request.data)
+        elif(request.command == "GESTURE_YES"):
+            self.head.gesture_yes(request.data)
+        elif(request.command == "GESTURE_NO"):
+            self.head.gesture_no(request.data)
     #...
         response.rta = "ACK"
         return response

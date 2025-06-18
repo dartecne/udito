@@ -1,4 +1,4 @@
-from DMS import DMS
+from audio.DMS import DMS
 
 myDMS = DMS()
 myDMS.loop()
