@@ -2,7 +2,7 @@ import time
 from baseClass import Base
 
 base = Base()
-v = 50
+v = 100
 tau = 2
 while(1):
     base.fwd(v)
