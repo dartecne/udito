@@ -4,7 +4,7 @@ import sys
 sys.path.insert(0, '..')
 
 from audio.TtS import TtS
-from audio.StTwhisper import StT 
+from audio.StT import StT 
 # watson API KEY: s5nN6X_3X70mPv3ovMpOX7xgfXpfv6Gq3P0i3wb2JLbz
 class DMS:
     def __init__(self):
@@ -12,41 +12,22 @@ class DMS:
         self.StT = StT()
         self.TtS = TtS()
         self.TtS.speak("Hola soy UDITO, en qué puedo ayudarte?")
-    
+        self.active = True
+
     def loop(self):
+        while(self.active):
+            self.StT.tick()
+            if self.StT.result != None:
+                text = self.StT.result['results'][0]['alternatives'][0]['transcript'].strip()
+                try:
+                    self.TtS.speak(text)
+                except Exception as e:
+                    print(f"Error: {e}")
+                self.StT.result = None
 
-        audio_buffer = b''  # Buffer para almacenar audio capturado
-        speaking = False    # Indicador de actividad de voz
+def main():
+    myDMS = DMS()
+    myDMS.loop()
 
-        while(True):
-            print("Esperando actividad de voz... ")
-            #data = self.StT.stream.read(self.StT.chunk, exception_on_overflow=False)
-            data = self.StT.stream.read(self.StT.chunk, )
-            # Detectar actividad de voz
-            if self.StT.is_speech(data):
-                if not speaking:
-                    print("Usuario comenzó a hablar...")
-                    speaking = True
-                audio_buffer += data
-            else:
-                if speaking:
-                    print("Usuario terminó de hablar.")
-                    speaking = False
-                    # Convertir el audio capturado a formato que Whisper entienda
-                    audio_np = np.frombuffer(audio_buffer, dtype=np.int16).astype(np.float32) / 32768.0
-                    # Transcribir el audio
-                    print("Transcribiendo...")
-                    self.result = self.StT.model.transcribe(audio_np, language="es")
-                    print("Transcripción: ", self.result["text"])
-                    # Limpiar el buffer después de procesar
-                    audio_buffer = b''
-                    if self.result["text"].lower() == "salir":
-                        print("Saliendo del programa.")
-                        break
-                    try:
-                        # Generar audio como numpy array
-                        self.TtS.speak(self.result["text"])
-                #        myTtS.speak(text)
-                    except Exception as e:
-                        print(f"Error: {e}")
-
+if __name__ == '__main__':
+    main()

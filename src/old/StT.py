@@ -7,7 +7,6 @@
 
 # Reconocedor de voz local utilizando dos modelos locales uno para VAD y whisper para StT
 
-import sounddevice as sd
 import numpy as np
 import whisper
 import queue
@@ -72,6 +71,7 @@ class StT:
         audio_buffer = b''  # Buffer para almacenar audio capturado
         speaking = False    # Indicador de actividad de voz
         print(self.active)
+        
         while self.active:
             # Leer audio desde el micrófono
             data = self.stream.read(self.chunk, exception_on_overflow=False)

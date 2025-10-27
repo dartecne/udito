@@ -17,11 +17,7 @@ setup(
     zip_safe=True,
     maintainer='udito',
     maintainer_email='dartecne@gmail.com',
-<<<<<<< HEAD
     description='Audio',
-=======
-    description='Manejador de la cabeza de UDITO',
->>>>>>> d75813b06134359daeaea89edeabe871241fbad3
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
