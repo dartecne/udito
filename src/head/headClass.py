@@ -20,7 +20,7 @@ class Head:
         # ease para gesto "yes"
         self.pos = list(map(a,self.t)) + list(map(b,self.t))
 
-        port = '/dev/ttyACM1'  # Arduino MEGA. Cuello
+        port = '/dev/ttyACM0'  # Arduino MEGA. Cuello
         baudrate = 115200
         self.ser = None
         try:

@@ -1,4 +1,6 @@
+import sys
 import time
+sys.path.insert(0,'../audio/')
 from ComAct import ComAct
 
 myCA = ComAct()

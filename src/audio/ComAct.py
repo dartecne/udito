@@ -61,7 +61,7 @@ class ComAct:
     def speak(self, text):
         self.speak(text, "NEUTRAL", 5)
 
-    def speak(self, text, gesture, gesture_parameter):
+    def speak(self, text, gesture = "NEUTRAL", gesture_parameter = 5):
         self.text = text
         self.gesture = gesture
         self.gesture_parameter = gesture_parameter
@@ -85,8 +85,8 @@ class ComAct:
         self.tts_thread.join()
 
     def shut_up(self):
-        self.audio_device.stop_stream()
+        self.tts.audio_device.stop_stream()
 
     def close(self):
-        self.audio_device.close()
-        self.p.terminate()
+        print("ComAct::dtor")
+        self.tts.audio_device.close()

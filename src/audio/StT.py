@@ -17,6 +17,7 @@ import usb.util
 import time
 import json
 import io
+import threading
 import numpy as np
 import queue
 import pyaudio
@@ -56,6 +57,8 @@ class StT:
         self.audio_buffer = []
         self.user_speaking = False
         self.silence_counter = 0
+        self.doa = None 
+        self.thread = threading.Thread(target = self.loop, args=(1,))
 
         self.stream = self.audio.open(
             format=self.audio.get_format_from_width(self.WIDTH), 
@@ -75,6 +78,7 @@ class StT:
         self.watson.set_service_url(self.WATSON_URL)
         self.model = "watson" # "whisper"
         self.result = None
+        self.thread.start()
 
     # Función para detectar actividad de voz
     def is_speech(self, data):
@@ -101,7 +105,7 @@ class StT:
             info = self.audio.get_device_info_by_index(i)
             print(f"ID: {i}, Nombre: {info['name']}, Entrada: {info['maxInputChannels']}, Salida: {info['maxOutputChannels']}")
 
-    def loop(self):
+    def loop(self, name):
         print("Esperando actividad de voz... ")
         while self.active:
             self.tick()
@@ -112,6 +116,8 @@ class StT:
         if self.is_speech(data):
             if not self.user_speaking:
                 print("🎤 Usuario comenzo a hablar...")
+                self.doa = self.respeaker.direction
+                print("angle",self.doa)
                 self.audio_buffer = []
                 self.user_speaking = True
                 self.silence_counter = 0
@@ -157,8 +163,8 @@ class StT:
             self.result = self.whisper.transcribe(audio_np, language="es")            
 
     def close(self):
+        print("StT::dtor")
         self.active = False
-        # Cerrar streams y PyAudio
         self.stream.stop_stream()
         self.stream.close()
         self.audio.terminate()
