@@ -12,7 +12,7 @@ class MinimalClientAsync(Node):
             self.get_logger().info('service not available, waiting again...')
         self.req = Text2Speech.Request()
 
-    def send_request(self, text, speaker):
+    def send_request(self, text, speaker = "UDITO"):
         self.req.text = text
         self.req.speaker = speaker
         future = self.cli.call_async(self.req)

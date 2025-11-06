@@ -33,17 +33,18 @@ class StTPublisher(Node):
         super().__init__('stt_publisher')
         self.doa_pub = self.create_publisher(DOA, 'doa_topic', 10)
         self.stt_pub = self.create_publisher(Speech2Text, 'stt_topic', 10)
-        timer_period = 0.01  # seconds
-        self.timer = self.create_timer(timer_period, self.tick)
         self.stt = StT()
         self.doa_msg = DOA()
         self.stt_msg = Speech2Text()
         if self.stt.respeaker:
-            self.stt.respeaker.set_vad_threshold( 10 )
+            self.stt.respeaker.set_vad_threshold( 70 )
             self.get_logger().info('Mic found')
-
+        timer_period = 0.001  # seconds
+#        self.timer = self.create_timer(timer_period, self.tick)
+        self.tick()
+#TODO: Unirlo bien con la clase StT y el bucle de tomar audio y tal
     def tick(self):
-        #while True:
+        while True:
             result = self.stt.tick()
             if self.stt.user_speaking:
                 self.doa_msg.angle = self.stt.respeaker.direction

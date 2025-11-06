@@ -101,7 +101,7 @@ class StT:
 #            print("     but ReSpeaker says : ", is_speech_respeaker)
         is_speech = is_speech_vad | is_speech_respeaker
 
-        return is_speech
+        return is_speech_respeaker
 
     # Función para reproducir audio
     def play_audio(self, data):
