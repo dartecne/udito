@@ -1,5 +1,5 @@
 #
-# ros2 launch turtlesim_mimic_launch.py
+# ros2 launch 
 #
 from launch import LaunchDescription
 from launch_ros.actions import Node

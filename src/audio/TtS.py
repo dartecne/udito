@@ -118,6 +118,7 @@ class TtS:
                               speaker=self.speaker)
         return audio_data
 
+# TODO: comprobar si esta función es sync o async
     def write_audio_data(self, audio_data):
         self.audio_device.write(audio_data)
 

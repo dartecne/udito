@@ -21,7 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'doa_publisher = speech_to_text.doa_publisher:main',
-            'listener = speech_to_text.doa_subscriber:main'
+            'listener = speech_to_text.doa_subscriber:main',
+            'stt_publisher = speech_to_text.stt_publisher:main',
+            'stt_subscriber = speech_to_text.stt_subscriber:main'
         ],
     },
 )

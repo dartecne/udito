@@ -1,5 +1,5 @@
 #
-# ros2 launch turtlesim_mimic_launch.py
+# ros2 launch 
 #
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -13,7 +13,7 @@ def generate_launch_description():
         ),
         Node(
             package='speech_to_text',
-            executable='doa_publisher',
-            name='doa_publisher'
+            executable='stt_publisher',
+            name='stt_publisher'
         ),
     ])

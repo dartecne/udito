@@ -4,3 +4,7 @@ ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interface
 # compilar desde cero
 rm -rf build install log
 colcon build --cmake-clean-cache
+source install/setup.bash
+
+# lanzar un nodo
+ros2 

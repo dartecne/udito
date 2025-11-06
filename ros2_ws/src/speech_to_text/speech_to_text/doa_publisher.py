@@ -12,7 +12,7 @@ from std_msgs.msg import String
 from body_interfaces.msg import DOA
 
 
-sys.path.append("/home/udito/OneDrive/UDITO/udito/src/audio/usb_4_mic_array")
+sys.path.append("/home/udito/OneDrive/UDITO/udito/src/audio/respeaker/usb_4_mic_array")
 from tuning import Tuning
 
 class DOAPublisher(Node):

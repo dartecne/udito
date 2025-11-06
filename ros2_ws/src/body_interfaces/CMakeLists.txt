@@ -16,6 +16,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DOA.msg"
   "msg/SequencerMsg.msg"
+  "msg/BehaviorMsg.msg"
   "msg/Speech2Text.msg"
   "srv/HeadMove.srv"
   "srv/Text2Speech.srv"

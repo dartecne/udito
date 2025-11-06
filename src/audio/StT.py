@@ -48,27 +48,36 @@ class StT:
     def __init__(self):      
         print("StT::ctor")
         self.active = True
-        # Inicializar 
-#        self.respeaker = RespeakerInterface()
         dev = usb.core.find(idVendor=0x2886, idProduct=0x0018)
         self.respeaker = Tuning(dev)
-        self.respeaker.set_vad_threshold( 10 )
+        try:
+            self.respeaker.set_vad_threshold( 10 )
+        except:
+            print("Tuning device error. Trying dispose resource")
+            usb.util.dispose_resources(dev)
+            self.respeaker = Tuning(dev)
+            self.respeaker.set_vad_threshold( 10 )
         self.audio = pyaudio.PyAudio()
         self.audio_buffer = []
         self.user_speaking = False
         self.silence_counter = 0
         self.doa = None 
         self.thread = threading.Thread(target = self.loop, args=(1,))
+        self.stream = None
+        try:
+            self.stream = self.audio.open(
+                format=self.audio.get_format_from_width(self.WIDTH), 
+                channels=self.CHANNELS, 
+                rate=self.RATE, 
+                input=True, 
+    #           output=False,
+                input_device_index=self.INPUT_DEVICE_ID,
+    #           output_device_index=OUTPUT_DEVICE_ID,
+                frames_per_buffer=self.CHUNK)
+        except:
+            print("ERROR opening audio stream")
+            exit()
 
-        self.stream = self.audio.open(
-            format=self.audio.get_format_from_width(self.WIDTH), 
-            channels=self.CHANNELS, 
-            rate=self.RATE, 
-            input=True, 
-#           output=False,
-            input_device_index=self.INPUT_DEVICE_ID,
-#           output_device_index=OUTPUT_DEVICE_ID,
-            frames_per_buffer=self.CHUNK)
         # Crear el modelo de Whisper
         self.whisper = whisper.load_model("base")  # Cambiar el modelo según sea necesario
         # Inicializar VAD
@@ -78,7 +87,9 @@ class StT:
         self.watson.set_service_url(self.WATSON_URL)
         self.model = "watson" # "whisper"
         self.result = None
-        self.thread.start()
+        self.text = None
+        self.confidence = -1
+#        self.thread.start()
 
     # Función para detectar actividad de voz
     def is_speech(self, data):
@@ -123,7 +134,7 @@ class StT:
                 self.silence_counter = 0
             self.audio_buffer.append(data)
         else:
-             if self.user_speaking:
+            if self.user_speaking:
                 self.silence_counter += self.CHUNK / self.RATE
                 if self.silence_counter > self.SILENCE_LIMIT:
                     print("🛑...end of utterance")
@@ -131,7 +142,9 @@ class StT:
                     self.silence_counter = 0
                     print("Transcribiendo")
                     self.save_wave()
-                    self.recognize()      
+                    result = self.recognize()     
+                    return result
+        return None     
 
 #@TODO: probar sin hecrlo pasar por un archivo .wav 
     def save_wave(self):
@@ -153,18 +166,27 @@ class StT:
                     timestamps=True,
                     word_confidence=True
                 ).get_result()
+                print(self.result)
             if self.result.get('results'):
-                text = self.result['results'][0]['alternatives'][0]['transcript'].strip()
-                print(f"🗣️ Transcripción: {text}")
+                self.text = self.result['results'][0]['alternatives'][0]['transcript'].strip()
+                self.confidence = self.result['results'][0]['alternatives'][0]['confidence']
+                print(f"🗣️ Transcripción: {self.text}")
+                print(f"🗣️ Confidence: {self.confidence}")
             else:
                 self.result = None
         elif self.model == "whisper":
             audio_np = np.frombuffer(self.audio_buffer, dtype=np.int16).astype(np.float32) / 32768.0
             self.result = self.whisper.transcribe(audio_np, language="es")            
+        return self.result
 
     def close(self):
-        print("StT::dtor")
         self.active = False
-        self.stream.stop_stream()
-        self.stream.close()
+        self.respeaker.close()
+        if self.stream:
+            self.stream.stop_stream()
+            self.stream.close()
         self.audio.terminate()
+
+    def __del__(self):
+        print("StT::dtor")
+        self.close()

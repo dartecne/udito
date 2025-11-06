@@ -1,2 +1,2 @@
 string text
-float32 accuracy
+float32 confidence

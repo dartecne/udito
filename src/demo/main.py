@@ -23,7 +23,7 @@ class Demo:
         self.active = True
         self.loop_thread = threading.Thread(target = self.loop, args=(1,))
         self.blink_thread = threading.Thread(target = self.blink, args=(1,))
-        self.blink_thread.start()
+#        self.blink_thread.start()
         self.loop_thread.start()
 
     def blink(self, name):
@@ -36,7 +36,7 @@ class Demo:
         while(self.active):
             r_p = int(7*random())
 #            tau = 3
-            tau = 30*random()
+            tau = 10*random()
             o = (int(20*random()))%2
             if o == 0:
                 print("non_verbal")

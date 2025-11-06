@@ -12,17 +12,10 @@ from body_interfaces.msg import SequencerMsg
 class Idle(Node):
     def __init__(self):
         super().__init__('idle')
-        self.cli_seq = self.create_client(Behavior, 'sequencer_server')    
         self.cli_com_act = self.create_client(ComActMsg, 'com_act_server')
-
-        while not self.cli_seq.wait_for_service(timeout_sec=2.0):
-            self.get_logger().info('sequencer_server not available, waiting again...')
 
         while not self.cli_com_act.wait_for_service(timeout_sec=2.0):
             self.get_logger().info('multimodal_expression_server not available, waiting again...')
-
-        self.req = Behavior.Request()
-        self.req.id = "IDLE"
 
         self.com_act_req = ComActMsg.Request()
 
@@ -44,6 +37,7 @@ class Idle(Node):
                 self.active = False
                 self.get_logger().info('Stopping idle')
 
+# TODO: Revisar porque no funciona
     def do_idle(self):
         while rclpy.ok():
             p = randint(-30,30)
@@ -93,6 +87,7 @@ def main(args=None):
     rclpy.init()
     idle_node = Idle()
     rclpy.spin(idle_node)
+    idle_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
